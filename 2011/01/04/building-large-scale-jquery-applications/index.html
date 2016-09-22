@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>构建大型jQuery应用 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="原文：http://addyosmani.com/blog/large-scale-jquery/
+1.依赖管理
+目前常用的script loader主要有两个，RequireJS (by James Burke) 与LabJS (by Kyle Simpson)。有些人会认为这其中一个会比另一个要好，但事实上他们各自有各自的特点。以我的经验来讲，RequireJS的特性之一是提供结构化模块的支持，而LabJS更适合不需要额外特性或者需要轻量级库的时候。
+如果你想知道更多关于如何选择 RequireJS、LabJS，请看这里：http://msdn.microsoft.com/en-us/scriptjunkie/ff943568。如果这两个还不能满足你的需求，你还可以看看下面的内容。
+解决方案：
+RequireJS – 如果你期望你的代码更加模块化，我强烈推荐它。它会试图限制模块对全局命名空间的影响，并使得依赖更加明确。同时它还提供一个优化工具，帮助你合并压缩脚本 - http://requirejs.org/docs/jquery.html
+LabJS – 如果你需要按照一定的顺序高效的加载脚本，或者你正在寻找比RequireJS更轻量级的框架，或者你对模块化依赖管理根本不感兴趣，那么你不妨试试LabJS。 – http://www.labjs.com (Alex Sexton 还在LabJS的基础上开发了条件化的loader，YepNope JS - http://www.yepnopejs.com)
+StealJS – 又一个非常棒的依赖管理工具。Steal是 JavaScriptMVC框架的一部分，不过你可以单独使用它。它也提供了合并、压缩、清理等功能。 – http://jupiterjs.com/news/stealjs-script-manager
+JSL Script Loader – 提供了加载、防重复加载、缓存等功能。但是它的用户也许没有LabJS、RequireJS那么多 –  http://www.andresvidal.com/jsl
+Bootstrap – 它的功能很少，但足以完成任务。如在你在寻找一个最小的没有任何多余功能的解决方案，那么也许它是最合适的。 – https://bitbucket.org/scott_koon/bootstrap
+2.MVC&amp;管理大型jQuery应用
+软件工程中的设计模式、架构模式可以让你创建可重用的，结构化的，更具组织性的代码。我认为在开发中使用设计模式是必要的，尤其当你需要确保团队编写的代码的风格和结构是一致的时候。">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="构建大型jQuery应用"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2011-01-03T16:00:00.000Z">Jan 4 2011</time>
+      
+      
+  
+    <h1 class="title">构建大型jQuery应用</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>原文：<a href="http://addyosmani.com/blog/large-scale-jquery/" target="_blank">http://addyosmani.com/blog/large-scale-jquery/</a></p>
+<h2 id="1-依赖管理">1.依赖管理</h2>
+<p>目前常用的script loader主要有两个，RequireJS (by James Burke) 与LabJS (by Kyle Simpson)。有些人会认为这其中一个会比另一个要好，但事实上他们各自有各自的特点。以我的经验来讲，RequireJS的特性之一是提供结构化模块的支持，而LabJS更适合不需要额外特性或者需要轻量级库的时候。</p>
+<p>如果你想知道更多关于如何选择 RequireJS、LabJS，请看这里：<a href="http://msdn.microsoft.com/en-us/scriptjunkie/ff943568" target="_blank">http://msdn.microsoft.com/en-us/scriptjunkie/ff943568</a>。如果这两个还不能满足你的需求，你还可以看看下面的内容。</p>
+<h3 id="解决方案：">解决方案：</h3>
+<p><strong>RequireJS</strong> – 如果你期望你的代码更加模块化，我强烈推荐它。它会试图限制模块对全局命名空间的影响，并使得依赖更加明确。同时它还提供一个优化工具，帮助你合并压缩脚本 - <a href="http://requirejs.org/docs/jquery.html" target="_blank">http://requirejs.org/docs/jquery.html</a></p>
+<p><strong>LabJS</strong> – 如果你需要按照一定的顺序高效的加载脚本，或者你正在寻找比RequireJS更轻量级的框架，或者你对模块化依赖管理根本不感兴趣，那么你不妨试试LabJS。 – <a href="http://www.labjs.com" target="_blank">http://www.labjs.com</a> (Alex Sexton 还在LabJS的基础上开发了条件化的loader，YepNope JS - <a href="http://www.yepnopejs.com" target="_blank">http://www.yepnopejs.com</a>)</p>
+<p><strong>StealJS</strong> – 又一个非常棒的依赖管理工具。Steal是 JavaScriptMVC框架的一部分，不过你可以单独使用它。它也提供了合并、压缩、清理等功能。 – <a href="http://jupiterjs.com/news/stealjs-script-manager" target="_blank">http://jupiterjs.com/news/stealjs-script-manager</a></p>
+<p><strong>JSL Script Loader</strong> – 提供了加载、防重复加载、缓存等功能。但是它的用户也许没有LabJS、RequireJS那么多 –  <a href="http://www.andresvidal.com/jsl" target="_blank">http://www.andresvidal.com/jsl</a></p>
+<p><strong>Bootstrap</strong> – 它的功能很少，但足以完成任务。如在你在寻找一个最小的没有任何多余功能的解决方案，那么也许它是最合适的。 – <a href="https://bitbucket.org/scott_koon/bootstrap" target="_blank">https://bitbucket.org/scott_koon/bootstrap</a></p>
+<h2 id="2-MVC&amp;管理大型jQuery应用">2.MVC&amp;管理大型jQuery应用</h2>
+<p>软件工程中的设计模式、架构模式可以让你创建可重用的，结构化的，更具组织性的代码。我认为在开发中使用设计模式是必要的，尤其当你需要确保团队编写的代码的风格和结构是一致的时候。</p>
+<p><a id="more"></a><br>MVC设计模式通常可以满足web应用的开发的需要，当然你可能觉得MVC并不适合你，或者你需要的是别的设计模式。</p>
+<p>在我开始向你介绍一些MVC方案前，如果你需要对设计模式做更多的了解，请去阅读<a href="http://addyosmani.com/blog/essentialjsdesignpatterns" target="_blank">http://addyosmani.com/blog/essentialjsdesignpatterns</a>（免费）。</p>
+<p>『吼吼：在开始之前请自行去了解什么是MVC。 这部分内容我就不翻译了。</p>
+<h3 id="为什么我推荐_JavaScriptMVC">为什么我推荐 JavaScriptMVC</h3>
+<p>JavaScriptMVC已经收到不少积极的评论，同时它还被认为这是在大型项目开发中最好理解的框架。 如果你习惯使用传统方式构建web应用（比如重父端，轻客户端），那么你在使用JavascriptMVC的时候，会发现你的思想只需要做细微的变化。这是我和其他开发过js大型项目的同事们共同的想法。</p>
+<p>举例来说，当你的应用很大一部分是基于js的，而你还需要一堆工具来保证代码的模块化、可管理、可测试、干净的。那么其中有一件事情就是使用JMVC。大多数开发者可能会认为这是服务端该干的事情，但是现在已经到了考虑客户端代码的时候了。</p>
+<p>Justin Meyer谈论JMVC项目的时候提到，新人对JMVC最大的迷惑是误解了项目真正提供了什么。在这段之后我会来澄清这块内容。</p>
+<p>JMVC可以被当作一个整合的开发工具、一个可重用的MVC架构。JMVC的好处是，它提供了一个清晰的思路来添加功能，并帮你简化里很多的事情。</p>
+<p>首先，JavaScriptMVC的MVC部分的含义：</p>
+<ul>
+<li>Model – 一种封装、组织Ajax请求和web服务数据的方式</li>
+<li>Controller – 一个jQuery widget生成器</li>
+<li>View – 客户端的模板引擎</li>
+</ul>
+<p>第二，在为项目提供的集成开发工具方面，你可以得到一下功能。</p>
+<ul>
+<li>依赖管理、产品构建</li>
+<li>自动化的单元测试、功能测试</li>
+<li>文档支持</li>
+</ul>
+<h3 id="解决方案：-1">解决方案：</h3>
+<p>待翻译，等不及的朋友请看原文。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/FrontEnd/">FrontEnd</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Bootstrap/">Bootstrap</a>, <a href="/tags/javascript/">javascript</a>, <a href="/tags/JavaScriptMVC/">JavaScriptMVC</a>, <a href="/tags/jQuery/">jQuery</a>, <a href="/tags/JSL Script Loader/">JSL Script Loader</a>, <a href="/tags/LabJS/">LabJS</a>, <a href="/tags/RequireJS/">RequireJS</a>, <a href="/tags/StealJS/">StealJS</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

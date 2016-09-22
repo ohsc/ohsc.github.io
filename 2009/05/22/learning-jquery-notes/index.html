@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jQuery学习笔记1-选择器 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="在学习jQuery前务必要有xhtml、css、xml、Javascript的基础，否则很难进行下去。本文参考了《Learning jQuery》和《jQuery 1.3中文参考》。强烈建议去下载这份手册，弄得不错，很方便。最近我就稍微看一下《Learning jQuery》，然后参照着《jQuery 1.3中文参考》做了几个实例，很轻松，jQuery比想象中的简单，用起来很顺手。下面进入正题。
+jQuery中基本的操作就是选择文档中的某一部分，这是通过$()函数完成的。$()是jQuery的工厂函数，又称选择器。$()支持css、xpath的选择符，同时还有自定义选择符。$()函数会消除使用for遍历一组元素的需求，因为放到圆括号中的任何元素都将自动执行循环遍历，然后存在一个jQuery对象中。例如：
+基本
+$(&#39;p&#39;) 会取得文档中的所有段落。
+$(&#39;#id&#39;) 会取得文档中对应id的一个元素。
+$(&#39;.class&#39;) 会取得文档中带有class类的所有元素。
+$(&#39;*&#39;) 取得所有元素">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="jQuery学习笔记1-选择器"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2009-05-21T16:00:00.000Z">May 22 2009</time>
+      
+      
+  
+    <h1 class="title">jQuery学习笔记1-选择器</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在学习jQuery前务必要有xhtml、css、xml、Javascript的基础，否则很难进行下去。本文参考了《Learning jQuery》和《<a href="http://code.google.com/p/jquery-api-zh-cn/" target="_blank">jQuery 1.3中文参考</a>》。强烈建议去下载这份手册，弄得不错，很方便。最近我就稍微看一下《Learning jQuery》，然后参照着《<a href="http://code.google.com/p/jquery-api-zh-cn/" target="_blank">jQuery 1.3中文参考</a>》做了几个实例，很轻松，jQuery比想象中的简单，用起来很顺手。下面进入正题。</p>
+<p>jQuery中基本的操作就是选择文档中的某一部分，这是通过$()函数完成的。$()是jQuery的工厂函数，又称选择器。$()支持css、xpath的选择符，同时还有自定义选择符。$()函数会消除使用for遍历一组元素的需求，因为放到圆括号中的任何元素都将自动执行循环遍历，然后存在一个jQuery对象中。例如：</p>
+<h2 id="基本">基本</h2>
+<p><code>$(&#39;p&#39;)</code> 会取得文档中的所有段落。</p>
+<p><code>$(&#39;#id&#39;)</code> 会取得文档中对应id的一个元素。</p>
+<p><code>$(&#39;.class&#39;)</code> 会取得文档中带有class类的所有元素。</p>
+<p><code>$(&#39;*&#39;)</code> 取得所有元素</p>
+<a id="more"></a>
+
+<h2 id="层级">层级</h2>
+<p><code>$(&#39;form input&#39;)</code> 取得form下的所有<strong>后代</strong>是input的元素</p>
+<p><code>$(&#39;#play &gt; li&#39;)</code> 选择id为play的元素下的<strong>子元素</strong>是li的元素</p>
+<p><code>$(&#39;#play + input)</code> 选择紧接在id为play的<strong>元素后</strong>的<strong>所有</strong>input元素</p>
+<p><code>$(&#39;#play ~ input&#39;)</code> 选择紧接在id为play的<strong>元素后</strong>的<strong>相邻</strong>的input元素</p>
+<h1 id="自定义选择符">自定义选择符</h1>
+<h2 id="基本-1">基本</h2>
+<p><code>$(&#39;tr:first&#39;)</code> 取得<strong>第一个</strong>tr元素</p>
+<p><code>$(&#39;tr:last&#39;)</code> 取得<strong>最后一个</strong>tr元素</p>
+<p><code>$(&#39;#play li:not(.abc)&#39;)</code> 选择id为play的后代元素中所有的列表项li，并且<strong>没有</strong>abc类</p>
+<p><code>$(&#39;tr:even&#39;)</code> 匹配索引为偶数的<strong>所有</strong>tr元素</p>
+<p><code>$(&#39;tr:odd&#39;)</code> 匹配索引为奇数的<strong>所有</strong>tr元素</p>
+<p><code>$(&#39;tr:eq(1)&#39;)</code> 取得第二个tr元素(数组是从0开始的)</p>
+<p><code>$(&#39;tr:gt(0)&#39;)</code> 取得索引比0大的<strong>所有</strong>元素</p>
+<p><code>$(&#39;tr:lt(2)&#39;)</code> 取得索引比2小的<strong>所有</strong>元素</p>
+<p><code>$(&#39;tr:header&#39;)</code> 取得如h1、h2、h3之类的标题<strong>所有</strong>元素</p>
+<p><code>$(&#39;:animated&#39;)</code> 取得正在执行动画效果的<strong>所有</strong>元素</p>
+<p><code>$(&#39;tr:hidden&#39;)</code> 取得所有隐藏的元素(css中”display:none”、表单中type=”hidden”)</p>
+<p><code>$(&#39;tr:visible&#39;)</code> 取得所有可见的元素</p>
+<h2 id="内容">内容</h2>
+<p>具体查询api，不再赘述</p>
+<p><code>:contains :empty :has :parent</code></p>
+<h2 id="子元素">子元素</h2>
+<p><code>:nth-child :first-child :last-child :only-child</code></p>
+<h2 id="表单">表单</h2>
+<p><code>:input :text :password :radio :checkbox :submit :image :reset :button :file :hidden</code></p>
+<h2 id="表单对象的属性">表单对象的属性</h2>
+<p><code>:enabled :disabled :checked :selected</code></p>
+<h2 id="属性">属性</h2>
+<p><code>$(a[title]&#39;)</code> 选择带有title属性的链接（1.3中title前不再需要加@）</p>
+<p><code>$(&quot;input[name=&#39;newsletter&#39;]&quot;).attr(&quot;checked&quot;, true)</code> 匹配给定的属性是某个特定值的元素</p>
+<p><code>$(&quot;input[name!=&#39;newsletter&#39;]&quot;).attr(&quot;checked&quot;, true)</code> 匹配所有不含有指定的属性，或者属性不等于特定值的元素。</p>
+<p><code>$(&quot;input[name^=&#39;news&#39;]&quot;)</code> 匹配给定的属性是以某些值开始的元素</p>
+<p><code>$(&quot;input[name$=&#39;letter&#39;]&quot;)</code> 匹配给定的属性是以某些值结尾的元素</p>
+<p><code>$(&quot;input[name*=&#39;man&#39;]&quot;)</code> 匹配给定的属性是以包含某些值的元素</p>
+<p><code>$(&quot;input[id][name$=&#39;man&#39;]&quot;)</code> 复合属性选择器，需要同时满足多个条件时使用。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/FrontEnd/">FrontEnd</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>, <a href="/tags/jQuery/">jQuery</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

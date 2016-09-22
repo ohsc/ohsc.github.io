@@ -1,0 +1,467 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>清理浮动的整理 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="清理浮动是前端工程师每天都会用到的技术，目前清理浮动的技术形形色色，另很多新手眼花缭乱。所以我就结合了几篇文章，做了一些整理。
+一、为什么要清理浮动？
+这里我不做细讲，请新手参考《CSS Mastery》中有关浮动的章节。
+简单的讲，当我们把一个框向左浮动起来时，它就会脱离文档流，并且向左移动，直到它左边缘碰到其父框的左边缘。当我们把框浮动起来后，会出现各种问题，比如下一个非浮动元素环绕着浮动框。这时候为了正确排版，我们需要把浮动清理。
+二、如何清理浮动？
+1、采用div标签clear的方式
+1
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+div.clear {
+	clear:both;
+	height:0;
+	line-height:0;
+	margin:0;
+	padding:0;
+	border:0;
+	overflow:hidden;
+}
+
+
+优点：代码量极少，复用性极高。
+缺点：完全不能完美的适应语义化，不利于改版以及需求变更。
+建议：初学者使用，可以让你快速的解决浮动问题。
+2、采用br标签clear的方式">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="清理浮动的整理"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2010-10-13T16:00:00.000Z">Oct 14 2010</time>
+      
+      
+  
+    <h1 class="title">清理浮动的整理</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>清理浮动是前端工程师每天都会用到的技术，目前清理浮动的技术形形色色，另很多新手眼花缭乱。所以我就结合了几篇文章，做了一些整理。</p>
+<h2 id="一、为什么要清理浮动？">一、为什么要清理浮动？</h2>
+<p>这里我不做细讲，请新手参考《<a href="http://book.douban.com/subject/4736167/" target="_blank">CSS Mastery</a>》中有关浮动的章节。</p>
+<p>简单的讲，当我们把一个框向左浮动起来时，它就会脱离文档流，并且向左移动，直到它左边缘碰到其父框的左边缘。当我们把框浮动起来后，会出现各种问题，比如下一个非浮动元素环绕着浮动框。这时候为了正确排版，我们需要把浮动清理。</p>
+<h2 id="二、如何清理浮动？">二、如何清理浮动？</h2>
+<h3 id="1、采用div标签clear的方式">1、采用div标签clear的方式</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"clear"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="tag">div</span><span class="class">.clear</span> <span class="rules">{
+	<span class="rule"><span class="attribute">clear</span>:<span class="value">both</span></span>;
+	<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：代码量极少，复用性极高。</p>
+<p>缺点：完全不能完美的适应语义化，不利于改版以及需求变更。</p>
+<p>建议：初学者使用，可以让你快速的解决浮动问题。</p>
+<h3 id="2、采用br标签clear的方式">2、采用br标签clear的方式</h3>
+<a id="more"></a>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">br</span> <span class="attribute">class</span>=<span class="value">"clear"</span> /&gt;</span>
+</pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="tag">br</span><span class="class">.clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">clear</span>:<span class="value">both</span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：语义化程度比第5种情况要更优；代码量极少，复用性极高。</p>
+<p>缺点：语义化依旧不完美，不利于改版以及需求变更。</p>
+<p>建议：初学者使用，可以让你快速的解决浮动问题。</p>
+<h3 id="3、采用br标签以及其自身HTML的clear属性的方式">3、采用br标签以及其自身HTML的clear属性的方式</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">br</span> <span class="attribute">clear</span>=<span class="value">"all"</span> /&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>优点：语义化程度比第1、2种情况要更优；代码量最少，复用性极高。</p>
+<p>缺点：语义化依旧不完美，不利于改版以及需求变更。</p>
+<p>建议：引导初学者思维升级时使用，让其明白与其用classname来控制一种表现，倒不如回归到WEB1.0的时代的网页直接用html属性来控制表现，毕竟后者的代码量更少。</p>
+<h3 id="4、采用伪类:after进行后续空制的高度位零的伪类层清除">4、采用伪类:after进行后续空制的高度位零的伪类层清除</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="comment">/*after伪类+content方式*/</span>
+<span class="class">.clearfix</span><span class="pseudo">:after</span> <span class="rules">{
+    <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">"."</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>;
+    <span class="rule"><span class="attribute">visibility</span>:<span class="value"> hidden</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，不会产生其余的怪异问题。</p>
+<p>缺点：IE6不支持after伪类。复用方式不当容易造成代码量急剧增大。</p>
+<p>建议：要结合与zoom:1;舍得兼容IE6。最外层轻浮动时使用，或清晰模块化复用方式的人使用。</p>
+<h3 id="5、采用CSS_overflow:auto的方式撑高">5、采用CSS overflow:auto的方式撑高</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">/* 通过overflow auto的方式 */</span>
+<span class="class">.overflow-auto-clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">auto</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：多个嵌套后，点击最外层的轻浮动框会遭成最外层至最内层内容全选（FF）；或者在mouseover造成宽度改变时会出现最外层模块有滚动条（IE）。</p>
+<p>建议：内个模块使用，请勿嵌套。</p>
+<h3 id="6、采用CSS_overflow:hidden的方式产生怪异适应">6、采用CSS overflow:hidden的方式产生怪异适应</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">/* 通过overflow hidden的方式 */</span>
+<span class="class">.overflow-hidden-clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：内容增多时候极易不会自动换行而内容被隐藏掉。</p>
+<p>建议：宽度固定时使用，请勿嵌套。</p>
+<h3 id="7、采用display:table将对象变成table形式">7、采用display:table将对象变成table形式</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">/* display 的方式*/</span>
+<span class="class">.display-clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value">table</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：盒模型属性已经改变，可想而知奇异事件自然多得你数都数不到。</p>
+<p>建议：如果你不想改Bug改死你的话，最好不要使用。</p>
+<h3 id="8、采用形式">8、采用形式</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">/* display 的方式*/</span>
+<span class="class">.display-inline-block-clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value">inline-block</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：IE6\7只把它识别为inline，并触发了haslayout，看似效果与inline-block差不多，但还是有区别。而在能正确解析的浏览器中，父容器将变为行内元素。</p>
+<p>建议：如果你不想改Bug改死你的话，最好不要使用。</p>
+<h3 id="9、浮动方式">9、浮动方式</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">/* float的方式*/</span>
+<span class="class">.float-clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：下一个元素会受到影响，为此必须全文浮动。</p>
+<p>建议：浮动会变得复杂，不建议使用。</p>
+<h3 id="10、zoom方式">10、zoom方式</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">/* zoom的方式*/</span>
+<span class="class">.zoom-clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">zoom</span>:<span class="value"><span class="number">1</span></span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：兼容性太差。</p>
+<p>建议：结合其他浮动清除方式使用（见下一节）。</p>
+<h3 id="11、height:1%方式">11、height:1%方式</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="comment">/* height:1%方式 Hides from IE-mac \*/</span>
+<span class="class">.clearfix</span> <span class="rules">{
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">1</span>%</span></span>;
+<span class="rule">}</span></span>
+<span class="comment">/* End hide from IE-mac */</span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：兼容性太差。</p>
+<p>建议：结合其他浮动清除方式使用（见下一节）。</p>
+<h2 id="三、清理浮动进阶，处理兼容性">三、清理浮动进阶，处理兼容性</h2>
+<p>在这里我整理以上11种浮动清理方法在各种浏览器的效果，并作了对比。具体如下图（点击放大）：</p>
+<p><a href="/uploads/2010/10/floatcompare.png" title="清理浮动效果比较"><img src="/uploads/2010/10/floatcompare-300x161.png" alt="清理浮动效果比较" title="清理浮动效果比较"></a></p>
+<p>首先我必须把第1、2、3方案淘汰掉，因为其语义化不佳，所以我也不建议使用。至于第7方案，因为其改变了合适模型，会有很多bug，不推荐使用。而第8方案，因为父容器变成了行内元素，可能会对布局带来麻烦，不建议使用。然后是第9方案，它把父元素浮动起来，从而清理了浮动。不幸的是，父元素却又会影响到下一个元素，为此我们不得不把全文浮动起来，这样对布局很不利，所以我再把第9方案淘汰。</p>
+<p>然后我们再看第10、11方案，实际上这两个方案是通过触发IE的haslayout，从而达到清除浮动的效果。而haslayout是IE特有的，故其他浏览器不支持。由此可以想到，把第10、11方案与其他第4、5、6方案结合使用。</p>
+<p>接下来我们还需要具体讨论第4、5、6方案的使用。</p>
+<h3 id="4、采用伪类:after进行后续空制的高度位零的伪类层清除-1">4、采用伪类:after进行后续空制的高度位零的伪类层清除</h3>
+<p>采用这种方法清理浮动，怪异现象最少，是我最推荐的。但是由于其代码复杂，如果不考虑复用方式，将使得整个css文件冗余难懂。解决办法是，在公共css文件中专门定义一个clearfix，需要清理浮动时，直接在父容器引用即可。</p>
+<h3 id="5、CSS_overflow:auto_&amp;_6、CSS_overflow:hidden的方式">5、CSS overflow:auto &amp; 6、CSS overflow:hidden的方式</h3>
+<p>这两种方式正如其原本功能那样，在使用时需要注意其表现。一旦子元素大小超过父容器，其表现就会出现问题（隐藏或出现滚动条）。所以在使用此方式清理浮动到时候一定要在多个浏览器测试。</p>
+<p><h2>四、总结</h2><br>看到这里，相信大家已经对清理浮动的技术有数了。清理浮动没有完美的解决方案，在日常工作中，我通常会用到第4、5方案。其中以第4方案为主，我会把它写入项目的base.css中，而第5方案，则在某些不希望在html中到处添加<code>class=&quot;clearfix&quot;</code>的时候使用。然后附上第4方案完整版：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre><span class="class">.clearfix</span><span class="pseudo">:after</span> <span class="rules">{
+    <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">"."</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>;
+    <span class="rule"><span class="attribute">visibility</span>:<span class="value"> hidden
+</span></span></span>}
+<span class="class">.clearfix</span> <span class="rules">{
+    <span class="rule"><span class="attribute">zoom</span>:<span class="value"> <span class="number">1</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
+    <span class="rule"><span class="attribute">_height</span>:<span class="value"> <span class="number">1</span>px</span></span>;
+<span class="rule">}</span></span>
+*<span class="tag">html</span> <span class="class">.clearfix</span> <span class="rules">{
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">1</span>%
+</span></span></span>}
+*+<span class="tag">html</span> <span class="class">.clearfix</span> <span class="rules">{
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">1</span>%
+</span></span></span>}
+<span class="class">.clearfix</span> <span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> block
+</span></span></span>}
+</pre></td></tr></table></figure>
+
+<p>好了，以上就是我对清理浮动的整理与分析，希望能给新手带来帮助。如果文中有问题，请大家直接指出，谢谢！下面附上参考文章，如涉及到版权问题，请及时联系我。</p>
+<h3 id="五、参考文章">五、参考文章</h3>
+<p><a href="http://isd.tencent.com/?p=1122" target="_blank">http://isd.tencent.com/?p=1122</a></p>
+<p><a href="http://guitarbean.com/topic/clearfloat/#first-start" target="_blank">http://guitarbean.com/topic/clearfloat/#first-start</a></p>
+<p><a href="http://www.cnblogs.com/hongru/archive/2010/10/06/1844855.html" target="_blank">http://www.cnblogs.com/hongru/archive/2010/10/06/1844855.html</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/FrontEnd/">FrontEnd</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/css/">css</a>, <a href="/tags/float/">float</a>, <a href="/tags/html/">html</a>, <a href="/tags/前端/">前端</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

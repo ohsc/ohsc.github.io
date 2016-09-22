@@ -1,0 +1,260 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ubuntu学习笔记-文件系统管理命令 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="pwd 显示当前工作目录
+ls 列出目录内容
+
+ls -l 显示详细信息,包含使用权限、文件数目、所有者、使用组、大小、时间、文件名
+ls -a 显示隐藏文件
+ls -al 不用说了，上面两个命令结合的 cd 切换目录
+cd dir1 切换到当前目录的dir1目录里
+cd ~ 回到登陆用户的主目录
+">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="ubuntu学习笔记-文件系统管理命令"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2007-08-21T16:00:00.000Z">Aug 22 2007</time>
+      
+      
+  
+    <h1 class="title">ubuntu学习笔记-文件系统管理命令</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="pwd_显示当前工作目录">pwd 显示当前工作目录</h3>
+<h3 id="ls_列出目录内容">ls 列出目录内容</h3>
+<ul>
+<li>ls -l 显示详细信息,包含使用权限、文件数目、所有者、使用组、大小、时间、文件名</li>
+<li>ls -a 显示隐藏文件</li>
+<li>ls -al 不用说了，上面两个命令结合的 cd 切换目录</li>
+<li>cd dir1 切换到当前目录的dir1目录里</li>
+<li>cd ~ 回到登陆用户的主目录</li>
+<li>cd .. 回到上层目录</li>
+<li><p>cd / 切换到根目录 cp 复制</p>
+</li>
+<li><p>cp /test/file1 /test2/file2 把test下的file1复制到test2下，并改名为file2</p>
+</li>
+<li>cp -a /dir1 /dir2 把dir1及其内部文件、文件夹复制到dir2</li>
+<li><p>cp -ax /dir1 /dir2 把dir1及其内部文件、文件夹复制到dir2，并更改文件系统格式，如fat32变为ext3 mv 移动</p>
+</li>
+<li><p>mv /test/file1 /test/file2 把file1改名为file2</p>
+</li>
+<li><p>mv /test1/file1 /test2/file2 把file1移动到test2,并改名为file2 rm 删除</p>
+</li>
+<li><p>rm /test/file1 删除/test目录下的file1文件</p>
+</li>
+<li><p>rm -rf /test 强制删除/test目录和目录中的文件(慎用) mkdir 新建目录</p>
+</li>
+<li><p>mkdir /test 建立/test目录 rmdir 删除目录</p>
+</li>
+<li><p>rmdir /test 删除/test目录，前提是rmdir是空目录，否则使用rm -rf ln 建立链接文件</p>
+</li>
+<li><p>ln -s /test/file1 /test2/file1.ln 建立软链接</p>
+</li>
+<li><p>ln /test/file1 /test2/file1.ln 建立硬链接 cat 查看文件内容</p>
+</li>
+<li><p>cat /etc/passwd 显示passwd文件内容</p>
+</li>
+<li>cat -b /etc/passwd 显示passwd文件内容，并为每行编号</li>
+<li>cat /test/file1 /test/file2 /test/file3 将file1、file2、file3同时显示出来</li>
+<li><p>cat /test/file1 /test/file2 &gt; test/file3 将file1与file2合并存入file3 more 逐行逐页显示文件内容，按回车则换行，按空格则换页</p>
+</li>
+<li><p>more /etc/wgetrc 逐行逐页显示wgetrc的内容</p>
+</li>
+<li>more +9 /etc/wgetrc 从第9行开始显示</li>
+<li><p>more +/do /etc/wgetrc 从文件中第一个出现do字符串的地方开始显示内容 less 交互式操作显示文件内容</p>
+</li>
+<li><p>less /etc/wgetrc 可用方向键控制上下左右画面，h键帮助，q键退出浏览模式 head 查看文件内容前面部分</p>
+</li>
+<li><p>head -5 /etc/wgetrc 显示前5行 tail 输出文件内容后面部分</p>
+</li>
+<li><p>tail -5 /etc/wgetrc 显示后5行</p>
+</li>
+<li><p>tail -n +108 /etc/wgetrc 从108行开始显示到结束 chmod 文件权限修改</p>
+</li>
+<li><p>chmod 664 /test/file1 把file1的权限改为664</p>
+</li>
+<li><p>chmod u+x,g-w,o-r /test/file1 对file1增加user的执行权限，减去group的写入权限，减去other的读取权限 umask 指定文件的默认权限掩码</p>
+</li>
+<li><p>umask 0002 每个新建文件的默认权限为0666-0002=0664,目录的默认权限为0777-0002=0775 &gt; 输出定向，将输出结果保存到文件，遇到错误，将错误信息输出到屏幕</p>
+</li>
+<li><p>cat &gt; /test/file2.txt 在键盘中输入内容，并存入file2.txt（输入然后enter,再按ctrl+c保存退出）</p>
+</li>
+<li><p>ls -al /etc &gt; /test/file1 将输出结果保存在file1 &gt;&gt; 附加输出定向，将输出结果追加到文件</p>
+</li>
+<li><p>ls -al /etc &gt;&gt; /test/file1 将输出结果追加保存在file1 &amp;&gt; 错误输出定向，将输出结果保存到文件，遇到错误，将错误信息写入文件</p>
+</li>
+</ul>
+<ul>
+<li>mail sss@qq.com hello</li>
+<li><p><code>&gt;Finsh</code> 直到输入Finsh，系统便会结束邮件编辑并且寄出 | 管道，将其他程序的输出结果直接定向到另一个程序中</p>
+</li>
+<li><p>ls -al /etc | less</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/Linux/">Linux</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Ubuntu/">Ubuntu</a>, <a href="/tags/教程/">教程</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

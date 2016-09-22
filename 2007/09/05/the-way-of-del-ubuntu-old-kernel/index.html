@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>删除Ubuntu Linux操作系统旧内核的方法 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="使用Ubuntu一段时间后，就会发觉由于自动升级，系统里安装了很多内核。像我，竟然安装了下面那么多，这个造成了漫长的启动列表。必须删掉一些不用的。
+首先就是使用如下命令，列出所有安装的内核，下表中，带有image的就是内核文件。从中选择要卸载的包，用apt-get来卸载
+1
+2
+3
+4
+5
+6
+7
+">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="删除Ubuntu Linux操作系统旧内核的方法"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2007-09-04T16:00:00.000Z">Sep 5 2007</time>
+      
+      
+  
+    <h1 class="title">删除Ubuntu Linux操作系统旧内核的方法</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>使用Ubuntu一段时间后，就会发觉由于自动升级，系统里安装了很多内核。像我，竟然安装了下面那么多，这个造成了漫长的启动列表。必须删掉一些不用的。</p>
+<p>首先就是使用如下命令，列出所有安装的内核，下表中，带有image的就是内核文件。从中选择要卸载的包，用apt-get来卸载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre>[tc@ibm:~]$ dpkg –get-selections|grep linux
+libselinux1 install
+linux-<span class="number">386</span> install
+linux-image-<span class="number">2.6</span>.<span class="number">15</span>-<span class="number">23</span>-<span class="number">386</span> install
+linux-image-<span class="number">2.6</span>.<span class="number">15</span>-<span class="number">27</span>-<span class="number">386</span> install
+linux-image-<span class="number">2.6</span>.<span class="number">15</span>-<span class="number">27</span>-<span class="number">686</span> install
+linux-image-<span class="number">2.6</span>.<span class="number">15</span>-<span class="number">28</span>-<span class="number">386</span> install
+linux-image-<span class="number">2.6</span>.<span class="number">15</span>-<span class="number">28</span>-<span class="number">686</span> deinstall
+linux-image-<span class="number">386</span> install
+linux-kernel-headers install
+linux-restricted-modules-<span class="number">2.6</span>.<span class="number">15</span>-<span class="number">23</span>-<span class="number">386</span> install
+linux-restricted-modules-<span class="number">2.6</span>.<span class="number">15</span>-<span class="number">27</span>-<span class="number">386</span> install
+linux-restricted-modules-<span class="number">2.6</span>.<span class="number">15</span>-<span class="number">27</span>-<span class="number">686</span> install
+linux-restricted-modules-<span class="number">2.6</span>.<span class="number">15</span>-<span class="number">28</span>-<span class="number">386</span> install
+linux-restricted-modules-<span class="number">2.6</span>.<span class="number">15</span>-<span class="number">28</span>-<span class="number">686</span> deinstall
+linux-restricted-modules-<span class="number">386</span> install
+linux-restricted-modules-common install
+linux-sound-base install
+util-linux install
+</pre></td></tr></table></figure>
+
+<p>具体的卸载方法为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get remove linux-image-<span class="number">2.6</span>.<span class="number">15</span>-<span class="number">23</span>-<span class="number">386</span>
+</pre></td></tr></table></figure>
+
+<p>这样就可以实现自动删除内核文件了，还可以释放磁盘空间。</p>
+<p>另外还要记录一个命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>uname <span class="operator">-a</span>
+</pre></td></tr></table></figure>
+
+<p>使用这个命令可以查看当前系统使用的内核。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/Linux/">Linux</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Ubuntu/">Ubuntu</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

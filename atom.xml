@@ -1,0 +1,1788 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[i'm Chao]]></title>
+  <subtitle><![CDATA[iOS Dev / Node.js Dev]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://shenchao.im/"/>
+  <updated>2016-09-22T08:50:12.050Z</updated>
+  <id>http://shenchao.im/</id>
+  
+  <author>
+    <name><![CDATA[Chao Shen]]></name>
+    
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[我的第三代NAS方案]]></title>
+    <link href="http://shenchao.im/2013/10/07/my-third-generation-nas-server/"/>
+    <id>http://shenchao.im/2013/10/07/my-third-generation-nas-server/</id>
+    <published>2013-10-07T07:43:52.000Z</published>
+    <updated>2014-09-29T07:00:00.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="/uploads/2013/10/07/3nd_diy_nas_pc-q25a.jpg" alt="第三代NAS" title="联力PC-Q25正面照"></p>
+<p>三年前我开始探索DIY家用NAS方案，那时我组装了我家第一台NAS，我把它称之为ING第一代NAS。参见那时候写的《<a href="/2010/01/27/diy-for-home-nas/">DIY了家用NAS</a>》。</p>
+<p>两年后，由于技展高清3号机箱的做工太差，前置面板螺孔全部断裂，我开始考虑新的NAS方案。这就是ING第二代NAS。当时的配置方案为：</p>
+<ul>
+<li>主板：七彩虹 i-AE50 V14(四个SATA3.0、两个USB3.0、一个千兆网卡、一个HDMI接口、高清硬解)</li>
+<li>内存：金士顿 4G DDR3 1333</li>
+<li>机箱：万由U-NAS N400（4盘位热插拔）</li>
+<li>电源：台达1U小电源 200W</li>
+<li>系统盘：威刚ASP900S3-64G</li>
+<li>数据盘：西数2TB绿盘</li>
+</ul>
+<a id="more"></a>
+
+<p><img src="/uploads/2013/10/07/2nd_diy_nas.jpg" alt="第二代NAS" title="第二代NAS"></p>
+<p>和上一代一样，这代依然使用Ubuntu。与众不同的是，我在Ubuntu Server的基础上装了XBMC。没有安装KDE、Gnome这类桌面。就单装了xorg和XBMC。XBMC以standalone模式运行。开机就显示XBMC。</p>
+<p>当初刚弄好的XBMC还不能硬解。由于那时候AMD并没有公开硬解驱动，所以必须安装AMD私有驱动。此外还需要额外安装xvba-va-driver和<a href="https://launchpad.net/~wsnipex/+archive/xbmc-xvba" target="_blank">xbmc-xvba</a>，才能开启XBMC的vpdau支持。不过最近听说AMD已经把UVD部分驱动开源了，之后可以直接使用开源驱动实现硬解。众所周知官方私有驱动烂的一坨屎一样，相信在AMD平台搭建NAS的朋友可以解脱了。</p>
+<p>第二代NAS装上了XBMC就摇身一变，就成了HTPC。我还专门买了个MCE遥控和红外接收器。</p>
+<p>为了让NAS可以在外网访问，我把域名托管在DNSPod，写了个DDNS客户端。这个项目叫<a href="https://github.com/ohsc/dnspod-ddns" target="_blank">dnspod-ddns</a>，目前开源在<a href="https://github.com/ohsc/dnspod-ddns" target="_blank">github</a>上面。</p>
+<p>因为长年挂PT，NAS的硬盘很快被撑满了。虽说这个主板有4个SATA口的，不过硬盘已经占用一个SATA口。要想扩盘，就得上raid卡了。但是为万由机箱狭小的空间选配个raid卡实属困难。我干脆把二代整机都转手卖了，准备酝酿我的第三代NAS。</p>
+<p>配置方案如下：</p>
+<ul>
+<li>主板：技嘉B75N(一个SATA3.0、三个SATA2.0、两个USB3.0、两个千兆网卡、两个个HDMI接口、高清硬解)</li>
+<li>CPU：G2030</li>
+<li>风扇：超频三 刀锋S85</li>
+<li>内存：金士顿 4G DDR3 1333</li>
+<li>机箱：联力PC-Q25（6盘位热插拔）</li>
+<li>机箱风扇：安耐美 白蝠12CM静音风扇</li>
+<li>电源：250W DC-ATX电源 北美索泰定制版(四线16awg版本)</li>
+<li>系统盘：威刚ASP900S3-64G</li>
+<li>数据盘：西数3TB红盘</li>
+</ul>
+<p>先得说说这主板。其实我很想直接上到Haswell平台，B85、H87都已经有很好的ITX板子了。不过Haswell平台的低功耗cpu价格太高了，完全无法接受。再加上本身性能提升不大，所以上到Haswell平台性价比不高。土豪朋友们就不必纠结了，直接Haswell吧。技嘉这款板子很良心，做工好的不说，双网卡还支持teaming。</p>
+<p><img src="/uploads/2013/10/07/3nd_diy_nas_ga-b75n.jpg" alt="技嘉B75N主板" title="技嘉B75N主板"></p>
+<p>G2030是G2020的升级版，玩DIY NAS的朋友们一定对G1610、G2020很熟悉，就不多说了。超频三S85风扇的性价比很高，静音效果很好。内存和系统盘还是二代留下来的，没换。</p>
+<p>机箱直接用了联力的PC-Q25。这款机箱很不错，可玩性很大。提供5个热插拔位，两个普通3.5位。7个3.5啊，我可以直接六盘位了。还有，因为选用了DC-ATX电源，所以ATX电源的空间剩下来了。以后有兴致MOD机箱的话，可以再加个硬盘笼进去，上到10盘位也不在话下。另外它可以插一个全长度的独显，当然我应该不会上独显，低功耗才是我追求的。</p>
+<p><img src="/uploads/2013/10/07/3nd_diy_nas_5_hotbay.jpg" alt="联力PC-Q25盘位照" title="联力PC-Q25盘位照"></p>
+<p><img src="/uploads/2013/10/07/3nd_diy_nas_dc-atx.jpg" alt="DC-ATX电源照" title="DC-ATX电源照"></p>
+<p>这里还要额外提一下，PC-Q25有个致命的问题，机箱上面的出风口的风扇噪音很大。这就是我为什么还买了个白蝠风扇。PC-Q25有两个风扇，一个负责进气，一个负责排气。进气的风扇位于前置面板后方，14cm的，很安静。出气的在机箱上方，估计是不能调速的原因，风扇大功率工作导致噪音很大。我搞的百蝠带PWM调速，直接接在主板的sysfan上，让主板来调速，效果很不错。说道这里，可能有朋友会问，为什么不用猫扇？减小风力后对散热有没有影响？不上猫扇，是因为性价比不高。因为我没有ATX电源，所以不必费尽心思去调整风道，自然不需要风扇有很大的风压。至于效果，目前烤机下来，CPU还能维持在40°-45°，平常维持在39°。你说好不好呢？</p>
+<p>第三代NAS依然采用Ubuntu Server。也许会有人问为什么不用DSM、FreeNas等现成的系统呢？主要原因是我喜欢折腾，控制一切。必要时还可以hack软件包。之后还想尝试一下Btrfs。Ubuntu是我最熟悉的Linux发行版。比较惊喜的是开源驱动对Intel平台支持的很好，不需要折腾就已经可以硬解高清了。下面罗列一下我安装的软件包：</p>
+<p>基础服务</p>
+<ul>
+<li>openssh-server：SSH服务</li>
+<li>iotop：监控硬盘IO</li>
+<li>lm-sensors：CPU温度监控</li>
+<li>hddtemp：硬盘温度监控</li>
+<li>exfat-fuse：挂载exfat分区</li>
+<li>trash-cli：替代rm命令，安全第一</li>
+</ul>
+<p>XBMC</p>
+<ul>
+<li>xinit xorg alsa-utils pulseaudio：X Server，未来可以用wayland了</li>
+<li>xbmc xbmc-standalone：XBMC</li>
+<li>upower acpi-support：XBMC的关机支持</li>
+</ul>
+<p>NAS服务</p>
+<ul>
+<li>samba：SMB/CIFS文件共享</li>
+<li>transmission-daemon BT/PT下载</li>
+<li>forked-daapd：iTunes媒体共享</li>
+<li>minidlna：DLNA服务器</li>
+<li>aria2：最好的HTTP下载，参见《<a href="/2012/08/27/mac-linux-multi-connection-download-solution/">Mac/Linux 多线程下载解决方案</a>》</li>
+<li>udisks usbmount：实现自动挂载U盘</li>
+<li>nodejs：用来跑我写的<a href="https://github.com/ohsc/dnspod-ddns" target="_blank">dnspod-ddns</a></li>
+<li>dnsmasq：这个也不多说</li>
+<li>ziproxy：哈哈这个不多说</li>
+</ul>
+<p>目前折腾到此，还有其他可玩了之后再更新。</p>
+<p><img src="/uploads/2013/10/07/3nd_diy_nas_pc-q25b.jpg" alt="第三代NAS" title="联力PC-Q25侧面照"></p>
+<p>以上。</p>
+<p>相关参考：</p>
+<ul>
+<li><a href="/2010/01/27/diy-for-home-nas/">DIY了家用NAS</a></li>
+<li><a href="https://launchpad.net/~wsnipex/+archive/xbmc-xvba" target="_blank">xbmc-xvba</a></li>
+<li><a href="https://github.com/ohsc/dnspod-ddns" target="_blank">dnspod-ddns</a></li>
+<li><a href="/2012/08/27/mac-linux-multi-connection-download-solution/">Mac/Linux 多线程下载解决方案</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="/uploads/2013/10/07/3nd_diy_nas_pc-q25a.jpg" alt="第三代NAS" title="联力PC-Q25正面照"></p>
+<p>三年前我开始探索DIY家用NAS方案，那时我组装了我家第一台NAS，我把它称之为ING第一代NAS。参见那时候写的《<a href="/2010/01/27/diy-for-home-nas/">DIY了家用NAS</a>》。</p>
+<p>两年后，由于技展高清3号机箱的做工太差，前置面板螺孔全部断裂，我开始考虑新的NAS方案。这就是ING第二代NAS。当时的配置方案为：</p>
+<ul>
+<li>主板：七彩虹 i-AE50 V14(四个SATA3.0、两个USB3.0、一个千兆网卡、一个HDMI接口、高清硬解)</li>
+<li>内存：金士顿 4G DDR3 1333</li>
+<li>机箱：万由U-NAS N400（4盘位热插拔）</li>
+<li>电源：台达1U小电源 200W</li>
+<li>系统盘：威刚ASP900S3-64G</li>
+<li>数据盘：西数2TB绿盘</li>
+</ul>
+]]>
+    
+    </summary>
+    
+      <category term="nas" scheme="http://shenchao.im/tags/nas/"/>
+    
+      <category term="Ubuntu" scheme="http://shenchao.im/tags/Ubuntu/"/>
+    
+      <category term="Aria2" scheme="http://shenchao.im/tags/Aria2/"/>
+    
+      <category term="迅雷" scheme="http://shenchao.im/tags/%E8%BF%85%E9%9B%B7/"/>
+    
+      <category term="Solution" scheme="http://shenchao.im/category/Solution/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Mac/Linux 多线程下载解决方案]]></title>
+    <link href="http://shenchao.im/2012/08/27/mac-linux-multi-connection-download-solution/"/>
+    <id>http://shenchao.im/2012/08/27/mac-linux-multi-connection-download-solution/</id>
+    <published>2012-08-27T13:23:00.000Z</published>
+    <updated>2014-09-29T07:00:00.000Z</updated>
+    <content type="html"><![CDATA[<p>还记得我两年前写的《<a href="/2010/01/27/diy-for-home-nas/">DIY了家用NAS</a>》吗？现在又带来新的升级啦。当初的NAS最多能使用Transmission来进行BT下载，那时就在想，如果能下载普通的http资源就好了。再进一步，有什么方案可以通吃所有下载方式呢？<br>记得那个时候，我在NAS上装了个虚拟机跑XP，然后用迅雷下载各种资源。这种方式虽然可行，不过太不环保了。而且下载完成后，还要想办法把文件转到宿主硬盘上。小文件还好，大文件就彻底悲剧了。</p>
+<p>现在好了，有了套完美的解决方案：迅雷离线助手+YAAW For Chrome+Aria2</p>
+<p><img src="/uploads/2012/08/28/thunder-lixian-assistant-and-yaaw.jpg" alt="迅雷离线助手+YAAW" title="迅雷离线助手和YAAW"><br><a id="more"></a></p>
+<h2 id="Aria2">Aria2</h2>
+<p>先来了解一下Aria2。<br>Aria2 是 Mac/Linux 下一个不错的高速下载工具。由于它具有分段下载引擎，所以支持从多个地址或者从一个地址的多个连接来下载同一个文件。这样自然就大大加快了文件的下载速度。aria2 也具有断点续传功能，这使你随时能够恢复已经中断的文件下载。除了支持一般的 http(s) 和 ftp 协议外，aria2 还支持 BitTorrent 协议。这意味着，你也可以使用 aria2 来下载 torrent 文件。<a href="http://linuxtoy.org/archives/aria2.html" target="_blank">[引用]</a></p>
+<h3 id="Mac下安装">Mac下安装</h3>
+<p>使用<a href="http://mxcl.github.com/homebrew" target="_blank">brew</a>安装：</p>
+<p><code>brew install aria2</code></p>
+<h3 id="Ubuntu_下安装">Ubuntu 下安装</h3>
+<p>使用apt-get安装：</p>
+<p><code>sudo apt-get install aria2</code></p>
+<h3 id="使用">使用</h3>
+<p>Aria2支持daemon模式。有了这个模式我们可以把它放到NAS、dd-wrt、openwrt、下载机，让它常驻在内存，作为一个系统的服务长期处理下载请求。各家设备厂商可以行动起来咯。</p>
+<p>Aria2有很多参数，大家可以根据自己的需要进行调整。具体看<a href="http://aria2.sourceforge.net/manual/en/html/aria2c.html#options" target="_blank">Aria2文档</a>。</p>
+<h2 id="迅雷离线助手">迅雷离线助手</h2>
+<p>迅雷离线助手是我最近发布的一个chrome插件，可以直接在迅雷离线页面把下载地址导出到aria2/aria2-rpc/wget/IDM/Orbit。这个插件的功能直接嵌在迅雷离线页面上，使你有个统一的体验。</p>
+<p><img src="/uploads/2012/08/28/thunder-lixian-assistant-01.png" alt="迅雷离线助手截图01" title="迅雷离线助手截图"></p>
+<p><img src="/uploads/2012/08/28/thunder-lixian-assistant-02.png" alt="迅雷离线助手截图02" title="迅雷离线助手截图"></p>
+<p>这是迅雷离线助手下载地址：</p>
+<p><a href="https://chrome.google.com/webstore/detail/eehlmkfpnagoieibahhcghphdbjcdmen" target="_blank">https://chrome.google.com/webstore/detail/eehlmkfpnagoieibahhcghphdbjcdmen</a></p>
+<p><strong>使用前记得修改Aria2 JSON-RPC Path</strong></p>
+<h2 id="YAAW_For_Chrome">YAAW For Chrome</h2>
+<p>YAAW For Chrome是一个Aria2的Web管理工具。有了它你可以直观的监控管理aria2的下载任务。</p>
+<p><img src="/uploads/2012/08/28/yaaw.png" alt="YAAW截图" title="YAAW截图"></p>
+<p>这是YAAW For Chrome下载地址：</p>
+<p><a href="https://chrome.google.com/webstore/detail/hbjpfaalboebibgfmedmjijhbjapcnki" target="_blank">https://chrome.google.com/webstore/detail/hbjpfaalboebibgfmedmjijhbjapcnki</a></p>
+<p><strong>同样使用前记得修改Aria2 JSON-RPC Path</strong></p>
+<h2 id="解决方案">解决方案</h2>
+<p>相信看到以上的介绍后，大家应该已经知道该如何配合使用了。这里再赘述一下：</p>
+<p><img src="/uploads/2012/08/28/thunder-lixian-aria2.jpg" alt="解决方案" title="迅雷离线Aria2方案"></p>
+<p>当你需要下载一个资源的时候，可以直接进入迅雷离线进行下载，BT/HTTP/FTP通吃。基本上迅雷离线都是瞬间完成的，接来使用下面指令启动Aria2，并开启rpc支持：</p>
+<figure class="highlight bash"><figcaption><span>Launch Aria2 </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>aria2c --enable-rpc --rpc-listen-all --rpc-allow-origin-all  --file-allocation=none --max-connection-per-server=<span class="number">3</span> --max-concurrent-downloads=<span class="number">3</span> --continue
+</pre></td></tr></table></figure>
+
+
+<p>启动Aria2后，直接在迅雷离线的『取回本地』的下拉菜单中找到『YAAW』，点击后，Aria2就开始下载资源了。</p>
+<p>之后你就可以使用YAAW For Chrome监控下载进度咯。</p>
+<p>记住，迅雷离线助手和YAAW For Chrome都是通JSON-RPC和Aria2通信的。</p>
+<h2 id="关于开源">关于开源</h2>
+<p>迅雷离线助手和YAAW For Chrome这两个项目其实均源自<a href="http://binux.me" target="_blank">binux</a>的开源项目。感谢<a href="http://binux.me" target="_blank">binux</a>的无私奉献，下面是这几个项目的Github地址：</p>
+<ul>
+<li>迅雷离线助手: <a href="https://github.com/ohsc/ThunderLixianAssistant" target="_blank">https://github.com/ohsc/ThunderLixianAssistant</a></li>
+<li>ThunderLixianExporter: <a href="https://github.com/binux/ThunderLixianExporter" target="_blank">https://github.com/binux/ThunderLixianExporter</a></li>
+<li>YAAW: <a href="https://github.com/binux/yaaw" target="_blank">https://github.com/binux/yaaw</a></li>
+</ul>
+<p>以上列出的项目均以LGPL方式开源。</p>
+<h2 id="关于设计">关于设计</h2>
+<p>最后要说这两个App以及两张配图，都是由我们<a href="https://7peers.com" target="_blank">7Peers</a>成员<a href="http://fangke.im" target="_blank">方可</a>设计的。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>还记得我两年前写的《<a href="/2010/01/27/diy-for-home-nas/">DIY了家用NAS</a>》吗？现在又带来新的升级啦。当初的NAS最多能使用Transmission来进行BT下载，那时就在想，如果能下载普通的http资源就好了。再进一步，有什么方案可以通吃所有下载方式呢？<br>记得那个时候，我在NAS上装了个虚拟机跑XP，然后用迅雷下载各种资源。这种方式虽然可行，不过太不环保了。而且下载完成后，还要想办法把文件转到宿主硬盘上。小文件还好，大文件就彻底悲剧了。</p>
+<p>现在好了，有了套完美的解决方案：迅雷离线助手+YAAW For Chrome+Aria2</p>
+<p><img src="/uploads/2012/08/28/thunder-lixian-assistant-and-yaaw.jpg" alt="迅雷离线助手+YAAW" title="迅雷离线助手和YAAW"><br>]]>
+    
+    </summary>
+    
+      <category term="nas" scheme="http://shenchao.im/tags/nas/"/>
+    
+      <category term="Ubuntu" scheme="http://shenchao.im/tags/Ubuntu/"/>
+    
+      <category term="Mac" scheme="http://shenchao.im/tags/Mac/"/>
+    
+      <category term="Aria2" scheme="http://shenchao.im/tags/Aria2/"/>
+    
+      <category term="迅雷" scheme="http://shenchao.im/tags/%E8%BF%85%E9%9B%B7/"/>
+    
+      <category term="Solution" scheme="http://shenchao.im/category/Solution/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[iOS中UIWebView的Javascript与Objective-C通信]]></title>
+    <link href="http://shenchao.im/2012/03/18/uiwebview-javascript-communicate-with-cocoa-in-ios/"/>
+    <id>http://shenchao.im/2012/03/18/uiwebview-javascript-communicate-with-cocoa-in-ios/</id>
+    <published>2012-03-18T06:10:00.000Z</published>
+    <updated>2014-09-11T05:55:20.000Z</updated>
+    <content type="html"><![CDATA[<p>在iOS开发中经常要用到UIWebView，想让Html页面和native本身结合的更好，难免需要让Objective-C和Javascript通信。</p>
+<p>那么如何让他们直接能通信呢？大部分用过UIWebView的朋友都知道<code>stringByEvaluatingJavaScriptFromString:</code>，使用这个消息，可以让UIWebView执行Objective-C发来的JS语句。这样<code>Obj-C --&gt; JS</code>的问题解决了。</p>
+<p>接下来，如何实现<code>JS --&gt; Obj-C</code>呢？UIWebViewDelegate中有个<code>webView:shouldStartLoadWithRequest:navigationType:</code>。当UIWebView请求某个url之前都会调用这个消息，这个消息的返回值决定着UIWebView是否要加载这个url。我测试了一下改变JS中的<code>location.href</code>也可以触发这个消息。有了这条路子我们就有办法实现<code>JS --&gt; Obj-C</code>。</p>
+<p>经过几番折腾就有了我的开源项目<a href="https://github.com/ohsc/TGJSBridge" target="_blank">TGJSBridge</a>，这个项目主要实现了JS与Obj-C之间的项目通信。JS可以向Obj-C发送JSON对象，Obj-C将收到相应的NSDictionary。反过来也一样，<a href="https://github.com/ohsc/TGJSBridge" target="_blank">TGJSBridge</a>会自动转换数据结构。JS通过<code>bind</code>订阅消息，Obj-C通过委托接收消息。<br><a id="more"></a></p>
+<h2 id="特点">特点</h2>
+<ul>
+<li>在页面DOM未加载好之前，<a href="https://github.com/ohsc/TGJSBridge" target="_blank">TGJSBridge</a>会缓存所有消息，待DOM加载好之后<a href="https://github.com/ohsc/TGJSBridge" target="_blank">TGJSBridge</a>会向JS依次发出消息。</li>
+<li>JS向Obj-C发消息时，消息数据不通过url传递。url只传递消息id，消息数据通过<code>stringByEvaluatingJavaScriptFromString:</code>提取。</li>
+<li>JS部分的<a href="https://github.com/ohsc/TGJSBridge" target="_blank">TGJSBridge</a>经过封装，不会污染全局命名空间。</li>
+</ul>
+<p>最后附上项目地址：<br><a href="https://github.com/ohsc/TGJSBridge" target="_blank">https://github.com/ohsc/TGJSBridge</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在iOS开发中经常要用到UIWebView，想让Html页面和native本身结合的更好，难免需要让Objective-C和Javascript通信。</p>
+<p>那么如何让他们直接能通信呢？大部分用过UIWebView的朋友都知道<code>stringByEvaluatingJavaScriptFromString:</code>，使用这个消息，可以让UIWebView执行Objective-C发来的JS语句。这样<code>Obj-C --&gt; JS</code>的问题解决了。</p>
+<p>接下来，如何实现<code>JS --&gt; Obj-C</code>呢？UIWebViewDelegate中有个<code>webView:shouldStartLoadWithRequest:navigationType:</code>。当UIWebView请求某个url之前都会调用这个消息，这个消息的返回值决定着UIWebView是否要加载这个url。我测试了一下改变JS中的<code>location.href</code>也可以触发这个消息。有了这条路子我们就有办法实现<code>JS --&gt; Obj-C</code>。</p>
+<p>经过几番折腾就有了我的开源项目<a href="https://github.com/ohsc/TGJSBridge" target="_blank">TGJSBridge</a>，这个项目主要实现了JS与Obj-C之间的项目通信。JS可以向Obj-C发送JSON对象，Obj-C将收到相应的NSDictionary。反过来也一样，<a href="https://github.com/ohsc/TGJSBridge" target="_blank">TGJSBridge</a>会自动转换数据结构。JS通过<code>bind</code>订阅消息，Obj-C通过委托接收消息。<br>]]>
+    
+    </summary>
+    
+      <category term="Cocoa" scheme="http://shenchao.im/category/Cocoa/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[让UIColor支持Hex值]]></title>
+    <link href="http://shenchao.im/2012/01/08/using-hex-value-with-uicolor/"/>
+    <id>http://shenchao.im/2012/01/08/using-hex-value-with-uicolor/</id>
+    <published>2012-01-08T08:00:00.000Z</published>
+    <updated>2013-01-21T09:23:46.000Z</updated>
+    <content type="html"><![CDATA[<p>在使用Cocoa的地方，有个很奇怪问题。为什么每次实例化一个UIColor的时候非要分别指定RGBA四个值，而且每个值都需要除以255.0f。作为前端出生的我太不适应了。公司产品的界面自定义太多了，需要用到特殊颜色的地方也很多。一个颜色值从Photoshop吸取出来后，需要复制四个值。n个颜色也就需要复制4n次。每次都要我这么搞，这也太坑爹了吧。</p>
+<p>那有没有办法让UIColor和网页中的CSS那样使用Hex（十六进制值）来指定呢？我写了个UIColor的Category解决了这个问题。</p>
+<a id="more"></a>
+
+<script src="https://gist.github.com/1542973.js"></script>
+
+
+<p>使用起来可以直接这样：</p>
+<figure class="highlight obj-c"><figcaption><span>Using UIColor With Hex</span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="title">[UIColor colorWithHex:0x3d5d6d alpha:0.6]</span><span class="comment">;</span>
+<span class="title">[UIColor colorWithHex:0x3d5d6d]</span><span class="comment">;</span>
+<span class="title">[UIColor whiteColorWithAlpha:0.6]</span><span class="comment">;</span>
+<span class="title">[UIColor blackColorWithAlpha:0.9]</span><span class="comment">;</span>
+</pre></td></tr></table></figure>
+
+<p>如果不想使用Category，可以直接使用下面的代码：</p>
+<figure class="highlight obj-c"><figcaption><span>UIColorFromRGB</span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="preprocessor">#<span class="keyword">define</span> UIColorFromRGB(rgbValue) [UIColor \</span>
+    colorWithRed:((<span class="keyword">float</span>)((rgbValue & <span class="number">0xFF0000</span>) &gt;&gt; <span class="number">16</span>))/<span class="number">255.0</span> \
+    green:((<span class="keyword">float</span>)((rgbValue & <span class="number">0xFF00</span>) &gt;&gt; <span class="number">8</span>))/<span class="number">255.0</span> \
+    blue:((<span class="keyword">float</span>)(rgbValue & <span class="number">0xFF</span>))/<span class="number">255.0</span> alpha:<span class="number">1.0</span>]
+</pre></td></tr></table></figure>
+
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在使用Cocoa的地方，有个很奇怪问题。为什么每次实例化一个UIColor的时候非要分别指定RGBA四个值，而且每个值都需要除以255.0f。作为前端出生的我太不适应了。公司产品的界面自定义太多了，需要用到特殊颜色的地方也很多。一个颜色值从Photoshop吸取出来后，需要复制四个值。n个颜色也就需要复制4n次。每次都要我这么搞，这也太坑爹了吧。</p>
+<p>那有没有办法让UIColor和网页中的CSS那样使用Hex（十六进制值）来指定呢？我写了个UIColor的Category解决了这个问题。</p>
+]]>
+    
+    </summary>
+    
+      <category term="Cocoa" scheme="http://shenchao.im/category/Cocoa/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[写在2011最后一天]]></title>
+    <link href="http://shenchao.im/2011/12/31/write-in-late-2011/"/>
+    <id>http://shenchao.im/2011/12/31/write-in-late-2011/</id>
+    <published>2011-12-31T15:59:00.000Z</published>
+    <updated>2014-09-29T07:00:00.000Z</updated>
+    <content type="html"><![CDATA[<p>半年没动blog了，28号的时候冷不丁的写了一篇《<a href="http://shenchao.im/2011/12/28/draw-rounded-corner-image-with-shadow-by-quartz/">使用Quartz绘制带阴影的圆角图</a>》，实际上我一直想写类似的技术博文，而且也积压了好多主题，苦于工作所迫一直没写。总之先写了这篇总结再说吧。</p>
+<h2 id="工作篇">工作篇</h2>
+<p>去年的9月我再次来到阿里学院，与之前不同，这次是作为正式员工加入阿里巴巴。这也是我的第一份正式工作。这段日子有艰辛又有收获。出于个人梦想，在今年9月，也就是工作刚满一年之时，我辞去了这份工作来到了一家初创公司，任职前端开发。两个月后又因为公司需要我转向了iOS开发，直至今天。</p>
+<p>一直想学Cocoa编程，现今刚好有机会可以在公司边学边做，每天都很充实。从我开始学习到先在应该有一个半月了，目前写了7000多行代码，我第一个移动应用预计会在春节前发布，大家拭目以待吧。</p>
+<h2 id="7Peers篇">7Peers篇</h2>
+<p>加入阿里巴巴后，认识了很多业内的朋友。我们因拥有相同的梦想走在一起，也因梦想陆续离开，各奔前程。在大家相继离开前，我们创立了7Peers，目的是让大家在工作之余，可以一起做些感兴趣的产品。<a href="/2011/06/03/stash-coming-my-first-chrome-extensions">Stash</a>就是我们第一个对外发布的产品。此外还有许多未发布、开发中的产品。比如：</p>
+<ul>
+<li>nooon.in</li>
+<li>Lento</li>
+<li>DewDewTree</li>
+</ul>
+<p><a href="/2011/06/03/stash-coming-my-first-chrome-extensions">Stash</a>本该在今年7月重构一个新版本，但由于那时公司开始了一个大型项目，而之后我又开始换工作，所以直到今天毫无进展。明年，我的事情应该会少很多，我将继续<a href="/2011/06/03/stash-coming-my-first-chrome-extensions">Stash</a>的开发。</p>
+<p>就在今年7月，随着<a href="/2011/06/03/stash-coming-my-first-chrome-extensions">Stash</a>0.2.3版的发布，我们一起推出了<a href="http://www.7peers.com" target="_blank">7Peers.com</a>。我们的天才设计师<a href="http://johnsonliu.me/" target="_blank">强生生</a>同学的给力设计让我们的官网一下子受到了业内的关注。没过多久，某澳大利亚公司就给我们发邮件，想出钱让我们团队为他们设计开发产品。虽然最后我们还是婉拒了邀请，不过这封邮件让我们振奋不已。</p>
+<p>如今7Peers成员均已离开阿里巴巴，我是最后一个走的。大家分散在全国各地，7Peers的项目并没有终止。而且明年还有一个全新的项目，目前唯一能透露的就是这是一个Mac应用。<br><a id="more"></a></p>
+<h2 id="技术宅篇">技术宅篇</h2>
+<p>正如前面所述，我开始转型了，我从一个前端开发工程师，转到了iOS开发工程师，以后应该也是Cocoa工程师。</p>
+<p>这一年我所学不少，javascript、python、objective-c。我是语言杂食动物。另外在去年入的MacbookAir已成为主力。现在windows、linux几乎不碰了，Mac OS用的相当顺手。</p>
+<p>大家可能发现我的博客又变了。是的，先开始我迷恋上了github，之后又是markdown，现在索性把臃肿wordpress换成了octopress，所有文章都以markdown格式在本地存储。这样不仅好管理，查阅也方便。连博客对服务器性能的要求也小了。</p>
+<h2 id="蜗居篇">蜗居篇</h2>
+<p>上个月ING公寓杭州总部搬迁至城西了，我们告别了住了一年半的温馨人家。离开那一天，我和Frankyue还在说在这里的日子历历在目，那道不削皮的炒丝瓜，那个谁都做不好的宫保鸡丁。就是在这里，我们三个技术宅学做菜的，聊技术，而如今已是物是人非。</p>
+<p>搬了新家，房子少了50个平方，不过挺温馨的，家里很干净，装修是全新的。最终要的是这里有我的老婆和爱犬——美酱。</p>
+<h2 id="家庭篇">家庭篇</h2>
+<p>是的，我结婚了，就在今年9月29，我们结婚了。虽然我还没有求婚，我还没有买戒指。如今我已是已婚人士，身上的责任更大了。现在我还不够成熟，生活难免会有擦擦碰碰的，但我坚信我以后一定可以做好丈夫这个角色的。老婆很体贴，会做饭，偶尔发发小脾气。每天下班回家都有饭吃，这日子真舒服。</p>
+<p>话说我们家的狗狗——美酱已经来到家里已经半个月了。我说的美酱实际上是美酱二代。实际上还有个美酱一代，不过它来到我们家第三天就病了，随后它就去了。那是真是伤心，还在忧郁要不要继续养狗的时候，宠物店把美酱二代带来了。第一眼看到它的时候觉得它非常可人，所以我就把它带回家了。</p>
+<h2 id="展望篇">展望篇</h2>
+<p>新年一年要做些什么呢？大概想了想：</p>
+<ul>
+<li>写好Cocoa，发布公司产品</li>
+<li>看完《浪潮之巅》《乔布斯转》《失控》《百年孤独》</li>
+<li>重构Stash</li>
+<li>某秘密Mac项目</li>
+<li>带老婆旅游</li>
+<li>训练狗狗</li>
+<li>life goes on…</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>半年没动blog了，28号的时候冷不丁的写了一篇《<a href="http://shenchao.im/2011/12/28/draw-rounded-corner-image-with-shadow-by-quartz/">使用Quartz绘制带阴影的圆角图</a>》，实际上我一直想写类似的技术博文，而且也积压了好多主题，苦于工作所迫一直没写。总之先写了这篇总结再说吧。</p>
+<h2 id="工作篇">工作篇</h2>
+<p>去年的9月我再次来到阿里学院，与之前不同，这次是作为正式员工加入阿里巴巴。这也是我的第一份正式工作。这段日子有艰辛又有收获。出于个人梦想，在今年9月，也就是工作刚满一年之时，我辞去了这份工作来到了一家初创公司，任职前端开发。两个月后又因为公司需要我转向了iOS开发，直至今天。</p>
+<p>一直想学Cocoa编程，现今刚好有机会可以在公司边学边做，每天都很充实。从我开始学习到先在应该有一个半月了，目前写了7000多行代码，我第一个移动应用预计会在春节前发布，大家拭目以待吧。</p>
+<h2 id="7Peers篇">7Peers篇</h2>
+<p>加入阿里巴巴后，认识了很多业内的朋友。我们因拥有相同的梦想走在一起，也因梦想陆续离开，各奔前程。在大家相继离开前，我们创立了7Peers，目的是让大家在工作之余，可以一起做些感兴趣的产品。<a href="/2011/06/03/stash-coming-my-first-chrome-extensions">Stash</a>就是我们第一个对外发布的产品。此外还有许多未发布、开发中的产品。比如：</p>
+<ul>
+<li>nooon.in</li>
+<li>Lento</li>
+<li>DewDewTree</li>
+</ul>
+<p><a href="/2011/06/03/stash-coming-my-first-chrome-extensions">Stash</a>本该在今年7月重构一个新版本，但由于那时公司开始了一个大型项目，而之后我又开始换工作，所以直到今天毫无进展。明年，我的事情应该会少很多，我将继续<a href="/2011/06/03/stash-coming-my-first-chrome-extensions">Stash</a>的开发。</p>
+<p>就在今年7月，随着<a href="/2011/06/03/stash-coming-my-first-chrome-extensions">Stash</a>0.2.3版的发布，我们一起推出了<a href="http://www.7peers.com" target="_blank">7Peers.com</a>。我们的天才设计师<a href="http://johnsonliu.me/" target="_blank">强生生</a>同学的给力设计让我们的官网一下子受到了业内的关注。没过多久，某澳大利亚公司就给我们发邮件，想出钱让我们团队为他们设计开发产品。虽然最后我们还是婉拒了邀请，不过这封邮件让我们振奋不已。</p>
+<p>如今7Peers成员均已离开阿里巴巴，我是最后一个走的。大家分散在全国各地，7Peers的项目并没有终止。而且明年还有一个全新的项目，目前唯一能透露的就是这是一个Mac应用。<br>]]>
+    
+    </summary>
+    
+      <category term="Other" scheme="http://shenchao.im/category/Other/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[使用Quartz绘制带阴影的圆角图]]></title>
+    <link href="http://shenchao.im/2011/12/28/draw-rounded-corner-image-with-shadow-by-quartz/"/>
+    <id>http://shenchao.im/2011/12/28/draw-rounded-corner-image-with-shadow-by-quartz/</id>
+    <published>2011-12-28T12:08:00.000Z</published>
+    <updated>2013-01-21T09:23:46.000Z</updated>
+    <content type="html"><![CDATA[<p>最近在做iOS开发的时候，遇到这样的需求：需要开发一个高度自适应的控件，背景使用图案平铺，控件下方两个角为圆角，控件的下边有5像素宽的阴影。具体如图所示：</p>
+<p><img src="/uploads/2011/12/28/rounded-corner-image-requirement.png" alt="需求效果图" title="需求效果图"></p>
+<h2 id="方案A">方案A</h2>
+<p>在做这个需求时首先想到是用<code>colorWithPatternImage</code>来平铺图片，然后使用CALayer添加阴影。</p>
+<a id="more"></a>
+
+<script src="https://gist.github.com/1531487.js?file=RoundedCornerImageA.m"></script>
+
+
+<p>不过这样做的严重缺陷是阴影被裁切掉了。</p>
+<h2 id="方案B">方案B</h2>
+<p>所以考虑使用Quartz的<code>CGContextDrawTiledImage</code>来平铺背景，使用layer制造阴影。</p>
+<script src="https://gist.github.com/1531487.js?file=RoundedCornerImageB.m"></script>
+
+
+<p>这样做虽然可以大概的实现需求，不过阴影的宽度不可控制。</p>
+<h2 id="方案C">方案C</h2>
+<p>于是我尝试使用Quartz的<code>CGContextSetShadowWithColor</code>来绘制阴影，但是怎么绘制阴影呢？使用<code>CGContextDrawTiledImage</code>平铺背景时会占满指定的区域，这样也有没有了绘制阴影的空间。</p>
+<p>在stackoverflow搜索了一圈，有人建议先使用固定色填充圆角区域，再在这个区域平铺图片。</p>
+<script src="https://gist.github.com/1531487.js?file=RoundedCornerImageC.m"></script>
+
+
+<p>这个方案比上个方案好了很多，不过细心的人可能会发现圆角的阴影有深色的锯齿，不够协调。原因是阴影是根据固定色生成的，在处理边界过度时是从固定色过度来的。</p>
+<h2 id="方案D">方案D</h2>
+<p>那有没有办法让阴影根据图片来生成呢？我想到了<code>CGContextDrawImage</code>方法。先在一个特殊的<code>context</code>生成平铺图，然后在当前的<code>context</code>使用<code>CGContextDrawImage</code>来绘制图片，这样绘制图片的同时会产生相应的阴影。</p>
+<script src="https://gist.github.com/1531487.js?file=RoundedCornerImageD.m"></script>
+
+
+<h2 id="结语">结语</h2>
+<p>作为初学者，对Quartz也只是一知半解。尝试过程中发现绘制的时候一定要注意顺序，否则会出现各种奇怪的问题。Quartz是个强大东西，要好好利用还需跟多的尝试。</p>
+<p>另附上本文的源代码：<a href="https://github.com/ohsc/CodeBox-of-Cocoa/tree/master/RoundedCornerImageWithShadow" target="_blank">https://github.com/ohsc/CodeBox-of-Cocoa/tree/master/RoundedCornerImageWithShadow</a></p>
+<p>四个方案运行效果图：</p>
+<p><img src="/uploads/2011/12/28/rounded-corner-image-implementation.png" alt="运行结果图" title="运行结果图"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近在做iOS开发的时候，遇到这样的需求：需要开发一个高度自适应的控件，背景使用图案平铺，控件下方两个角为圆角，控件的下边有5像素宽的阴影。具体如图所示：</p>
+<p><img src="/uploads/2011/12/28/rounded-corner-image-requirement.png" alt="需求效果图" title="需求效果图"></p>
+<h2 id="方案A">方案A</h2>
+<p>在做这个需求时首先想到是用<code>colorWithPatternImage</code>来平铺图片，然后使用CALayer添加阴影。</p>
+]]>
+    
+    </summary>
+    
+      <category term="Cocoa" scheme="http://shenchao.im/category/Cocoa/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[7Peers即将到来 & Stash的下一版本]]></title>
+    <link href="http://shenchao.im/2011/06/13/7peers-is-coming-soon-and-next-version-of-stash/"/>
+    <id>http://shenchao.im/2011/06/13/7peers-is-coming-soon-and-next-version-of-stash/</id>
+    <published>2011-06-12T16:00:00.000Z</published>
+    <updated>2014-09-29T07:00:00.000Z</updated>
+    <content type="html"><![CDATA[<p>7Peers即将到来！什么是7Peers呢？7Peers其实就是指我们团队。团队创立之初，大家抱着共同的梦想聚在一起，那时候我们有七人。而如今我们又要各奔东西分散各地，但是我们的梦想不变。我们相约，继续通过网络交流，继续一起创作互联网产品。Peer预示着节点、同伴、同等，而7Peers彼此联系，构成网络，预示着我们共同的织网梦想。这就是我们——Seven Team。</p>
+<p>我们注册了<a href="http://7peers.com/" target="_blank">7peers.com</a>的域名，<a href="http://7peers.com/" target="_blank">coming soon</a>页面已经上线，网站本身很快也会发布。此外我们还开通了twitter、facebook、新浪微博。请关注我们：</p>
+<ul>
+<li><a href="http://7peers.com/" target="_blank">http://7peers.com</a></li>
+<li><a href="http://weibo.com/n/7Peers" target="_blank">http://weibo.com/n/7Peers</a></li>
+<li><a href="http://twitter.com/7peers" target="_blank">http://twitter.com/7peers</a></li>
+<li><a href="http://www.facebook.com/pages/7Peers/211442722228539" target="_blank">http://www.facebook.com/pages/7Peers/211442722228539</a></li>
+</ul>
+<p>另外，Stash的下一版本已经进入紧张的开发阶段。新版本会带来两大特性，一个是列表锁定，另一个特性是快捷键。</p>
+<p><img src="/uploads/2011/06/stash-v0.3.png" alt="stash 3.0预览"><br><a id="more"></a><br>Stash发布后，不少用户反映为什么恢复页签后会自动删除记录？开发Stash之初，我担心用户在使用stash的同时会变得懒惰。他在体验到stash便利的同时，可能会把自己暂时不愿看的文章存起来。这就会出现这样的情况：他一推再推，始终不愿意把东西处理掉，删掉又觉得可惜，最后这些东西就变成stash列表中的僵尸条目。</p>
+<p>我希望引入自动删除机制可以帮助用户改掉这个坏习惯。不过在发布后，我们发现很多用户不喜欢这样。甚至有些用户期望stash能帮助他们把经常要打开的网站存起来。好吧，新版的stash给你们带来了锁定功能。你可以在配置页面设置自动锁定记录，或者手动锁定记录。锁定记录后，当你点击恢复标签页时，记录不会再自动删除。</p>
+<p>很多用户跟我们说stash很好用，解决了他们的难题。是的，正如我上篇文章所说，stash的产生就是来自我自身的需求。不过我觉得stash还不够好用。为什么不提供快捷键呢？每次存储需要先点图标，再点“暂存”，两次点击，还不够快。所以我在新版本中开发了快捷键功能。启用后，你可以直接用快捷键保存单个或多个标签页。</p>
+<p>嘿嘿，不好小心说漏嘴了。其实新版本中还有很多小特性。比如支持单标签暂存，比如增加了自定义设置，比如记录名称修改。</p>
+<p>Stash目前的版本是0.2.2，我们会在0.3版推出以上所有功能。也许你会很兴奋，不过我必须要说明，Stash不会马上进化到0.3版。可能会先有0.2.3、0.2.4、0.2.5版等等。我会通过小版本迅速迭代的方式，把这些功能都加进来。放心吧，0.3版不会很远。</p>
+<p>最后必须要说，你的声音是对我们最大的支持，请把你的想法告诉我们，通过微博、twitter、email都可以，谢谢！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>7Peers即将到来！什么是7Peers呢？7Peers其实就是指我们团队。团队创立之初，大家抱着共同的梦想聚在一起，那时候我们有七人。而如今我们又要各奔东西分散各地，但是我们的梦想不变。我们相约，继续通过网络交流，继续一起创作互联网产品。Peer预示着节点、同伴、同等，而7Peers彼此联系，构成网络，预示着我们共同的织网梦想。这就是我们——Seven Team。</p>
+<p>我们注册了<a href="http://7peers.com/" target="_blank">7peers.com</a>的域名，<a href="http://7peers.com/" target="_blank">coming soon</a>页面已经上线，网站本身很快也会发布。此外我们还开通了twitter、facebook、新浪微博。请关注我们：</p>
+<ul>
+<li><a href="http://7peers.com/" target="_blank">http://7peers.com</a></li>
+<li><a href="http://weibo.com/n/7Peers" target="_blank">http://weibo.com/n/7Peers</a></li>
+<li><a href="http://twitter.com/7peers" target="_blank">http://twitter.com/7peers</a></li>
+<li><a href="http://www.facebook.com/pages/7Peers/211442722228539" target="_blank">http://www.facebook.com/pages/7Peers/211442722228539</a></li>
+</ul>
+<p>另外，Stash的下一版本已经进入紧张的开发阶段。新版本会带来两大特性，一个是列表锁定，另一个特性是快捷键。</p>
+<p><img src="/uploads/2011/06/stash-v0.3.png" alt="stash 3.0预览"><br>]]>
+    
+    </summary>
+    
+      <category term="7peers" scheme="http://shenchao.im/tags/7peers/"/>
+    
+      <category term="Chrome" scheme="http://shenchao.im/tags/Chrome/"/>
+    
+      <category term="seven" scheme="http://shenchao.im/tags/seven/"/>
+    
+      <category term="Stash" scheme="http://shenchao.im/tags/Stash/"/>
+    
+      <category term="Product" scheme="http://shenchao.im/category/Product/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Stash来啦！我开发的第一个Chrome扩展]]></title>
+    <link href="http://shenchao.im/2011/06/03/stash-coming-my-first-chrome-extensions/"/>
+    <id>http://shenchao.im/2011/06/03/stash-coming-my-first-chrome-extensions/</id>
+    <published>2011-06-02T16:00:00.000Z</published>
+    <updated>2014-09-29T07:00:00.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="/uploads/2011/06/Coming.jpg"><img src="/uploads/2011/06/Coming-300x204.jpg" alt="stash availble"></a></p>
+<p><a href="/uploads/2011/06/Coming-1.jpg"><img src="/uploads/2011/06/Coming-1-212x300.jpg" alt="stash preview"></a></p>
+<p>很久很久很久很久没写博客啦，难得写一次博客，居然是来发布产品的。言归正传，我和一个朋友(<a href="http://johnsonliu.me/" title="强生生的博客" target="_blank">强生</a>)打磨的Chrome扩展——Stash来啦！绝对是你需要的工具，请耐心看完下面的内容。</p>
+<p>什么是Stash？Stash是一个以全新的方式储存和管理标签页的chrome扩展程序。这个小东西由强生和我合力完成。从构思到开发我们花了不到一个月的时间，而且都是在业余时间进行的。我们希望以这个项目作为起点和尝试，能做出更多有意思的产品。</p>
+<p>那么究竟Stash有什么用呢？我们来看一下当初我们构思的故事吧。<br><a id="more"></a><br>在某个下午，Dick在一台普通的台式机前忙碌。他正在进行BOSS交给他的A任务。他在网上找了很多资料，这时候他的浏览器状态是这样的。</p>
+<p><a href="/uploads/2011/06/tab%E7%9A%84%E6%82%B2%E5%89%A7.png"><img src="/uploads/2011/06/tab%E7%9A%84%E6%82%B2%E5%89%A7-300x34.png" alt="tab的悲剧"></a></p>
+<p>怎么样，标签多得可怕？更可怕的是，这时候BOSS突然要他优先完成B任务。Dick开始清理桌面，准备进行新的工作。那么这些已经找到的资料怎么办呢？</p>
+<p>别管他新开个窗口？一个一个保存到收藏夹？可以批量保存到收藏夹？</p>
+<p>NO！NO！NO！Dick打开了Stash，点击“暂存”。这时候所有的标签页都不见了！不过Dick很淡定，因为他知道，只要点击Stash列表中的项目，就可以奇迹般的恢复原来的标签页！</p>
+<p>故事还没结束。</p>
+<p>这时候BOSS突然安排他去见一位客户，他将在路上花费2小时。Dick觉得路上不能浪费时间。他掏出笔记本，打开浏览器，点击Stash列表中的项目。奇迹发生了，明明在台式机上保存的标签页，居然在笔记本上原封不动的恢复了！</p>
+<p>这就是Stash！</p>
+<blockquote>
+<p>Stash下载地址：<a href="https://chrome.google.com/webstore/detail/bnhjedgfogckebfhnlicnkbdjlmpibck" title="Stash下载地址" target="_blank">Chrome web store</a> （可能需要用具有中国特色的手段才能访问）</p>
+</blockquote>
+<p>Stash的产品模型来自我的迫切的需求。当初构思这个产品就是想单纯的满足我自己的需求。我当然最了解自己的需求，所以在发布后，Stash完全按照我预想的方向发展，没有偏离轨道。</p>
+<p>快速开发，多次迭代是Stash项目顺利进行的关键。Stash经常被修改，现在已经到0.2.2版了。记得当初开发出0.1版本的时候非常不稳定。我通过多次迭代使得它进化到0.2版。目前Stash已趋于稳定，之后我们还会继续迭代。</p>
+<p>要把简单留给用户。Stash的诞生的使命就是解决问题。我们不想把麻烦带给用户。所以我们把stash做的足够的简约，以至于它只有三个行动点。但实际上stash有很多功能。它可以同步存储的书签。当初我们还想搞个云同步。可是搞云同步还需要让用户注册一个额外的账号，这样太麻烦了。不如直接利用Chrome原生的书签同步功能。我们把tab存储为书签，这样Chrome就会自动同步。这就好像是个Gift，当用户使用了Chrome的同步后，突然发现Stash居然也是同步的。我们觉得这样做不但可以简化流程，还可以给用户带来惊喜。</p>
+<p>What’s next? 支持快捷键？支持自定义？支持<em>*</em>？别担心，我们会继续围绕着stash的功能进行讨论，目的是找到Stash的核心价值，让Stash更好用。</p>
+<p>Furthermore，你的声音是对我们最大的支持，请把你的想法告诉我们，谢谢！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><a href="/uploads/2011/06/Coming.jpg"><img src="/uploads/2011/06/Coming-300x204.jpg" alt="stash availble"></a></p>
+<p><a href="/uploads/2011/06/Coming-1.jpg"><img src="/uploads/2011/06/Coming-1-212x300.jpg" alt="stash preview"></a></p>
+<p>很久很久很久很久没写博客啦，难得写一次博客，居然是来发布产品的。言归正传，我和一个朋友(<a href="http://johnsonliu.me/" title="强生生的博客" target="_blank">强生</a>)打磨的Chrome扩展——Stash来啦！绝对是你需要的工具，请耐心看完下面的内容。</p>
+<p>什么是Stash？Stash是一个以全新的方式储存和管理标签页的chrome扩展程序。这个小东西由强生和我合力完成。从构思到开发我们花了不到一个月的时间，而且都是在业余时间进行的。我们希望以这个项目作为起点和尝试，能做出更多有意思的产品。</p>
+<p>那么究竟Stash有什么用呢？我们来看一下当初我们构思的故事吧。<br>]]>
+    
+    </summary>
+    
+      <category term="Chrome" scheme="http://shenchao.im/tags/Chrome/"/>
+    
+      <category term="Cloud" scheme="http://shenchao.im/tags/Cloud/"/>
+    
+      <category term="Stash" scheme="http://shenchao.im/tags/Stash/"/>
+    
+      <category term="Tab" scheme="http://shenchao.im/tags/Tab/"/>
+    
+      <category term="同步" scheme="http://shenchao.im/tags/%E5%90%8C%E6%AD%A5/"/>
+    
+      <category term="扩展" scheme="http://shenchao.im/tags/%E6%89%A9%E5%B1%95/"/>
+    
+      <category term="Product" scheme="http://shenchao.im/category/Product/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[构建大型jQuery应用]]></title>
+    <link href="http://shenchao.im/2011/01/04/building-large-scale-jquery-applications/"/>
+    <id>http://shenchao.im/2011/01/04/building-large-scale-jquery-applications/</id>
+    <published>2011-01-03T16:00:00.000Z</published>
+    <updated>2013-01-21T09:23:46.000Z</updated>
+    <content type="html"><![CDATA[<p>原文：<a href="http://addyosmani.com/blog/large-scale-jquery/" target="_blank">http://addyosmani.com/blog/large-scale-jquery/</a></p>
+<h2 id="1-依赖管理">1.依赖管理</h2>
+<p>目前常用的script loader主要有两个，RequireJS (by James Burke) 与LabJS (by Kyle Simpson)。有些人会认为这其中一个会比另一个要好，但事实上他们各自有各自的特点。以我的经验来讲，RequireJS的特性之一是提供结构化模块的支持，而LabJS更适合不需要额外特性或者需要轻量级库的时候。</p>
+<p>如果你想知道更多关于如何选择 RequireJS、LabJS，请看这里：<a href="http://msdn.microsoft.com/en-us/scriptjunkie/ff943568" target="_blank">http://msdn.microsoft.com/en-us/scriptjunkie/ff943568</a>。如果这两个还不能满足你的需求，你还可以看看下面的内容。</p>
+<h3 id="解决方案：">解决方案：</h3>
+<p><strong>RequireJS</strong> – 如果你期望你的代码更加模块化，我强烈推荐它。它会试图限制模块对全局命名空间的影响，并使得依赖更加明确。同时它还提供一个优化工具，帮助你合并压缩脚本 - <a href="http://requirejs.org/docs/jquery.html" target="_blank">http://requirejs.org/docs/jquery.html</a></p>
+<p><strong>LabJS</strong> – 如果你需要按照一定的顺序高效的加载脚本，或者你正在寻找比RequireJS更轻量级的框架，或者你对模块化依赖管理根本不感兴趣，那么你不妨试试LabJS。 – <a href="http://www.labjs.com" target="_blank">http://www.labjs.com</a> (Alex Sexton 还在LabJS的基础上开发了条件化的loader，YepNope JS - <a href="http://www.yepnopejs.com" target="_blank">http://www.yepnopejs.com</a>)</p>
+<p><strong>StealJS</strong> – 又一个非常棒的依赖管理工具。Steal是 JavaScriptMVC框架的一部分，不过你可以单独使用它。它也提供了合并、压缩、清理等功能。 – <a href="http://jupiterjs.com/news/stealjs-script-manager" target="_blank">http://jupiterjs.com/news/stealjs-script-manager</a></p>
+<p><strong>JSL Script Loader</strong> – 提供了加载、防重复加载、缓存等功能。但是它的用户也许没有LabJS、RequireJS那么多 –  <a href="http://www.andresvidal.com/jsl" target="_blank">http://www.andresvidal.com/jsl</a></p>
+<p><strong>Bootstrap</strong> – 它的功能很少，但足以完成任务。如在你在寻找一个最小的没有任何多余功能的解决方案，那么也许它是最合适的。 – <a href="https://bitbucket.org/scott_koon/bootstrap" target="_blank">https://bitbucket.org/scott_koon/bootstrap</a></p>
+<h2 id="2-MVC&amp;管理大型jQuery应用">2.MVC&amp;管理大型jQuery应用</h2>
+<p>软件工程中的设计模式、架构模式可以让你创建可重用的，结构化的，更具组织性的代码。我认为在开发中使用设计模式是必要的，尤其当你需要确保团队编写的代码的风格和结构是一致的时候。</p>
+<p><a id="more"></a><br>MVC设计模式通常可以满足web应用的开发的需要，当然你可能觉得MVC并不适合你，或者你需要的是别的设计模式。</p>
+<p>在我开始向你介绍一些MVC方案前，如果你需要对设计模式做更多的了解，请去阅读<a href="http://addyosmani.com/blog/essentialjsdesignpatterns" target="_blank">http://addyosmani.com/blog/essentialjsdesignpatterns</a>（免费）。</p>
+<p>『吼吼：在开始之前请自行去了解什么是MVC。 这部分内容我就不翻译了。</p>
+<h3 id="为什么我推荐_JavaScriptMVC">为什么我推荐 JavaScriptMVC</h3>
+<p>JavaScriptMVC已经收到不少积极的评论，同时它还被认为这是在大型项目开发中最好理解的框架。 如果你习惯使用传统方式构建web应用（比如重父端，轻客户端），那么你在使用JavascriptMVC的时候，会发现你的思想只需要做细微的变化。这是我和其他开发过js大型项目的同事们共同的想法。</p>
+<p>举例来说，当你的应用很大一部分是基于js的，而你还需要一堆工具来保证代码的模块化、可管理、可测试、干净的。那么其中有一件事情就是使用JMVC。大多数开发者可能会认为这是服务端该干的事情，但是现在已经到了考虑客户端代码的时候了。</p>
+<p>Justin Meyer谈论JMVC项目的时候提到，新人对JMVC最大的迷惑是误解了项目真正提供了什么。在这段之后我会来澄清这块内容。</p>
+<p>JMVC可以被当作一个整合的开发工具、一个可重用的MVC架构。JMVC的好处是，它提供了一个清晰的思路来添加功能，并帮你简化里很多的事情。</p>
+<p>首先，JavaScriptMVC的MVC部分的含义：</p>
+<ul>
+<li>Model – 一种封装、组织Ajax请求和web服务数据的方式</li>
+<li>Controller – 一个jQuery widget生成器</li>
+<li>View – 客户端的模板引擎</li>
+</ul>
+<p>第二，在为项目提供的集成开发工具方面，你可以得到一下功能。</p>
+<ul>
+<li>依赖管理、产品构建</li>
+<li>自动化的单元测试、功能测试</li>
+<li>文档支持</li>
+</ul>
+<h3 id="解决方案：-1">解决方案：</h3>
+<p>待翻译，等不及的朋友请看原文。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>原文：<a href="http://addyosmani.com/blog/large-scale-jquery/" target="_blank">http://addyosmani.com/blog/large-scale-jquery/</a></p>
+<h2 id="1-依赖管理">1.依赖管理</h2>
+<p>目前常用的script loader主要有两个，RequireJS (by James Burke) 与LabJS (by Kyle Simpson)。有些人会认为这其中一个会比另一个要好，但事实上他们各自有各自的特点。以我的经验来讲，RequireJS的特性之一是提供结构化模块的支持，而LabJS更适合不需要额外特性或者需要轻量级库的时候。</p>
+<p>如果你想知道更多关于如何选择 RequireJS、LabJS，请看这里：<a href="http://msdn.microsoft.com/en-us/scriptjunkie/ff943568" target="_blank">http://msdn.microsoft.com/en-us/scriptjunkie/ff943568</a>。如果这两个还不能满足你的需求，你还可以看看下面的内容。</p>
+<h3 id="解决方案：">解决方案：</h3>
+<p><strong>RequireJS</strong> – 如果你期望你的代码更加模块化，我强烈推荐它。它会试图限制模块对全局命名空间的影响，并使得依赖更加明确。同时它还提供一个优化工具，帮助你合并压缩脚本 - <a href="http://requirejs.org/docs/jquery.html" target="_blank">http://requirejs.org/docs/jquery.html</a></p>
+<p><strong>LabJS</strong> – 如果你需要按照一定的顺序高效的加载脚本，或者你正在寻找比RequireJS更轻量级的框架，或者你对模块化依赖管理根本不感兴趣，那么你不妨试试LabJS。 – <a href="http://www.labjs.com" target="_blank">http://www.labjs.com</a> (Alex Sexton 还在LabJS的基础上开发了条件化的loader，YepNope JS - <a href="http://www.yepnopejs.com" target="_blank">http://www.yepnopejs.com</a>)</p>
+<p><strong>StealJS</strong> – 又一个非常棒的依赖管理工具。Steal是 JavaScriptMVC框架的一部分，不过你可以单独使用它。它也提供了合并、压缩、清理等功能。 – <a href="http://jupiterjs.com/news/stealjs-script-manager" target="_blank">http://jupiterjs.com/news/stealjs-script-manager</a></p>
+<p><strong>JSL Script Loader</strong> – 提供了加载、防重复加载、缓存等功能。但是它的用户也许没有LabJS、RequireJS那么多 –  <a href="http://www.andresvidal.com/jsl" target="_blank">http://www.andresvidal.com/jsl</a></p>
+<p><strong>Bootstrap</strong> – 它的功能很少，但足以完成任务。如在你在寻找一个最小的没有任何多余功能的解决方案，那么也许它是最合适的。 – <a href="https://bitbucket.org/scott_koon/bootstrap" target="_blank">https://bitbucket.org/scott_koon/bootstrap</a></p>
+<h2 id="2-MVC&amp;管理大型jQuery应用">2.MVC&amp;管理大型jQuery应用</h2>
+<p>软件工程中的设计模式、架构模式可以让你创建可重用的，结构化的，更具组织性的代码。我认为在开发中使用设计模式是必要的，尤其当你需要确保团队编写的代码的风格和结构是一致的时候。</p>
+<p>]]>
+    
+    </summary>
+    
+      <category term="Bootstrap" scheme="http://shenchao.im/tags/Bootstrap/"/>
+    
+      <category term="javascript" scheme="http://shenchao.im/tags/javascript/"/>
+    
+      <category term="JavaScriptMVC" scheme="http://shenchao.im/tags/JavaScriptMVC/"/>
+    
+      <category term="jQuery" scheme="http://shenchao.im/tags/jQuery/"/>
+    
+      <category term="JSL Script Loader" scheme="http://shenchao.im/tags/JSL%20Script%20Loader/"/>
+    
+      <category term="LabJS" scheme="http://shenchao.im/tags/LabJS/"/>
+    
+      <category term="RequireJS" scheme="http://shenchao.im/tags/RequireJS/"/>
+    
+      <category term="StealJS" scheme="http://shenchao.im/tags/StealJS/"/>
+    
+      <category term="FrontEnd" scheme="http://shenchao.im/category/FrontEnd/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[清理浮动的整理]]></title>
+    <link href="http://shenchao.im/2010/10/14/clean-up-floating/"/>
+    <id>http://shenchao.im/2010/10/14/clean-up-floating/</id>
+    <published>2010-10-13T16:00:00.000Z</published>
+    <updated>2014-09-29T07:00:00.000Z</updated>
+    <content type="html"><![CDATA[<p>清理浮动是前端工程师每天都会用到的技术，目前清理浮动的技术形形色色，另很多新手眼花缭乱。所以我就结合了几篇文章，做了一些整理。</p>
+<h2 id="一、为什么要清理浮动？">一、为什么要清理浮动？</h2>
+<p>这里我不做细讲，请新手参考《<a href="http://book.douban.com/subject/4736167/" target="_blank">CSS Mastery</a>》中有关浮动的章节。</p>
+<p>简单的讲，当我们把一个框向左浮动起来时，它就会脱离文档流，并且向左移动，直到它左边缘碰到其父框的左边缘。当我们把框浮动起来后，会出现各种问题，比如下一个非浮动元素环绕着浮动框。这时候为了正确排版，我们需要把浮动清理。</p>
+<h2 id="二、如何清理浮动？">二、如何清理浮动？</h2>
+<h3 id="1、采用div标签clear的方式">1、采用div标签clear的方式</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"clear"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="tag">div</span><span class="class">.clear</span> <span class="rules">{
+	<span class="rule"><span class="attribute">clear</span>:<span class="value">both</span></span>;
+	<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：代码量极少，复用性极高。</p>
+<p>缺点：完全不能完美的适应语义化，不利于改版以及需求变更。</p>
+<p>建议：初学者使用，可以让你快速的解决浮动问题。</p>
+<h3 id="2、采用br标签clear的方式">2、采用br标签clear的方式</h3>
+<a id="more"></a>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">br</span> <span class="attribute">class</span>=<span class="value">"clear"</span> /&gt;</span>
+</pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="tag">br</span><span class="class">.clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">clear</span>:<span class="value">both</span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：语义化程度比第5种情况要更优；代码量极少，复用性极高。</p>
+<p>缺点：语义化依旧不完美，不利于改版以及需求变更。</p>
+<p>建议：初学者使用，可以让你快速的解决浮动问题。</p>
+<h3 id="3、采用br标签以及其自身HTML的clear属性的方式">3、采用br标签以及其自身HTML的clear属性的方式</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">br</span> <span class="attribute">clear</span>=<span class="value">"all"</span> /&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>优点：语义化程度比第1、2种情况要更优；代码量最少，复用性极高。</p>
+<p>缺点：语义化依旧不完美，不利于改版以及需求变更。</p>
+<p>建议：引导初学者思维升级时使用，让其明白与其用classname来控制一种表现，倒不如回归到WEB1.0的时代的网页直接用html属性来控制表现，毕竟后者的代码量更少。</p>
+<h3 id="4、采用伪类:after进行后续空制的高度位零的伪类层清除">4、采用伪类:after进行后续空制的高度位零的伪类层清除</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="comment">/*after伪类+content方式*/</span>
+<span class="class">.clearfix</span><span class="pseudo">:after</span> <span class="rules">{
+    <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">"."</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>;
+    <span class="rule"><span class="attribute">visibility</span>:<span class="value"> hidden</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，不会产生其余的怪异问题。</p>
+<p>缺点：IE6不支持after伪类。复用方式不当容易造成代码量急剧增大。</p>
+<p>建议：要结合与zoom:1;舍得兼容IE6。最外层轻浮动时使用，或清晰模块化复用方式的人使用。</p>
+<h3 id="5、采用CSS_overflow:auto的方式撑高">5、采用CSS overflow:auto的方式撑高</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">/* 通过overflow auto的方式 */</span>
+<span class="class">.overflow-auto-clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">auto</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：多个嵌套后，点击最外层的轻浮动框会遭成最外层至最内层内容全选（FF）；或者在mouseover造成宽度改变时会出现最外层模块有滚动条（IE）。</p>
+<p>建议：内个模块使用，请勿嵌套。</p>
+<h3 id="6、采用CSS_overflow:hidden的方式产生怪异适应">6、采用CSS overflow:hidden的方式产生怪异适应</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">/* 通过overflow hidden的方式 */</span>
+<span class="class">.overflow-hidden-clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：内容增多时候极易不会自动换行而内容被隐藏掉。</p>
+<p>建议：宽度固定时使用，请勿嵌套。</p>
+<h3 id="7、采用display:table将对象变成table形式">7、采用display:table将对象变成table形式</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">/* display 的方式*/</span>
+<span class="class">.display-clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value">table</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：盒模型属性已经改变，可想而知奇异事件自然多得你数都数不到。</p>
+<p>建议：如果你不想改Bug改死你的话，最好不要使用。</p>
+<h3 id="8、采用形式">8、采用形式</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">/* display 的方式*/</span>
+<span class="class">.display-inline-block-clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value">inline-block</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：IE6\7只把它识别为inline，并触发了haslayout，看似效果与inline-block差不多，但还是有区别。而在能正确解析的浏览器中，父容器将变为行内元素。</p>
+<p>建议：如果你不想改Bug改死你的话，最好不要使用。</p>
+<h3 id="9、浮动方式">9、浮动方式</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">/* float的方式*/</span>
+<span class="class">.float-clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：下一个元素会受到影响，为此必须全文浮动。</p>
+<p>建议：浮动会变得复杂，不建议使用。</p>
+<h3 id="10、zoom方式">10、zoom方式</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">/* zoom的方式*/</span>
+<span class="class">.zoom-clear</span><span class="rules">{
+    <span class="rule"><span class="attribute">zoom</span>:<span class="value"><span class="number">1</span></span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：兼容性太差。</p>
+<p>建议：结合其他浮动清除方式使用（见下一节）。</p>
+<h3 id="11、height:1%方式">11、height:1%方式</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="comment">/* height:1%方式 Hides from IE-mac \*/</span>
+<span class="class">.clearfix</span> <span class="rules">{
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">1</span>%</span></span>;
+<span class="rule">}</span></span>
+<span class="comment">/* End hide from IE-mac */</span>
+</pre></td></tr></table></figure>
+
+<p>优点：结构语义化完全正确，代码量极少。</p>
+<p>缺点：兼容性太差。</p>
+<p>建议：结合其他浮动清除方式使用（见下一节）。</p>
+<h2 id="三、清理浮动进阶，处理兼容性">三、清理浮动进阶，处理兼容性</h2>
+<p>在这里我整理以上11种浮动清理方法在各种浏览器的效果，并作了对比。具体如下图（点击放大）：</p>
+<p><a href="/uploads/2010/10/floatcompare.png" title="清理浮动效果比较"><img src="/uploads/2010/10/floatcompare-300x161.png" alt="清理浮动效果比较" title="清理浮动效果比较"></a></p>
+<p>首先我必须把第1、2、3方案淘汰掉，因为其语义化不佳，所以我也不建议使用。至于第7方案，因为其改变了合适模型，会有很多bug，不推荐使用。而第8方案，因为父容器变成了行内元素，可能会对布局带来麻烦，不建议使用。然后是第9方案，它把父元素浮动起来，从而清理了浮动。不幸的是，父元素却又会影响到下一个元素，为此我们不得不把全文浮动起来，这样对布局很不利，所以我再把第9方案淘汰。</p>
+<p>然后我们再看第10、11方案，实际上这两个方案是通过触发IE的haslayout，从而达到清除浮动的效果。而haslayout是IE特有的，故其他浏览器不支持。由此可以想到，把第10、11方案与其他第4、5、6方案结合使用。</p>
+<p>接下来我们还需要具体讨论第4、5、6方案的使用。</p>
+<h3 id="4、采用伪类:after进行后续空制的高度位零的伪类层清除-1">4、采用伪类:after进行后续空制的高度位零的伪类层清除</h3>
+<p>采用这种方法清理浮动，怪异现象最少，是我最推荐的。但是由于其代码复杂，如果不考虑复用方式，将使得整个css文件冗余难懂。解决办法是，在公共css文件中专门定义一个clearfix，需要清理浮动时，直接在父容器引用即可。</p>
+<h3 id="5、CSS_overflow:auto_&amp;_6、CSS_overflow:hidden的方式">5、CSS overflow:auto &amp; 6、CSS overflow:hidden的方式</h3>
+<p>这两种方式正如其原本功能那样，在使用时需要注意其表现。一旦子元素大小超过父容器，其表现就会出现问题（隐藏或出现滚动条）。所以在使用此方式清理浮动到时候一定要在多个浏览器测试。</p>
+<p><h2>四、总结</h2><br>看到这里，相信大家已经对清理浮动的技术有数了。清理浮动没有完美的解决方案，在日常工作中，我通常会用到第4、5方案。其中以第4方案为主，我会把它写入项目的base.css中，而第5方案，则在某些不希望在html中到处添加<code>class=&quot;clearfix&quot;</code>的时候使用。然后附上第4方案完整版：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre><span class="class">.clearfix</span><span class="pseudo">:after</span> <span class="rules">{
+    <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">"."</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>;
+    <span class="rule"><span class="attribute">visibility</span>:<span class="value"> hidden
+</span></span></span>}
+<span class="class">.clearfix</span> <span class="rules">{
+    <span class="rule"><span class="attribute">zoom</span>:<span class="value"> <span class="number">1</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;
+    <span class="rule"><span class="attribute">_height</span>:<span class="value"> <span class="number">1</span>px</span></span>;
+<span class="rule">}</span></span>
+*<span class="tag">html</span> <span class="class">.clearfix</span> <span class="rules">{
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">1</span>%
+</span></span></span>}
+*+<span class="tag">html</span> <span class="class">.clearfix</span> <span class="rules">{
+    <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">1</span>%
+</span></span></span>}
+<span class="class">.clearfix</span> <span class="rules">{
+    <span class="rule"><span class="attribute">display</span>:<span class="value"> block
+</span></span></span>}
+</pre></td></tr></table></figure>
+
+<p>好了，以上就是我对清理浮动的整理与分析，希望能给新手带来帮助。如果文中有问题，请大家直接指出，谢谢！下面附上参考文章，如涉及到版权问题，请及时联系我。</p>
+<h3 id="五、参考文章">五、参考文章</h3>
+<p><a href="http://isd.tencent.com/?p=1122" target="_blank">http://isd.tencent.com/?p=1122</a></p>
+<p><a href="http://guitarbean.com/topic/clearfloat/#first-start" target="_blank">http://guitarbean.com/topic/clearfloat/#first-start</a></p>
+<p><a href="http://www.cnblogs.com/hongru/archive/2010/10/06/1844855.html" target="_blank">http://www.cnblogs.com/hongru/archive/2010/10/06/1844855.html</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>清理浮动是前端工程师每天都会用到的技术，目前清理浮动的技术形形色色，另很多新手眼花缭乱。所以我就结合了几篇文章，做了一些整理。</p>
+<h2 id="一、为什么要清理浮动？">一、为什么要清理浮动？</h2>
+<p>这里我不做细讲，请新手参考《<a href="http://book.douban.com/subject/4736167/" target="_blank">CSS Mastery</a>》中有关浮动的章节。</p>
+<p>简单的讲，当我们把一个框向左浮动起来时，它就会脱离文档流，并且向左移动，直到它左边缘碰到其父框的左边缘。当我们把框浮动起来后，会出现各种问题，比如下一个非浮动元素环绕着浮动框。这时候为了正确排版，我们需要把浮动清理。</p>
+<h2 id="二、如何清理浮动？">二、如何清理浮动？</h2>
+<h3 id="1、采用div标签clear的方式">1、采用div标签clear的方式</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"clear"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="tag">div</span><span class="class">.clear</span> <span class="rules">{
+	<span class="rule"><span class="attribute">clear</span>:<span class="value">both</span></span>;
+	<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">0</span></span></span>;
+	<span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure>
+
+<p>优点：代码量极少，复用性极高。</p>
+<p>缺点：完全不能完美的适应语义化，不利于改版以及需求变更。</p>
+<p>建议：初学者使用，可以让你快速的解决浮动问题。</p>
+<h3 id="2、采用br标签clear的方式">2、采用br标签clear的方式</h3>
+]]>
+    
+    </summary>
+    
+      <category term="css" scheme="http://shenchao.im/tags/css/"/>
+    
+      <category term="float" scheme="http://shenchao.im/tags/float/"/>
+    
+      <category term="html" scheme="http://shenchao.im/tags/html/"/>
+    
+      <category term="前端" scheme="http://shenchao.im/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="FrontEnd" scheme="http://shenchao.im/category/FrontEnd/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[入手yubikey]]></title>
+    <link href="http://shenchao.im/2010/03/10/start-yubikey/"/>
+    <id>http://shenchao.im/2010/03/10/start-yubikey/</id>
+    <published>2010-03-09T16:00:00.000Z</published>
+    <updated>2014-09-29T07:00:00.000Z</updated>
+    <content type="html"><![CDATA[<p>yubikey是我在春节前买了，大约1周就到了。25$一个，买了两个，一个是帮同学带的，运费20$。因为一直在复习GRE，没时间写文章。接下来让我们来看看yubikey真面目吧。（不知道yubikey？参见<a href="/2010/03/10/yubikey-nerver-remember-the-password/" title="Yubikey不再记忆密码">Yubikey不再记忆密码</a>）</p>
+<p>首先是拿到手的国际邮件：</p>
+<p><a href="/uploads/2010/03/2010-09-03-16.08.26.jpg" title="yubico发来的EMS"><img src="/uploads/2010/03/2010-09-03-16.08.26-300x225.jpg" alt="yubico发来的EMS" title="yubico发来的EMS"></a></p>
+<a id="more"></a>
+
+<p>拆封后还有一个小信封：</p>
+<p><a href="/uploads/2010/03/4421768071_41d619200d_b.jpg" title="EMS拆开后的小信封"><img src="/uploads/2010/03/4421768071_41d619200d_b-300x225.jpg" alt="EMS拆开后的小信封" title="EMS拆开后的小信封"></a></p>
+<p>揭开庐山真面目：</p>
+<p><a href="/uploads/2010/03/4421768417_8ea393a414_b.jpg" title="yubikey的真面目"><img src="/uploads/2010/03/4421768417_8ea393a414_b-300x225.jpg" alt="yubikey的真面目" title="yubikey的真面目"></a></p>
+<p>接入电脑后，会发出绿光，光环中心区域是静电感应区域，轻触就有反应：</p>
+<p><a href="/uploads/2010/03/4421797595_04cccb5486_b.jpg" title="开始yubikey"><img src="/uploads/2010/03/4421797595_04cccb5486_b-300x225.jpg" alt="开始yubikey" title="开始yubikey"></a></p>
+<p>接下来我演示一下如何使用yubikey：</p>
+<p>1.打开浏览器，lastpass处于未登录状态，点击图标：</p>
+<p><a href="/uploads/2010/03/4421844237_502fcacf7e_m.jpg" title="点击lastpass"><img src="/uploads/2010/03/4421844237_502fcacf7e_m.jpg" alt="点击lastpass" title="点击lastpass"></a></p>
+<p>2.输入邮件地址（可保存），短触yubikey，自动输入密码（可保存）：</p>
+<p><a href="/uploads/2010/03/4422609546_81c009bdd3.jpg" title="登陆lastpass"><img src="/uploads/2010/03/4422609546_81c009bdd3-300x222.jpg" alt="登陆lastpass" title="登陆lastpass"></a></p>
+<p>3.提示二次验证（此步骤可选），长触yubikey，自动填入OTP密码：</p>
+<p><a href="/uploads/2010/03/4421844351_5d0a8c1c57.jpg" title="lastpass使用yubikey二次认证"><img src="/uploads/2010/03/4421844351_5d0a8c1c57-300x117.jpg" alt="lastpass使用yubikey二次认证" title="lastpass使用yubikey二次认证"></a></p>
+<p>4.最后登录成功，上网畅通无阻：</p>
+<p><a href="/uploads/2010/03/4422609696_fc31b10387_m.jpg" title="lastpass登陆成功"><img src="/uploads/2010/03/4422609696_fc31b10387_m.jpg" alt="lastpass登陆成功" title="lastpass登陆成功"></a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>yubikey是我在春节前买了，大约1周就到了。25$一个，买了两个，一个是帮同学带的，运费20$。因为一直在复习GRE，没时间写文章。接下来让我们来看看yubikey真面目吧。（不知道yubikey？参见<a href="/2010/03/10/yubikey-nerver-remember-the-password/" title="Yubikey不再记忆密码">Yubikey不再记忆密码</a>）</p>
+<p>首先是拿到手的国际邮件：</p>
+<p><a href="/uploads/2010/03/2010-09-03-16.08.26.jpg" title="yubico发来的EMS"><img src="/uploads/2010/03/2010-09-03-16.08.26-300x225.jpg" alt="yubico发来的EMS" title="yubico发来的EMS"></a></p>
+]]>
+    
+    </summary>
+    
+      <category term="lastpass" scheme="http://shenchao.im/tags/lastpass/"/>
+    
+      <category term="mashedlife" scheme="http://shenchao.im/tags/mashedlife/"/>
+    
+      <category term="umikey" scheme="http://shenchao.im/tags/umikey/"/>
+    
+      <category term="yubikey" scheme="http://shenchao.im/tags/yubikey/"/>
+    
+      <category term="Solution" scheme="http://shenchao.im/category/Solution/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Yubikey不再记忆密码]]></title>
+    <link href="http://shenchao.im/2010/03/10/yubikey-nerver-remember-the-password/"/>
+    <id>http://shenchao.im/2010/03/10/yubikey-nerver-remember-the-password/</id>
+    <published>2010-03-09T16:00:00.000Z</published>
+    <updated>2013-01-21T09:23:46.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="我的密码管理历史">我的密码管理历史</h2>
+<p>相信的大家一定有很多帐号。上网这么多年下来，东注册一个帐号，西注册一个帐号。时间长了，觉得老用一套帐号不安全。于是换了一套又一套，久而久之密码堆积了一堆，连自己也搞不清哪个对应哪个了。</p>
+<p>就在两年前，我找到了keepass这个软件。它很好的帮我把所有密码管理起来，而且还是跨平台的，我只要记住主密码(master key)就可以取得所有帐号密码。不过我经常要在不同的系统、电脑使用同一个密码库，keepass没有我想要的同步功能。</p>
+<p>后来找到了Dropbox这个强大的同步工具，帮keepass弥补了这个缺点。尽管同步问题解决了，可是keepass还是有个致命的弱点—操作效率太低。每登录一个网站，先要找到这个帐号记录，再复制粘贴帐号，然后还要复制粘贴密码。来来回回折腾太麻烦了，如果keepass能和浏览器结合，自动帮我填入帐号密码就好了。就像浏览器在带的密码管理器一样，不过浏览器自带的不安全，也不方便，不能同步，而且重装系统帐号就丢失了。</p>
+<p>后来我发现了Lastpass这个强大的工具，它是浏览器的扩展，支持ie、firefox、chrome，而且跨平台，甚至在iPhone、黑莓、Android上都有客户端。Lastpass是把我的帐号密码存在云端的。每当我在一个网站登录的时候，它会检测这个站点的帐号是否记录过，如果没有，它会提示我记录。当我确定记录帐号后，下次再访问这个站点的时候，lastpass会自动帮我填入帐号密码，我只要按登录即可。</p>
+<a id="more"></a>
+
+<p>有了lastpass，我再也不需要同步密码库了，这些信息本生就存储在lastpass公司的服务器上。也许有人会担心。密码存在云端安不安全？lastpass是否可信任？lastpass被黑客攻击了怎么办？对于这些质疑，我只能说没有绝对安全的东西，我们只能相信它。即便存在自己的电脑上，也会遭受病毒、黑客的威胁。一个公司的技术实力总比一个人强吧。</p>
+<p>lastpass解决了大部分问题，大大地提高了用户体验。剩下还有一个问题，如何让master key足够的安全呢？</p>
+<h2 id="yubikey，廉价的OTP方案">yubikey，廉价的OTP方案</h2>
+<p>对于这个产品相信大家从没听过。这是一款强大又廉价的产品，要把它所有功能都讲清楚是不容易的。所以我就先简单介绍两个功能，以后再扩展。</p>
+<h3 id="一、OTP(One-Time-Password)">一、OTP(One-Time-Password)</h3>
+<p>yubikey是个可以根据一定算法随机产生密码的输入设备。yubikey产生的OTP密码分为两部分，左边部分是设备识别码，右边部分是随机码。每个设备的识别码是全球唯一的。</p>
+<p>接下来解释一下过程。A网站支持使用yubikey登录，于是我把自己的yubikey和A网站绑定。当访问A网站时，A网站提示输入yubikey密码。我轻触一下yubikey，OTP密码就马上输入好了。这时候A网站会去访问yubikey开发公司的服务器yubico，并提交收到的OTP密码请求认证。yubico得到密码后，把它拆分，根据自己的私有算法进行校验。如果这个密码确实是绑定A网站的密码的那个yubikey设备产生的，yubico就会告诉A网站验证成功。</p>
+<p>每个yubikey都根据自己的识别码，以不同方式产生不同的随机密码。每个时刻产生的密码都不同。所以yubikey之间不可以相互冒充。而这种随机验证方式，对于黑客来说更难破解。</p>
+<h3 id="二、Static_Password静态密码">二、Static Password静态密码</h3>
+<p>这是yubikey的附加功能。可以记忆一个复杂的、较长的、个人难以记忆的密码。比如：</p>
+<p>某B，把sdadasdefkjgbhoijt34tdfKJSW%^$%^&amp;hasdqal942nlsdnfalsz这段作为自己lastpass的master key。某B不需要记忆这么恐怖的密码。某B只要把它设置到yubikey上。轻触一下yubikey，就可以把密码输入。</p>
+<p>很好理解吧，这个功能就是为master key设计的。从此不再需要记忆任何密码。yubikey在密码就在。yubikey丢了，那也就惨了。所以最好在电脑以外的地方备份一下这段密码。</p>
+<h2 id="其他">其他</h2>
+<p>yubikey2.1版本支持OTP和StaticPassword同时存在。可以通过轻触时间的长短来区分。用户可以使用官方的工具的来自己定义yubikey的功能，包括密码长短，复杂程度等等。</p>
+<p>另外于yubikey的开源项目非常多，比如wordpress上的yubikey验证插件，drapal上的验证插件。大家可以找到很多其他相关的项目。在开发方面，公司开放了很多资料：<a href="http://www.yubico.com/developers/intro/" target="_blank">http://www.yubico.com/developers/intro/</a></p>
+<p>最后再提一下，尽管yubikey在诸多OTP方案中，是比较廉价的，25美元一个，不过对于大多数中国草根来说还是挺贵的，而且国内没的卖。幸好yubikey有个竞争对手叫umikey，它们的思路差不多的。umikey在中国有生产，也有卖，100RMB以内，不是很贵。可惜umikey的应用还不是很广泛，我们只能祝福它快速发展。lastpass有个竞争对手叫mashedlife，mashedlife是umikey的最佳搭档。当然据说也可以和yubikey结合（我没试过）。另外听小道消息，unikey正在和lastpass接触。</p>
+<p>听我讲了这么多，还是自己去看看吧，相关网址：</p>
+<ul>
+<li><p><a href="https://lastpass.com/" target="_blank">https://lastpass.com/</a></p>
+</li>
+<li><p><a href="http://www.yubico.com/" target="_blank">http://www.yubico.com/</a></p>
+</li>
+<li><p><a href="http://www.umikey.com/" target="_blank">http://www.umikey.com/</a></p>
+</li>
+<li><p><a href="http://www.umikey.cn/" target="_blank">http://www.umikey.cn/</a></p>
+</li>
+<li><p><a href="https://mashedlife.com/" target="_blank">https://mashedlife.com/</a></p>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="我的密码管理历史">我的密码管理历史</h2>
+<p>相信的大家一定有很多帐号。上网这么多年下来，东注册一个帐号，西注册一个帐号。时间长了，觉得老用一套帐号不安全。于是换了一套又一套，久而久之密码堆积了一堆，连自己也搞不清哪个对应哪个了。</p>
+<p>就在两年前，我找到了keepass这个软件。它很好的帮我把所有密码管理起来，而且还是跨平台的，我只要记住主密码(master key)就可以取得所有帐号密码。不过我经常要在不同的系统、电脑使用同一个密码库，keepass没有我想要的同步功能。</p>
+<p>后来找到了Dropbox这个强大的同步工具，帮keepass弥补了这个缺点。尽管同步问题解决了，可是keepass还是有个致命的弱点—操作效率太低。每登录一个网站，先要找到这个帐号记录，再复制粘贴帐号，然后还要复制粘贴密码。来来回回折腾太麻烦了，如果keepass能和浏览器结合，自动帮我填入帐号密码就好了。就像浏览器在带的密码管理器一样，不过浏览器自带的不安全，也不方便，不能同步，而且重装系统帐号就丢失了。</p>
+<p>后来我发现了Lastpass这个强大的工具，它是浏览器的扩展，支持ie、firefox、chrome，而且跨平台，甚至在iPhone、黑莓、Android上都有客户端。Lastpass是把我的帐号密码存在云端的。每当我在一个网站登录的时候，它会检测这个站点的帐号是否记录过，如果没有，它会提示我记录。当我确定记录帐号后，下次再访问这个站点的时候，lastpass会自动帮我填入帐号密码，我只要按登录即可。</p>
+]]>
+    
+    </summary>
+    
+      <category term="lastpass" scheme="http://shenchao.im/tags/lastpass/"/>
+    
+      <category term="mashedlife" scheme="http://shenchao.im/tags/mashedlife/"/>
+    
+      <category term="umikey" scheme="http://shenchao.im/tags/umikey/"/>
+    
+      <category term="yubikey" scheme="http://shenchao.im/tags/yubikey/"/>
+    
+      <category term="Solution" scheme="http://shenchao.im/category/Solution/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[用笨办法实现电驴和迅雷直接的互导]]></title>
+    <link href="http://shenchao.im/2010/03/05/the-realization-of-edonkey-and-thunder-direct-transconductance/"/>
+    <id>http://shenchao.im/2010/03/05/the-realization-of-edonkey-and-thunder-direct-transconductance/</id>
+    <published>2010-03-04T16:00:00.000Z</published>
+    <updated>2013-01-21T09:23:46.000Z</updated>
+    <content type="html"><![CDATA[<p>之前在用电驴下一部比较老的片子，结果挂到95%最后发现已经没人共享了，这很是让人郁闷。然后我拿迅雷离线下载下同样的文件，结果发现迅雷居然下好了，我估计这文件一直存在迅雷的服务器上。如果这时候我用迅雷下载，当然可以下完，但我又不想让那个95%的电驴白下，怎么办呢？</p>
+<p>曾经我有一个同学号称下载杀手(什么download breaker，完全盗版imagine breaker嘛)。flashget、迅雷、bitcomet、emule之类的文件他都可以实现互导，不能直接导的，还可以通过修改文件来导入。不过我没这么厉害，我只会把店里的文件后缀改成迅雷的后缀，然后让迅雷导入。这方法以前可行，可是现在好像不行了，不知道为什么。</p>
+<p>后来我突发奇想。虽然他们两的文件格式一样，可是他们都遵循ed2k协议。于是我想到了通过ed2k互导。我抱着试一试的心态，把电驴和迅雷都连上同一台ed2k服务器，结果迅雷发现了我的电驴，然后以2m/s的速度下好了95%。最后我用迅雷离线下载把文件下好了，稍微等了一会，电驴也下好了。出于对别人分享的尊敬，我继续把电驴开着给他人分享。</p>
+<p>这种方法果然可行，不过有一定成功率。有一次，我的迅雷怎么也连不上自己的电驴。可能是因为下载的人还是比较多的，有干扰。为了解决这个问题，我找到了利器，edonkey server。对，就是在本地搭建私人的电驴服务器，导完后，再关掉。可惜的是edonkey的网站已经关掉了，找不到正宗的官方下载地址。没办法，只能从国内某些下载站下载了。下下来后，发现这个软件很小，而且不需要安装，直接运行即可，非常方便。</p>
+<p>用法也很简单。首先启动ed2k服务器，然后在迅雷和电驴里面加入本地地址，我用的是localhost。然后让迅雷电驴都连上去，接着就开始飞快导入咯。很简单吧？</p>
+<p>附上ed2k服务器软件（共享一个月）：</p>
+<p>Linux版：<a href="https://dl.dropbox.com/u/1284503/ed2k/ed2kserver.gz" target="_blank">https://dl.dropbox.com/u/1284503/ed2k/ed2kserver.gz</a></p>
+<p>Windows版：<a href="https://dl.dropbox.com/u/1284503/ed2k/ed2kserver.zip" target="_blank">https://dl.dropbox.com/u/1284503/ed2k/ed2kserver.zip</a></p>
+<p>最后提醒大家：</p>
+<p>下完后一定要分享！！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>之前在用电驴下一部比较老的片子，结果挂到95%最后发现已经没人共享了，这很是让人郁闷。然后我拿迅雷离线下载下同样的文件，结果发现迅雷居然下好了，我估计这文件一直存在迅雷的服务器上。如果这时候我用迅雷下载，当然可以下完，但我又不想让那个95%的电驴白下，怎么办呢？</p>
+<]]>
+    </summary>
+    
+      <category term="edonley" scheme="http://shenchao.im/tags/edonley/"/>
+    
+      <category term="eMule" scheme="http://shenchao.im/tags/eMule/"/>
+    
+      <category term="下载" scheme="http://shenchao.im/tags/%E4%B8%8B%E8%BD%BD/"/>
+    
+      <category term="迅雷" scheme="http://shenchao.im/tags/%E8%BF%85%E9%9B%B7/"/>
+    
+      <category term="Other" scheme="http://shenchao.im/category/Other/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[说说Python包管理]]></title>
+    <link href="http://shenchao.im/2010/02/05/talk-about-python-package-management/"/>
+    <id>http://shenchao.im/2010/02/05/talk-about-python-package-management/</id>
+    <published>2010-02-04T16:00:00.000Z</published>
+    <updated>2013-01-21T09:23:46.000Z</updated>
+    <content type="html"><![CDATA[<p>虽然我的Python学习才起步，不过有时候也需要装一些额外的软件包。一般Python教程上都推荐使用easy_install。这个工具很酷，有了它，我不需要去找软件包。我可以直接easy_install 包名，它会帮我去pypi查找下载最新的软件包，然后自动安装。这个和Linux上的apt、yum之类的包管理器很类似。但是问题来，作为Linux用户，我不希望我在系统上有两套包管理器。有一天我在安装Mako(一个很快的模板引擎)，我就在想我是使用apt来安装呢，还是使用easy_install来安装。于是我用<code>apt-cache showpkg python-mako</code>检查一下，apt源中的mako是2.4版本的。然后我又用easy_install检查了一下，是2.5版本的。当然，听说easy_install所使用的pypi库的包往往都是最新的。像我这样的更新狂肯定想装2.5版本的，那我应该使用easy_install安装吗？</p>
+<p>经我研究发现，easy_install有以下问题：</p>
+<ol>
+<li><p>卸载能力低下，<code>easy_install -m 包名</code>，可以卸载软件包，但是卸载后还要手动删除遗留文件。</p>
+</li>
+<li><p>可能会和apt冲突。比如某天我用easy_install安装了软件包A，后来我在用apt安装软件包B的时候依赖软件包A，而apt并不知道A的存在。</p>
+</li>
+</ol>
+<a id="more"></a>
+
+<p>这样的工具我还敢用吗？所以我在想有没有什么东西，可以用pypi下载最新的软件包，然后自动打成deb包，再使用dpkg来安装，纳入apt的管理。在寻觅中我找到了<a href="http://pypi.python.org/pypi/stdeb/0.5.1" target="_blank">stdeb</a>这个工具很强大，提供pypi_install的指令，我只需要执行<code>pypi_install Mako</code>，它就会去pypi找最新的mako，然后打成deb包，再安装。很强大吧？让我们看看它还有哪些功能。</p>
+<h2 id="stdeb">stdeb</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>pypi-install mypackage
+</pre></td></tr></table></figure>
+
+<p>从pypi下载最新软件包，构建deb包，再安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>py2dsc mypackage-<span class="number">0.1</span>.tar.gz
+</pre></td></tr></table></figure>
+
+<p>使用源码包构建deb src包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>python setup.py --command-packages=stdeb.command sdist_dsc
+</pre></td></tr></table></figure>
+
+<p>在使用setuptools的python源码包中，构建deb src包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>python setup.py --command-packages=stdeb.command bdist_deb
+</pre></td></tr></table></figure>
+
+<p>在使用setuptools的python源码包中，构建deb包</p>
+<p>stdeb很强大，不过也有一些问题，比如有时候生成的deb包名与apt源中的不一样。比如我安装web.py的时候，生成的deb包是python-web-py，而apt源中的是python-webpy。这方面stdeb还有待改进那。</p>
+<h2 id="获得stdeb">获得stdeb</h2>
+<p>如何获得stdeb呢，似乎ubuntu9.10的源中并没有stdeb。不过你可以在这里找到它<a href="http://packages.ubuntu.com/zh-cn/lucid/python-stdeb" target="_blank">http://packages.ubuntu.com/zh-cn/lucid/python-stdeb</a>。</p>
+<p>这个版本是给10.04使用的，不过9.10也能用，先用着吧。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>虽然我的Python学习才起步，不过有时候也需要装一些额外的软件包。一般Python教程上都推荐使用easy_install。这个工具很酷，有了它，我不需要去找软件包。我可以直接easy_install 包名，它会帮我去pypi查找下载最新的软件包，然后自动安装。这个和Linux上的apt、yum之类的包管理器很类似。但是问题来，作为Linux用户，我不希望我在系统上有两套包管理器。有一天我在安装Mako(一个很快的模板引擎)，我就在想我是使用apt来安装呢，还是使用easy_install来安装。于是我用<code>apt-cache showpkg python-mako</code>检查一下，apt源中的mako是2.4版本的。然后我又用easy_install检查了一下，是2.5版本的。当然，听说easy_install所使用的pypi库的包往往都是最新的。像我这样的更新狂肯定想装2.5版本的，那我应该使用easy_install安装吗？</p>
+<p>经我研究发现，easy_install有以下问题：</p>
+<ol>
+<li><p>卸载能力低下，<code>easy_install -m 包名</code>，可以卸载软件包，但是卸载后还要手动删除遗留文件。</p>
+</li>
+<li><p>可能会和apt冲突。比如某天我用easy_install安装了软件包A，后来我在用apt安装软件包B的时候依赖软件包A，而apt并不知道A的存在。</p>
+</li>
+</ol>
+]]>
+    
+    </summary>
+    
+      <category term="apt" scheme="http://shenchao.im/tags/apt/"/>
+    
+      <category term="easy_install" scheme="http://shenchao.im/tags/easy_install/"/>
+    
+      <category term="pypi_install" scheme="http://shenchao.im/tags/pypi_install/"/>
+    
+      <category term="Python" scheme="http://shenchao.im/tags/Python/"/>
+    
+      <category term="setuptools" scheme="http://shenchao.im/tags/setuptools/"/>
+    
+      <category term="stdeb" scheme="http://shenchao.im/tags/stdeb/"/>
+    
+      <category term="Ubuntu" scheme="http://shenchao.im/tags/Ubuntu/"/>
+    
+      <category term="Python" scheme="http://shenchao.im/category/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[DIY了家用NAS]]></title>
+    <link href="http://shenchao.im/2010/01/27/diy-for-home-nas/"/>
+    <id>http://shenchao.im/2010/01/27/diy-for-home-nas/</id>
+    <published>2010-01-26T16:00:00.000Z</published>
+    <updated>2014-09-29T07:00:00.000Z</updated>
+    <content type="html"><![CDATA[<p>随着我收藏的电影、动画不断增多，小小的移动硬盘已经不能满足我对容量的需求。而且家里有两台笔记本、一台上网本、一台高清播放机，等我毕业后，还要从学校搬回一台台式机，就算买了移动硬盘，也不能解决所有设备的存储问题。假期，表弟表妹们经常会来我家玩，看看电影是必然的，这也就面临着数据共享的问题。于是我打算搞一台nas。目前市面上有一些现成的家用nas，比如qnap、buffalo。虽然他们都是基于Linux的，可以自己定制，但是价格比较昂贵，而且性能一般。最终我还是决定自己组一台低功耗计算机当nas使用。</p>
+<p>配置如下：</p>
+<p>主板：Intel D945GCLF(板载N230、显卡、两个sata接口)</p>
+<p>内存：金士顿 1G DDR2</p>
+<p>机箱：技展 高清3号机箱（两个3.5寸的仓位）</p>
+<p>电源：航嘉冷静王标准版电源 最大300W</p>
+<p>（本来想搞DC-ATX这类五风扇电源的，又静音又省电，但是好像都只有一个sata电源接口）</p>
+<p>硬盘：西数 WD10EARS 1TB 64M缓存</p>
+<p>总价：1500</p>
+<p>所有配件都在淘宝上搞定，1天后全部到货。</p>
+<a id="more"></a>
+
+<p>这是Atom主板：</p>
+<p><a href="/uploads/2010/01/4307943125_5b1483d2e5_b.jpg" title="装好后的nas主板"><img src="/uploads/2010/01/4307943125_5b1483d2e5_b-300x225.jpg" alt="装好后的nas主板"></a></p>
+<p>装好后的裸机：</p>
+<p><a href="/uploads/2010/01/4307943127_8cdd05f895_b.jpg" title="nas的组件全部拼接好了"><img src="/uploads/2010/01/4307943127_8cdd05f895_b-300x225.jpg" alt="nas的组件全部拼接好了"></a></p>
+<p>装好后的样子：</p>
+<p><a href="/uploads/2010/01/4307943137_65bff76b1c_z.jpg" title="装好后的样子"><img src="/uploads/2010/01/4307943137_65bff76b1c_z-300x225.jpg" alt="装好后的样子"></a></p>
+<p>机箱大小与上网本对比：</p>
+<p><a href="/uploads/2010/01/4307943139_c023400cf6_z.jpg" title="nas机箱与上网本对比"><img src="/uploads/2010/01/4307943139_c023400cf6_z-300x225.jpg" alt="nas机箱与上网本对比"></a></p>
+<p>花了一下午算是装好了，系统本来是想选用freenas、openfiler，不过我还想有更多的定制性，于是装了ubuntu server，没有装xserver，不需要图形界面。</p>
+<p><a href="/uploads/2010/01/4307943143_5cf4aeabf2_z.jpg" title="nas安装ubuntu server"><img src="/uploads/2010/01/4307943143_5cf4aeabf2_z-300x225.jpg" alt="nas安装ubuntu server"></a></p>
+<p>然后装了以下服务：</p>
+<p>Samba：Windows 文件共享</p>
+<p>Apache：http服务器</p>
+<p>Mysql：数据库服务器</p>
+<p>SSH：远程管理</p>
+<p>uShare：多媒体upnp服务器、DLNA</p>
+<p>transmission：bt下载</p>
+<p>webmin：web端管理</p>
+<p>acpid：有了这个直接按电源钮就能关机了。</p>
+<p>目前nas正式投入使用了，可以拖动多台电脑同时看电影，当然，1080p的还不行，毕竟家里没有千兆网卡和千兆路由。半夜还能bt下载。</p>
+<p>最后给transmission web端来了张照片，很mac啊。</p>
+<p><a href="/uploads/2010/01/4307968795_ae339894f3.jpg" title="nas上的transmission web"><img src="/uploads/2010/01/4307968795_ae339894f3.jpg" alt="nas上的transmission web"></a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>随着我收藏的电影、动画不断增多，小小的移动硬盘已经不能满足我对容量的需求。而且家里有两台笔记本、一台上网本、一台高清播放机，等我毕业后，还要从学校搬回一台台式机，就算买了移动硬盘，也不能解决所有设备的存储问题。假期，表弟表妹们经常会来我家玩，看看电影是必然的，这也就面临着数据共享的问题。于是我打算搞一台nas。目前市面上有一些现成的家用nas，比如qnap、buffalo。虽然他们都是基于Linux的，可以自己定制，但是价格比较昂贵，而且性能一般。最终我还是决定自己组一台低功耗计算机当nas使用。</p>
+<p>配置如下：</p>
+<p>主板：Intel D945GCLF(板载N230、显卡、两个sata接口)</p>
+<p>内存：金士顿 1G DDR2</p>
+<p>机箱：技展 高清3号机箱（两个3.5寸的仓位）</p>
+<p>电源：航嘉冷静王标准版电源 最大300W</p>
+<p>（本来想搞DC-ATX这类五风扇电源的，又静音又省电，但是好像都只有一个sata电源接口）</p>
+<p>硬盘：西数 WD10EARS 1TB 64M缓存</p>
+<p>总价：1500</p>
+<p>所有配件都在淘宝上搞定，1天后全部到货。</p>
+]]>
+    
+    </summary>
+    
+      <category term="nas" scheme="http://shenchao.im/tags/nas/"/>
+    
+      <category term="Ubuntu" scheme="http://shenchao.im/tags/Ubuntu/"/>
+    
+      <category term="Solution" scheme="http://shenchao.im/category/Solution/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Netbook OS分享会]]></title>
+    <link href="http://shenchao.im/2009/12/27/netbook-os-sharing/"/>
+    <id>http://shenchao.im/2009/12/27/netbook-os-sharing/</id>
+    <published>2009-12-26T16:00:00.000Z</published>
+    <updated>2013-01-21T09:23:46.000Z</updated>
+    <content type="html"><![CDATA[<p>酝酿了很久的分享会，作为杭州<a href="http://groups.google.com/group/hangzhou-gtug" target="_blank">GTUG</a>成立后的首次活动，《Netbook OS大比拼》圆满结束咯。这得要感谢与会的每一位朋友，虽然外面下着大雪，但是还是有很多朋友来了，而且还有三位上海朋友；另外还要特别感谢杭州图书馆，他们为我们提供了一个非常棒的会场，书香气为我们的技术交流更是增添了别样的气氛。</p>
+<p>以下是流水帐。这次分享会是由<a href="http://imtx.cn" target="_blank">Tualatrix</a>（以下简称TX）和我共同主持的。会议主题是《Netbook OS大比拼》。<a id="more"></a></p>
+<p>分享会开始，TX同学首先给大家带来了Chromium OS的介绍。正如TX同学所介绍的，在WebGL、WebSocket、HTML5这类新技术陆续推出后，Chromium OS可以算是互联网发展的必然产物。确实如此，没有这些技术的支撑，Chromium OS是很难把桌面应用搬到浏览器上的（如:3D网游）；没有V8引擎的强劲保障，工程师也不敢把桌面应用迁移到浏览器上。</p>
+<p>秀完很酷的Chromium OS，接下来是我给大家带来的可爱的Moblin。虽然Moblin的很多特效都很酷，但是我还是觉得可爱这个此更适合它。我这次给大家演示的是Intel最新的Moblin V2.1。给大家炫完Moblin的界面后，我又简单的介绍了一下Clutter技术，并且还演示了几个用Python写的Clutter Demo。我接触Moblin近两个月，其实了解的还不是很深，所以不能给大家深入讲解Clutter开发，不过我以后肯定会研究Clutter开发。最后我简单展示了一下我近期的研究成果，一个是完成度70%的gstreamer-plugins的rpm包，一个是ndiswrapper的rpm包，还有就是openvpn的rpm包。Intel的Moblin自带软件包比较少，很多还不能和fedora通用，所以我只能自己动手了。目前我的Moblin已经解决了ath9k的驱动问题，能播放Mp3、Rmvb（无声）了。算是已经基本满足我对OS的需求了。近段时间，我还会在这方面花时间，为了打造我完美可爱的Moblin！</p>
+<p>在我们专题展示结束后，我们又给大家展示了一下Gnome3中的组件，gnome-shell，同样采用了clutter技术。最后我还发现这些采用Clutter技术的软件有很多共同点，包括交互的理念，对3d技术的态度。</p>
+<p>分享会顺利结束了，我想这是一个好的开始。TX和我只是抛砖引玉，希望以后GTUG每个月的分享会，朋友们都能有所分享，有所收获，我们的分享会越开越精彩。</p>
+<p>最后是我们会上的幻灯片，还有python demo包。</p>
+<p><a href="http://code-of-tualatrix.googlecode.com/files/chrome-os.pdf" target="_blank">Chromium OS大探秘</a></p>
+<p><a href="http://imchao.googlecode.com/files/moblin.pdf" target="_blank">可爱的Moblin</a></p>
+<p><a href="http://imchao.googlecode.com/files/pyclutter-demo.tar.gz" target="_blank">pyclutter-demo</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>酝酿了很久的分享会，作为杭州<a href="http://groups.google.com/group/hangzhou-gtug" target="_blank">GTUG</a>成立后的首次活动，《Netbook OS大比拼》圆满结束咯。这得要感谢与会的每一位朋友，虽然外面下着大雪，但是还是有很多朋友来了，而且还有三位上海朋友；另外还要特别感谢杭州图书馆，他们为我们提供了一个非常棒的会场，书香气为我们的技术交流更是增添了别样的气氛。</p>
+<p>以下是流水帐。这次分享会是由<a href="http://imtx.cn" target="_blank">Tualatrix</a>（以下简称TX）和我共同主持的。会议主题是《Netbook OS大比拼》。]]>
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://shenchao.im/category/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[解决1005ha/1008ha在ubuntu 9.10下糟糕的表现]]></title>
+    <link href="http://shenchao.im/2009/12/06/solve-1005ha1008ha-the-poor-performance-under-ubuntu-9-10/"/>
+    <id>http://shenchao.im/2009/12/06/solve-1005ha1008ha-the-poor-performance-under-ubuntu-9-10/</id>
+    <published>2009-12-05T16:00:00.000Z</published>
+    <updated>2013-01-21T09:23:46.000Z</updated>
+    <content type="html"><![CDATA[<p>自从我的Eee pc 1005ha-h升级到ubuntu 9.10后，无线网络开始不断抽风。</p>
+<p>先是信号非常弱，频繁掉线。我在launchpad.net查到1005ha的无线网卡是atheros的ar9285，对应的驱动是ath9k。而ath9k在2.6.31下有兼容性问题，ubuntu的backport驱动解决了这些问题。于是我给2.6.31.14内核安装了backport驱动。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get install linux-backports-modules-<span class="number">2.6</span>.<span class="number">31</span>-<span class="number">14</span>-generic
+</pre></td></tr></table></figure>
+
+<p>重启后，信号变强了，线也不掉了，但是网络僵尸了。主要表现在chrome打开一个站点往往需要15-30秒时间，其中至少有10秒时间在解析dns。开始我以为是ipv6导致解析缓慢的，所以我就把ipv6禁用了。</p>
+<p>打开配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>gksu gedit /etc/sysctl.conf
+</pre></td></tr></table></figure>
+
+<p>在文件最后加入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>net.ipv6.conf.wlan0.disable_ipv6 = <span class="number">1</span>
+</pre></td></tr></table></figure>
+
+<p>重启后发现速度确实快了，但是解析还是需要很长时间。<a id="more"></a></p>
+<p>后来在lauchpad.net上看到<a href="https://bugs.launchpad.net/ubuntu/+source/linux-backports-modules-2.6.31/+bug/414560" target="_blank">类似的bug</a>，只要安装backport-wireless的驱动就可以了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get install linux-backports-modules-wireless-karmic-generic
+</pre></td></tr></table></figure>
+
+<p>这个软件包会自动安装2.6.31-15以上的内核，装完后发现，速度更慢了，而且所有加密的无线网络都连不上了。我看了一下日志。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>tail /var/log/syslog
+</pre></td></tr></table></figure>
+
+<p>发现下面的错误几乎总是日志的最后一行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>wpa_supplicant[<span class="number">922</span>]: CTRL-EVENT-SCAN-RESULTS
+</pre></td></tr></table></figure>
+
+<p>接着我又在launchpad.net找到了<a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/460886" target="_blank">对应的bug</a>，但是至今还没有解决。此时我已经1周不能正常上网了，每天下班回来就开始折腾ath9k驱动，弄得快崩溃了。甚至后来还考虑给1005ha换个无线模块或者买个usb的无线网卡。我装了个windows 7，打算逛逛淘宝。在装驱动的时候突然想到，好像有个什么软件可以让linux使用windows的驱动。这就是ndiswrapper。于是我赶忙去asus官网下了个<a href="http://dlsvr04.asus.com/pub/ASUS/EeePC/1005HAB/WLAN_NE785.zip" target="_blank">xp版的驱动</a>。下好后解压，里面有个ndis5x文件夹，这是我要用的，先放一边，装个ndiswrapper再说：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get install ndiswrapper-utils-<span class="number">1.9</span>
+</pre></td></tr></table></figure>
+
+<p>装好后我进入ndis5x目录，安装驱动，这会需要一小会时间。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> ndiswrapper -i netathw.inf
+</pre></td></tr></table></figure>
+
+<p>装好后，我们为modprobe生成一个配置文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> ndiswrapper -m
+</pre></td></tr></table></figure>
+
+<p>再打开module的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>gksu gedit /etc/modules
+</pre></td></tr></table></figure>
+
+<p>在尾行加入以下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>ndiswrapper
+</pre></td></tr></table></figure>
+
+<p>检查一下驱动是否正确安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>ndiswrapper <span class="operator">-l</span>
+</pre></td></tr></table></figure>
+
+<p>如果有下面内容就表示已经正确安装了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>netathw : driver installed
+
+    device (<span class="number">168</span>C:<span class="number">002</span>B) present (alternate driver: ath9k)
+</pre></td></tr></table></figure>
+
+<p>好了，我们把ath9k卸了再加载ndiswrapper看看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> rmmod ath9k
+
+<span class="built_in">sudo</span> modprobe ndiswrapper
+</pre></td></tr></table></figure>
+
+<p>此时无线应该已经可用，速度飞快。最后收个尾，把ath9k禁用。</p>
+<p>打开modprobe的blacklist</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>gksu gedit /etc/modprobe.d/blacklist.conf
+</pre></td></tr></table></figure>
+
+<p>在尾行加入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>ath9k
+</pre></td></tr></table></figure>
+
+<p>弄好ndiswrapper后，我的网络非常稳定，至今还没有异常断过。</p>
+<p>如果你的在用linux 2.6.31的内核，如果你的网卡也是悲剧的atheros生产的，如果你也正在饱受ath9k的折磨，那么不妨尝试一下我的方案吧。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>自从我的Eee pc 1005ha-h升级到ubuntu 9.10后，无线网络开始不断抽风。</p>
+<p>先是信号非常弱，频繁掉线。我在launchpad.net查到1005ha的无线网卡是atheros的ar9285，对应的驱动是ath9k。而ath9k在2.6.31下有兼容性问题，ubuntu的backport驱动解决了这些问题。于是我给2.6.31.14内核安装了backport驱动。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get install linux-backports-modules-<span class="number">2.6</span>.<span class="number">31</span>-<span class="number">14</span>-generic
+</pre></td></tr></table></figure>
+
+<p>重启后，信号变强了，线也不掉了，但是网络僵尸了。主要表现在chrome打开一个站点往往需要15-30秒时间，其中至少有10秒时间在解析dns。开始我以为是ipv6导致解析缓慢的，所以我就把ipv6禁用了。</p>
+<p>打开配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>gksu gedit /etc/sysctl.conf
+</pre></td></tr></table></figure>
+
+<p>在文件最后加入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>net.ipv6.conf.wlan0.disable_ipv6 = <span class="number">1</span>
+</pre></td></tr></table></figure>
+
+<p>重启后发现速度确实快了，但是解析还是需要很长时间。]]>
+    
+    </summary>
+    
+      <category term="1005ha-h" scheme="http://shenchao.im/tags/1005ha-h/"/>
+    
+      <category term="2.6.31" scheme="http://shenchao.im/tags/2.6.31/"/>
+    
+      <category term="ar9285" scheme="http://shenchao.im/tags/ar9285/"/>
+    
+      <category term="ath9k" scheme="http://shenchao.im/tags/ath9k/"/>
+    
+      <category term="atheros" scheme="http://shenchao.im/tags/atheros/"/>
+    
+      <category term="EeePC" scheme="http://shenchao.im/tags/EeePC/"/>
+    
+      <category term="Ubuntu" scheme="http://shenchao.im/tags/Ubuntu/"/>
+    
+      <category term="wifi" scheme="http://shenchao.im/tags/wifi/"/>
+    
+      <category term="华硕" scheme="http://shenchao.im/tags/%E5%8D%8E%E7%A1%95/"/>
+    
+      <category term="Linux" scheme="http://shenchao.im/category/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[在Moblin2.1-preview上编译安装ibus]]></title>
+    <link href="http://shenchao.im/2009/11/08/compiled-in-the-moblin2-1-preview-install-ibus/"/>
+    <id>http://shenchao.im/2009/11/08/compiled-in-the-moblin2-1-preview-install-ibus/</id>
+    <published>2009-11-07T16:00:00.000Z</published>
+    <updated>2013-10-07T08:36:48.000Z</updated>
+    <content type="html"><![CDATA[<p>前段时间安装了Moblin2.1-preview版，一直没玩。今天突然有兴致跑进去玩玩。先是改了一下源，升级了一把，大概250MB。然后发现浏览器变成firefox3.5了，支持书签和插件，clutter下的ff就是漂亮，上网一定很爽！可是为什么不给我装好输入法呢？找了半天也没有找到安装的入口，所以我进shell安装了scim。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>yum install scim scim-pinyin scim-bridge scim-bridge-gtk scim-bridge-clutter
+</pre></td></tr></table></figure>
+
+<p>装好后发现很多地方用不了scim。我只好抛弃了scim，转投ibus。</p>
+<p>ibus没有现成的包，必须手动编译。于是我开始手动编译，接下来的过程消耗了我一个晚上，弄得我头昏脑胀，可算是凄惨啊。</p>
+<h2 id="编译ibus">编译ibus</h2>
+<p>参考地址：<a href="http://code.google.com/p/ibus/wiki/Install" target="_blank">http://code.google.com/p/ibus/wiki/Install</a></p>
+<p>先把依赖包装好:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>yum install git gnome-common autoconf automake libtool glib2-devel intltool gtk-doc GConf-dbus-devel make gcc clutter-devel dbus-python-devel iso-codes-devel
+</pre></td></tr></table></figure>
+
+<p>然后把源代码下下来：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>git clone git://github.com/phuang/ibus.git ibus
+<span class="built_in">cd</span> ibus
+</pre></td></tr></table></figure>
+
+<p>开始编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>./autogen.sh --prefix=<span class="string">'/usr'</span> --sysconfdir=<span class="string">'/etc'</span> --libdir=<span class="string">'/usr/lib'</span> --enable-gtk-doc
+make
+<span class="built_in">sudo</span> make install
+</pre></td></tr></table></figure>
+
+<p>我在运行autogen.sh的时候出现了以下错误：</p>
+<p>Makefile.am: required file `./ChangeLog’ not found</p>
+<p>直接输入下面指令后，重新运行autogen.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>touch ChangeLog
+</pre></td></tr></table></figure>
+
+<h2 id="编译ibus-pinyin">编译ibus-pinyin</h2>
+<p>先安装依赖包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>yum install sqlite-devel gcc-c++ libuuid-devel
+</pre></td></tr></table></figure>
+
+<p>下载源代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>git clone git://github.com/phuang/ibus-pinyin.git ibus-pinyin
+<span class="built_in">cd</span> ibus-pinyin
+</pre></td></tr></table></figure>
+
+<p>开始编译：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>./autogen.sh --prefix=/usr
+make
+<span class="built_in">sudo</span> make install
+</pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="编译ibus-client-clutter">编译ibus-client-clutter</h2>
+<p>参考地址：<a href="http://moblin.org/documentation/input-method-framework/guide-ibus-moblin2" target="_blank">http://moblin.org/documentation/input-method-framework/guide-ibus-moblin2</a></p>
+<p>先解决依赖问题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>yum install clutter-imcontext-devel
+</pre></td></tr></table></figure>
+
+<p>下载源代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>git clone git://git.moblin.org/ibus-client-clutter
+<span class="built_in">cd</span> ibus-client-clutter
+</pre></td></tr></table></figure>
+
+<p>开始编译：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>./autogen.sh --prefix=/usr --sysconfdir=/etc
+</pre></td></tr></table></figure>
+
+<p>这时候会出错，它要求clutter的版本一定要是0.9的。我们修改一下配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>vi configure.ac
+</pre></td></tr></table></figure>
+
+<p>找到clutter-0.9 &gt;= 0.9.7</p>
+<p>改成clutter-1.0 &gt;= 0.9.7</p>
+<p>重新运行autogen.sh，问题解决</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>make
+<span class="built_in">sudo</span> make install
+</pre></td></tr></table></figure>
+
+<p>刷新Clutter IMContext Framework的配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>clutter-scan-immodules &gt; /tmp/clutter.immodules
+<span class="built_in">sudo</span> cp /tmp/clutter.immodules /etc/clutter-imcontext/clutter.immodules
+clutter-scan-immodules &gt; /tmp/clutter.immodules
+<span class="built_in">sudo</span> cp /tmp/clutter.immodules /etc/clutter-imcontext/clutter.immodules
+</pre></td></tr></table></figure>
+
+<p>最后在环境变量中加入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">export</span> CLUTTER_IM_MODULE=ibus
+<span class="keyword">export</span> GTK_IM_MODULE=ibus
+</pre></td></tr></table></figure>
+
+<p>大功告成，重启一下，就可以使用ibus了。</p>
+<p>什么？重启后ibus还没有启动？</p>
+<p>原因是缺少pydxg。我们去<a href="http://www.freedesktop.org/wiki/Software/pyxdg下载最新源码" target="_blank">http://www.freedesktop.org/wiki/Software/pyxdg下载最新源码</a></p>
+<p>下载好后先安装需要的安装环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>yum install python-devel
+</pre></td></tr></table></figure>
+
+<p>然后安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>tar zxvf pyxdg-<span class="number">0.18</span>.tar.gz
+<span class="built_in">cd</span> pyxdg-<span class="number">0.18</span>
+python setup.py install
+</pre></td></tr></table></figure>
+
+<p>OK了，这下就可以使用ibus了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>前段时间安装了Moblin2.1-preview版，一直没玩。今天突然有兴致跑进去玩玩。先是改了一下源，升级了一把，大概250MB。然后发现浏览器变成firefox3.5了，支持书签和插件，clutter下的ff就是漂亮，上网一定很爽！可是为什么不给我装好输入法呢？找了半天也没有找到安装的入口，所以我进shell安装了scim。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>yum install scim scim-pinyin scim-bridge scim-bridge-gtk scim-bridge-clutter
+</pre></td></tr></table></figure>
+
+<p>装好后发现很多地方用不了scim。我只好抛弃了scim，转投ibus。</p>
+<p>ibus没有现成的包，必须手动编译。于是我开始手动编译，接下来的过程消耗了我一个晚上，弄得我头昏脑胀，可算是凄惨啊。</p>
+<h2 id="编译ibus">编译ibus</h2>
+<p>参考地址：<a href="http://code.google.com/p/ibus/wiki/Install" target="_blank">http://code.google.com/p/ibus/wiki/Install</a></p>
+<p>先把依赖包装好:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>yum install git gnome-common autoconf automake libtool glib2-devel intltool gtk-doc GConf-dbus-devel make gcc clutter-devel dbus-python-devel iso-codes-devel
+</pre></td></tr></table></figure>
+
+<p>然后把源代码下下来：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>git clone git://github.com/phuang/ibus.git ibus
+<span class="built_in">cd</span> ibus
+</pre></td></tr></table></figure>
+
+<p>开始编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>./autogen.sh --prefix=<span class="string">'/usr'</span> --sysconfdir=<span class="string">'/etc'</span> --libdir=<span class="string">'/usr/lib'</span> --enable-gtk-doc
+make
+<span class="built_in">sudo</span> make install
+</pre></td></tr></table></figure>
+
+<p>我在运行autogen.sh的时候出现了以下错误：</p>
+<p>Makefile.am: required file `./ChangeLog’ not found</p>
+<p>直接输入下面指令后，重新运行autogen.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>touch ChangeLog
+</pre></td></tr></table></figure>
+
+<h2 id="编译ibus-pinyin">编译ibus-pinyin</h2>
+<p>先安装依赖包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>yum install sqlite-devel gcc-c++ libuuid-devel
+</pre></td></tr></table></figure>
+
+<p>下载源代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>git clone git://github.com/phuang/ibus-pinyin.git ibus-pinyin
+<span class="built_in">cd</span> ibus-pinyin
+</pre></td></tr></table></figure>
+
+<p>开始编译：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>./autogen.sh --prefix=/usr
+make
+<span class="built_in">sudo</span> make install
+</pre></td></tr></table></figure>
+
+]]>
+    
+    </summary>
+    
+      <category term="1005ha-h" scheme="http://shenchao.im/tags/1005ha-h/"/>
+    
+      <category term="clutter" scheme="http://shenchao.im/tags/clutter/"/>
+    
+      <category term="EeePC" scheme="http://shenchao.im/tags/EeePC/"/>
+    
+      <category term="ibus" scheme="http://shenchao.im/tags/ibus/"/>
+    
+      <category term="moblin" scheme="http://shenchao.im/tags/moblin/"/>
+    
+      <category term="rpm" scheme="http://shenchao.im/tags/rpm/"/>
+    
+      <category term="上网本" scheme="http://shenchao.im/tags/%E4%B8%8A%E7%BD%91%E6%9C%AC/"/>
+    
+      <category term="Linux" scheme="http://shenchao.im/category/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[在Eee PC 1005ha上为Ubuntu打开多点触控]]></title>
+    <link href="http://shenchao.im/2009/11/06/setting-up-multi-touch-scrolling-for-ubuntu-9-10-karmic-koala-linux-on-asus-eee-1005ha-netbook/"/>
+    <id>http://shenchao.im/2009/11/06/setting-up-multi-touch-scrolling-for-ubuntu-9-10-karmic-koala-linux-on-asus-eee-1005ha-netbook/</id>
+    <published>2009-11-05T16:00:00.000Z</published>
+    <updated>2013-01-21T09:23:46.000Z</updated>
+    <content type="html"><![CDATA[<p>原文：<a href="http://blog.twinapex.fi/2009/10/11/setting-up-multi-touch-scrolling-for-ubuntu-9-10-karmic-koala-linux-on-asus-eee-1005ha-netbook/" target="_blank">Setting up multi-touch scrolling for Ubuntu 9.10 Karmic Koala Linux on Asus Eee 1005HA netbook</a></p>
+<p>虽然本文是基于Asus EeePC 1005ha的，但是本文阐述的方法也适用于其他采用Synaptics的笔记本。</p>
+<p>多点触控允许用户使用双指手势在触摸板上进行UI操作。苹果率先在Macbook引入了此技术，大大提高了在上网本上浏览网页的用户体验。最重要的手势是双指滚动文本。</p>
+<p>苹果还有很多相关的手势专利，所以他们不会被默认启用。</p>
+<p>真正的多点触控需要多点感知(电容)的触摸板支持。但是大多数笔记本都没有配备这种触摸板。不过很幸运，我们可以在压力敏感的触摸板上通过计算和技巧模拟出一些类似双指滚动的简单手势。</p>
+<p>注意：<a href="https://bugs.launchpad.net/ubuntu/+source/xserver-xorg-input-synaptics/+bug/355071" target="_blank">Ubuntu HAL对Synaptics的支持有问题</a>。只有最后那段shell脚本是有用的。在FDI文件中的HAL设定被忽略了。</p>
+<h2 id="设定Synaptics驱动">设定Synaptics驱动</h2>
+<p>在终端中输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>gksudo gedit /etc/hal/fdi/policy/<span class="number">11</span>-x11-synaptics.fdi
+</pre></td></tr></table></figure>
+
+<p>把下面内容粘贴进去：<a id="more"></a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="pi">&lt;?xml version=”1.0″ encoding=”ISO-8859-1″?&gt;</span>
+<span class="tag">&lt;<span class="title">deviceinfo</span> <span class="attribute">version</span>=<span class="value">”0.2″</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">device</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">match</span> <span class="attribute">key</span>=<span class="value">”info.capabilities”</span> <span class="attribute">contains</span>=<span class="value">”input.touchpad”</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">merge</span> <span class="attribute">key</span>=<span class="value">”input.x11_driver”</span> <span class="attribute">type</span>=<span class="value">”string”</span>&gt;</span>synaptics<span class="tag">&lt;/<span class="title">merge</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">merge</span> <span class="attribute">key</span>=<span class="value">”input.x11_options.SHMConfig”</span> <span class="attribute">type</span>=<span class="value">”string”</span>&gt;</span>On<span class="tag">&lt;/<span class="title">merge</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">merge</span> <span class="attribute">key</span>=<span class="value">”input.x11_options.EmulateTwoFingerMinZ”</span> <span class="attribute">type</span>=<span class="value">”string”</span>&gt;</span>40<span class="tag">&lt;/<span class="title">merge</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">merge</span> <span class="attribute">key</span>=<span class="value">”input.x11_options.VertTwoFingerScroll”</span> <span class="attribute">type</span>=<span class="value">”string”</span>&gt;</span>1<span class="tag">&lt;/<span class="title">merge</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">merge</span> <span class="attribute">key</span>=<span class="value">”input.x11_options.HorizTwoFingerScroll”</span> <span class="attribute">type</span>=<span class="value">”string”</span>&gt;</span>1<span class="tag">&lt;/<span class="title">merge</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">merge</span> <span class="attribute">key</span>=<span class="value">”input.x11_options.TapButton1″</span> <span class="attribute">type</span>=<span class="value">”string”</span>&gt;</span>1<span class="tag">&lt;/<span class="title">merge</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">merge</span> <span class="attribute">key</span>=<span class="value">”input.x11_options.TapButton2″</span> <span class="attribute">type</span>=<span class="value">”string”</span>&gt;</span>3<span class="tag">&lt;/<span class="title">merge</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">!–two</span> <span class="attribute">finger</span> <span class="attribute">tap</span> <span class="attribute">-</span>&gt;</span> middle clieck(3) –&gt;
+            <span class="tag">&lt;<span class="title">merge</span> <span class="attribute">key</span>=<span class="value">”input.x11_options.TapButton3″</span> <span class="attribute">type</span>=<span class="value">”string”</span>&gt;</span>2<span class="tag">&lt;/<span class="title">merge</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">!–three</span> <span class="attribute">finger</span> <span class="attribute">tap</span> <span class="attribute">-</span>&gt;</span> right click(2). almost impossible to click –&gt;
+        <span class="tag">&lt;/<span class="title">match</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">device</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">deviceinfo</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>这个设定将允许我们使用synclient在终端观察触摸板的实时数据。</p>
+<p>现在重启X：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> /etc/init.d/gdm restart
+</pre></td></tr></table></figure>
+
+<p>然后在终端中输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>synclient -m <span class="number">100</span>
+</pre></td></tr></table></figure>
+
+<p>接着你将在终端看到这样的数据：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="number">129.355</span>  <span class="number">2912</span> <span class="number">3469</span>  <span class="number">59</span> <span class="number">1</span>  <span class="number">4</span>  <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>  <span class="number">00000000</span>   <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>   <span class="number">0</span>   <span class="number">0</span>
+<span class="number">129.455</span>  <span class="number">2952</span> <span class="number">3529</span>  <span class="number">59</span> <span class="number">1</span>  <span class="number">4</span>  <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>  <span class="number">00000000</span>   <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>   <span class="number">0</span>   <span class="number">0</span>
+time     x    y   z f  w  l r u d m     multi  gl gm gr gdx gdy
+<span class="number">129.555</span>  <span class="number">3283</span> <span class="number">3516</span>  <span class="number">60</span> <span class="number">1</span>  <span class="number">4</span>  <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>  <span class="number">00000000</span>   <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>   <span class="number">0</span>   <span class="number">0</span>
+<span class="number">129.656</span>  <span class="number">3928</span> <span class="number">3517</span>  <span class="number">60</span> <span class="number">1</span>  <span class="number">4</span>  <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>  <span class="number">00000000</span>   <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>   <span class="number">0</span>   <span class="number">0</span>
+<span class="number">129.756</span>  <span class="number">4364</span> <span class="number">3637</span>  <span class="number">60</span> <span class="number">1</span>  <span class="number">4</span>  <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>  <span class="number">00000000</span>   <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>   <span class="number">0</span>   <span class="number">0</span>
+<span class="number">129.856</span>  <span class="number">4020</span> <span class="number">3329</span>  <span class="number">49</span> <span class="number">1</span>  <span class="number">4</span>  <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>  <span class="number">00000000</span>   <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>   <span class="number">0</span>   <span class="number">0</span>
+<span class="number">129.956</span>  <span class="number">3634</span> <span class="number">3122</span>  <span class="number">58</span> <span class="number">1</span>  <span class="number">4</span>  <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>  <span class="number">00000000</span>   <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>   <span class="number">0</span>   <span class="number">0</span>
+<span class="number">130.057</span>  <span class="number">3320</span> <span class="number">2957</span>  <span class="number">60</span> <span class="number">1</span>  <span class="number">4</span>  <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>  <span class="number">00000000</span>   <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>   <span class="number">0</span>   <span class="number">0</span>
+<span class="number">130.157</span>  <span class="number">2779</span> <span class="number">3312</span>  <span class="number">61</span> <span class="number">1</span>  <span class="number">4</span>  <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>  <span class="number">00000000</span>   <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>   <span class="number">0</span>   <span class="number">0</span>
+<span class="number">130.257</span>  <span class="number">2557</span> <span class="number">3739</span>  <span class="number">61</span> <span class="number">1</span>  <span class="number">4</span>  <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>  <span class="number">00000000</span>   <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>   <span class="number">0</span>   <span class="number">0</span>
+<span class="number">130.358</span>  <span class="number">2636</span> <span class="number">3485</span>  <span class="number">39</span> <span class="number">1</span>  <span class="number">4</span>  <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>  <span class="number">00000000</span>   <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>   <span class="number">0</span>   <span class="number">0</span>
+<span class="number">130.458</span>  <span class="number">2659</span> <span class="number">3104</span>  <span class="number">60</span> <span class="number">1</span>  <span class="number">4</span>  <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>  <span class="number">00000000</span>   <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>   <span class="number">0</span>   <span class="number">0</span>
+<span class="number">130.558</span>  <span class="number">2671</span> <span class="number">2988</span>  <span class="number">60</span> <span class="number">1</span>  <span class="number">4</span>  <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>  <span class="number">00000000</span>   <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span>   <span class="number">0</span>   <span class="number">0</span>
+</pre></td></tr></table></figure>
+
+<p>f表示触摸板上的手指数，w表示触摸区域的宽度，z表示触摸的压力。</p>
+<p>如果你用两只手指按在触摸板上，f值等于2，这代表你的触摸板支持多点感应。不过很不幸运，看样子华硕EeePC 1005ha支持1个点。</p>
+<h2 id="模拟方法">模拟方法</h2>
+<p>Synaptics的驱动可以在以下环境模拟双指触摸：</p>
+<ul>
+<li>触摸区域的宽度超过一定阈值（最小宽度）</li>
+<li>触摸压力超过一定阈值<br>当出现以上情况，驱动会认为也许用户正在使用两个手指。注意，每种触摸板都有特定的值，不能互用。</li>
+</ul>
+<p><a href="http://manpages.ubuntu.com/manpages/karmic/man4/synaptics.4.html" target="_blank">Synaptics驱动设定的介绍在这里</a>。我们可以在允许时使用xinput指令来修改Synaptics的驱动设置。开一个窗口，用synclient -m 100监控。再在另一个窗口修改阈值，直到你找到笔记本触摸板的模拟参数。下面是我的xinput测试,在firefox中滚动任意长的网页。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre>moo@huiskuttaja:~$ xinput <span class="keyword">set</span>-int-prop <span class="string">"SynPS/2 Synaptics TouchPad"</span> <span class="string">"Synaptics Two-Finger Width"</span> <span class="number">32</span> <span class="number">7</span>
+moo@huiskuttaja:~$ xinput <span class="keyword">set</span>-int-prop <span class="string">"SynPS/2 Synaptics TouchPad"</span> <span class="string">"Synaptics Two-Finger Pressure"</span> <span class="number">32</span> <span class="number">280</span>
+moo@huiskuttaja:~$ xinput <span class="keyword">set</span>-int-prop <span class="string">"SynPS/2 Synaptics TouchPad"</span> <span class="string">"Synaptics Two-Finger Width"</span> <span class="number">32</span> <span class="number">11</span>
+moo@huiskuttaja:~$ xinput <span class="keyword">set</span>-int-prop <span class="string">"SynPS/2 Synaptics TouchPad"</span> <span class="string">"Synaptics Two-Finger Pressure"</span> <span class="number">32</span> <span class="number">50</span>
+moo@huiskuttaja:~$
+</pre></td></tr></table></figure>
+
+<p>以下参数比较适合华硕EeePC 1005ha:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>width(W):<span class="number">8</span>
+pressure(Z):<span class="number">10</span>
+</pre></td></tr></table></figure>
+
+<p>你可以用synclient -l来dump现在的设置。</p>
+<p>以下是最终在登录时运行的脚本（参见<a href="https://bugs.launchpad.net/ubuntu/+source/xserver-xorg-input-synaptics/+bug/355071" target="_blank">Ubuntu HAL对Synaptics的支持有问题</a>）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="shebang">#!/bin/sh</span>
+<span class="comment">#</span>
+<span class="comment"># Use xinput --list-props "SynPS/2 Synaptics TouchPad" to extract data</span>
+<span class="comment">#</span>
+<span class="comment"># Set multi-touch emulation parameters</span>
+
+xinput <span class="keyword">set</span>-int-prop <span class="string">"SynPS/2 Synaptics TouchPad"</span> <span class="string">"Synaptics Two-Finger Pressure"</span> <span class="number">32</span> <span class="number">10</span>
+xinput <span class="keyword">set</span>-int-prop <span class="string">"SynPS/2 Synaptics TouchPad"</span> <span class="string">"Synaptics Two-Finger Width"</span> <span class="number">32</span> <span class="number">8</span>
+xinput <span class="keyword">set</span>-int-prop <span class="string">"SynPS/2 Synaptics TouchPad"</span> <span class="string">"Two-Finger Scrolling"</span> <span class="number">8</span> <span class="number">1</span>
+xinput <span class="keyword">set</span>-int-prop <span class="string">"SynPS/2 Synaptics TouchPad"</span> <span class="string">"Synaptics Two-Finger Scrolling"</span> <span class="number">8</span> <span class="number">1</span> <span class="number">1</span>
+
+<span class="comment"># Disable edge scrolling</span>
+xinput <span class="keyword">set</span>-int-prop <span class="string">"SynPS/2 Synaptics TouchPad"</span> <span class="string">"Synaptics Edge Scrolling"</span> <span class="number">8</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>
+
+<span class="comment"># This will make cursor not to jump if you have two fingers on the touchpad and you list one</span>
+
+<span class="comment"># (which you usually do after two-finger scrolling)</span>
+xinput <span class="keyword">set</span>-int-prop <span class="string">"SynPS/2 Synaptics TouchPad"</span> <span class="string">"Synaptics Jumpy Cursor Threshold"</span> <span class="number">32</span> <span class="number">110</span>
+</pre></td></tr></table></figure>
+
+<p>当你在双指滚动时，如果一只手指提前提出来，鼠标箭头会跳动。Synaptics的驱动好像没有相关设置可以用来过滤这样的问题事件。如果有朋友有解决方案，请务必留言。谢谢！</p>
+<h2 id="其他资源">其他资源</h2>
+<ul>
+<li><a href="http://randomtruth.110mb.com/blog/index.php/2009/03/30/v10-of-linux-multi-touch-released/" target="_blank">Linux 多点触控</a>项目是一个收集Perl脚本的工程。这些脚本与多点事件有关。如果你想定制你的多点触控经验并且你有一些开发经验，这个地方可以帮助入门。</li>
+<li><a href="https://bugs.launchpad.net/ubuntu/+source/xserver-xorg-input-synaptics/+bug/422224" target="_blank">关于模拟多点触控的注意事项</a>（看最后的留言）</li>
+<li><a href="http://ubuntu-snippets.blogspot.com/2009/03/multi-touch-for-anyall-synaptics.html" target="_blank">诊断多点支持和HAL文件编辑</a></li>
+<li><a href="http://brainstorm.ubuntu.com/idea/3077/" target="_blank">在Ubuntu 头脑风暴上的有关idea</a></li>
+<li><a href="http://cgit.freedesktop.org/xorg/driver/xf86-input-synaptics/" target="_blank">Synaptics X11 驱动源代码</a>. <a href="http://web.telia.com/~u89404340/touchpad/index.html" target="_blank">Synaptics 驱动项目主页</a>. 看起来它背后没有一个核心人物，除了维护和来自分销商的大量补丁。</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>原文：<a href="http://blog.twinapex.fi/2009/10/11/setting-up-multi-touch-scrolling-for-ubuntu-9-10-karmic-koala-linux-on-asus-eee-1005ha-netbook/" target="_blank">Setting up multi-touch scrolling for Ubuntu 9.10 Karmic Koala Linux on Asus Eee 1005HA netbook</a></p>
+<p>虽然本文是基于Asus EeePC 1005ha的，但是本文阐述的方法也适用于其他采用Synaptics的笔记本。</p>
+<p>多点触控允许用户使用双指手势在触摸板上进行UI操作。苹果率先在Macbook引入了此技术，大大提高了在上网本上浏览网页的用户体验。最重要的手势是双指滚动文本。</p>
+<p>苹果还有很多相关的手势专利，所以他们不会被默认启用。</p>
+<p>真正的多点触控需要多点感知(电容)的触摸板支持。但是大多数笔记本都没有配备这种触摸板。不过很幸运，我们可以在压力敏感的触摸板上通过计算和技巧模拟出一些类似双指滚动的简单手势。</p>
+<p>注意：<a href="https://bugs.launchpad.net/ubuntu/+source/xserver-xorg-input-synaptics/+bug/355071" target="_blank">Ubuntu HAL对Synaptics的支持有问题</a>。只有最后那段shell脚本是有用的。在FDI文件中的HAL设定被忽略了。</p>
+<h2 id="设定Synaptics驱动">设定Synaptics驱动</h2>
+<p>在终端中输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>gksudo gedit /etc/hal/fdi/policy/<span class="number">11</span>-x11-synaptics.fdi
+</pre></td></tr></table></figure>
+
+<p>把下面内容粘贴进去：]]>
+    
+    </summary>
+    
+      <category term="1005ha-h" scheme="http://shenchao.im/tags/1005ha-h/"/>
+    
+      <category term="EeePC" scheme="http://shenchao.im/tags/EeePC/"/>
+    
+      <category term="上网本" scheme="http://shenchao.im/tags/%E4%B8%8A%E7%BD%91%E6%9C%AC/"/>
+    
+      <category term="华硕" scheme="http://shenchao.im/tags/%E5%8D%8E%E7%A1%95/"/>
+    
+      <category term="多点触控" scheme="http://shenchao.im/tags/%E5%A4%9A%E7%82%B9%E8%A7%A6%E6%8E%A7/"/>
+    
+      <category term="Linux" scheme="http://shenchao.im/category/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[imchao在feedsky上的feed出问题了]]></title>
+    <link href="http://shenchao.im/2009/08/27/imchao-in-the-feed-on-the-problem-of-feedsky/"/>
+    <id>http://shenchao.im/2009/08/27/imchao-in-the-feed-on-the-problem-of-feedsky/</id>
+    <published>2009-08-26T16:00:00.000Z</published>
+    <updated>2014-09-29T07:00:00.000Z</updated>
+    <content type="html"><![CDATA[<p>在<a href="https://twitter.com/bangchuinan" target="_blank">@棒槌男</a>同学的提醒下，吼吼发现本站托管在feedsky的feed很久没有更新了。不知何故，吼吼强制提交更新了几次，可是还是没有解决问题。</p>
+<p>于是吼吼决定放弃feedsky了。feedsky上的feed30天后删除。请想继续关注本站的朋友们，把订阅器中的feed更新为<a href="http://shenchao.im/feed">http://shenchao.im/feed</a></p>
+<p>感谢大家的支持，再次感谢一下<a href="https://twitter.com/bangchuinan" target="_blank">@棒槌男</a>同学。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在<a href="https://twitter.com/bangchuinan" target="_blank">@棒槌男</a>同学的提醒下，吼吼发现本站托管在feedsky的feed很久没有更新了。不知何故，吼吼强制提交更新了几次，可是还是没有解决问题。</p>
+<]]>
+    </summary>
+    
+      <category term="Other" scheme="http://shenchao.im/category/Other/"/>
+    
+  </entry>
+  
+</feed>

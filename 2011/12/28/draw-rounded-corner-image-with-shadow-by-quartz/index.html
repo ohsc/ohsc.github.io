@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用Quartz绘制带阴影的圆角图 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="最近在做iOS开发的时候，遇到这样的需求：需要开发一个高度自适应的控件，背景使用图案平铺，控件下方两个角为圆角，控件的下边有5像素宽的阴影。具体如图所示：
+
+方案A
+在做这个需求时首先想到是用colorWithPatternImage来平铺图片，然后使用CALayer添加阴影。">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="使用Quartz绘制带阴影的圆角图"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2011-12-28T12:08:00.000Z">Dec 28 2011</time>
+      
+      
+  
+    <h1 class="title">使用Quartz绘制带阴影的圆角图</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>最近在做iOS开发的时候，遇到这样的需求：需要开发一个高度自适应的控件，背景使用图案平铺，控件下方两个角为圆角，控件的下边有5像素宽的阴影。具体如图所示：</p>
+<p><img src="/uploads/2011/12/28/rounded-corner-image-requirement.png" alt="需求效果图" title="需求效果图"></p>
+<h2 id="方案A">方案A</h2>
+<p>在做这个需求时首先想到是用<code>colorWithPatternImage</code>来平铺图片，然后使用CALayer添加阴影。</p>
+<a id="more"></a>
+
+<script src="https://gist.github.com/1531487.js?file=RoundedCornerImageA.m"></script>
+
+
+<p>不过这样做的严重缺陷是阴影被裁切掉了。</p>
+<h2 id="方案B">方案B</h2>
+<p>所以考虑使用Quartz的<code>CGContextDrawTiledImage</code>来平铺背景，使用layer制造阴影。</p>
+<script src="https://gist.github.com/1531487.js?file=RoundedCornerImageB.m"></script>
+
+
+<p>这样做虽然可以大概的实现需求，不过阴影的宽度不可控制。</p>
+<h2 id="方案C">方案C</h2>
+<p>于是我尝试使用Quartz的<code>CGContextSetShadowWithColor</code>来绘制阴影，但是怎么绘制阴影呢？使用<code>CGContextDrawTiledImage</code>平铺背景时会占满指定的区域，这样也有没有了绘制阴影的空间。</p>
+<p>在stackoverflow搜索了一圈，有人建议先使用固定色填充圆角区域，再在这个区域平铺图片。</p>
+<script src="https://gist.github.com/1531487.js?file=RoundedCornerImageC.m"></script>
+
+
+<p>这个方案比上个方案好了很多，不过细心的人可能会发现圆角的阴影有深色的锯齿，不够协调。原因是阴影是根据固定色生成的，在处理边界过度时是从固定色过度来的。</p>
+<h2 id="方案D">方案D</h2>
+<p>那有没有办法让阴影根据图片来生成呢？我想到了<code>CGContextDrawImage</code>方法。先在一个特殊的<code>context</code>生成平铺图，然后在当前的<code>context</code>使用<code>CGContextDrawImage</code>来绘制图片，这样绘制图片的同时会产生相应的阴影。</p>
+<script src="https://gist.github.com/1531487.js?file=RoundedCornerImageD.m"></script>
+
+
+<h2 id="结语">结语</h2>
+<p>作为初学者，对Quartz也只是一知半解。尝试过程中发现绘制的时候一定要注意顺序，否则会出现各种奇怪的问题。Quartz是个强大东西，要好好利用还需跟多的尝试。</p>
+<p>另附上本文的源代码：<a href="https://github.com/ohsc/CodeBox-of-Cocoa/tree/master/RoundedCornerImageWithShadow" target="_blank">https://github.com/ohsc/CodeBox-of-Cocoa/tree/master/RoundedCornerImageWithShadow</a></p>
+<p>四个方案运行效果图：</p>
+<p><img src="/uploads/2011/12/28/rounded-corner-image-implementation.png" alt="运行结果图" title="运行结果图"></p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/Cocoa/">Cocoa</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>sopcast | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper">
+<h2 class="archive-title tag">sopcast</h2>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2008-11-06T16:00:00.000Z">Nov 7 2008</time>
+      
+      
+  
+    <h1 class="title"><a href="/2008/11/07/ubuntu-in-the-under-sopcast-watch-tv-online/">在Ubuntu下看在线电视－sopcast</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>今天在ubuntu下通过GMlive＋sopcast实现了在线看电视。</p>
+<p>GMLive并不直接提供P2P直播服务。 它尝试成为一款通用型的流媒体播放外壳。 它以全能的Mplayer播放器为引擎。目标是支持Linuxx下多种类型的P2P广播视频流，提供一种方便快捷的观看网络视频的方案。</p>
+<p>sopcast是一个基于P2P的流媒体系统，在这里网友可以欣赏来自世界各地的,内容丰富的电视节目。</p>
+<p>GMLive官方地址<a href="http://code.google.com/p/gmlive/" target="_blank">http://code.google.com/p/gmlive/</a><br>sopcast官方地址<a href="http://www.sopcast.cn/其实是http://www.sopcast.org/，可是我进不去。" target="_blank">http://www.sopcast.cn/其实是http://www.sopcast.org/，可是我进不去。</a></p>
+<p>下载下列文件<br><a href="http://gmlive.googlecode.com/files/gmlive-0.21.2.tar.bz2" target="_blank">gmlive-0.21.2.tar.bz2</a><br><a href="http://download.sopcast.cn/download/sp-auth.tgz" target="_blank">sp-auth.tgz</a><br>sopcast依赖 stdc++5，请准备好。</p>
+<p>解压上面两个文件，把sp-auth的sp-sc-auth复制到/usr/local/bin</p>
+<p>然后进入gmlive的目录,安装gmlive</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>./configure
+make
+<span class="built_in">sudo</span> make install
+</pre></td></tr></table></figure>
+
+<p>接下来就可以看电视了。</p>
+<p>网上还有很多优化的电视列表（不一定是gmlive的）：</p>
+<p><a href="http://forum.ubuntu.com.cn/viewtopic.php?f=74&amp;t=164337&amp;sid=49887bfa1cc8d95e2d88f6a6105872ab" target="_blank">http://forum.ubuntu.com.cn/viewtopic.php?f=74&amp;t=164337&amp;sid=49887bfa1cc8d95e2d88f6a6105872ab</a></p>
+<p><a href="http://forum.ubuntu.com.cn/viewtopic.php?f=74&amp;t=109855&amp;sid=49887bfa1cc8d95e2d88f6a6105872ab" target="_blank">http://forum.ubuntu.com.cn/viewtopic.php?f=74&amp;t=109855&amp;sid=49887bfa1cc8d95e2d88f6a6105872ab</a></p>
+<p>最后说明一下<br><a href="http://code.google.com/p/gsopcast/" target="_blank">gsopcast</a>是sopcast的前端，和gmlive差不多，但也有差异大家可以尝试一下</p>
+<p><a href="http://www.sopcast.com/download/libstdcpp5.tgz" target="_blank"> </a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

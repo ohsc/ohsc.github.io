@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>我的第三代NAS方案 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="三年前我开始探索DIY家用NAS方案，那时我组装了我家第一台NAS，我把它称之为ING第一代NAS。参见那时候写的《DIY了家用NAS》。
+两年后，由于技展高清3号机箱的做工太差，前置面板螺孔全部断裂，我开始考虑新的NAS方案。这就是ING第二代NAS。当时的配置方案为：
+
+主板：七彩虹 i-AE50 V14(四个SATA3.0、两个USB3.0、一个千兆网卡、一个HDMI接口、高清硬解)
+内存：金士顿 4G DDR3 1333
+机箱：万由U-NAS N400（4盘位热插拔）
+电源：台达1U小电源 200W
+系统盘：威刚ASP900S3-64G
+数据盘：西数2TB绿盘">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="我的第三代NAS方案"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2013-10-07T07:43:52.000Z">Oct 7 2013</time>
+      
+      
+  
+    <h1 class="title">我的第三代NAS方案</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><img src="/uploads/2013/10/07/3nd_diy_nas_pc-q25a.jpg" alt="第三代NAS" title="联力PC-Q25正面照"></p>
+<p>三年前我开始探索DIY家用NAS方案，那时我组装了我家第一台NAS，我把它称之为ING第一代NAS。参见那时候写的《<a href="/2010/01/27/diy-for-home-nas/">DIY了家用NAS</a>》。</p>
+<p>两年后，由于技展高清3号机箱的做工太差，前置面板螺孔全部断裂，我开始考虑新的NAS方案。这就是ING第二代NAS。当时的配置方案为：</p>
+<ul>
+<li>主板：七彩虹 i-AE50 V14(四个SATA3.0、两个USB3.0、一个千兆网卡、一个HDMI接口、高清硬解)</li>
+<li>内存：金士顿 4G DDR3 1333</li>
+<li>机箱：万由U-NAS N400（4盘位热插拔）</li>
+<li>电源：台达1U小电源 200W</li>
+<li>系统盘：威刚ASP900S3-64G</li>
+<li>数据盘：西数2TB绿盘</li>
+</ul>
+<a id="more"></a>
+
+<p><img src="/uploads/2013/10/07/2nd_diy_nas.jpg" alt="第二代NAS" title="第二代NAS"></p>
+<p>和上一代一样，这代依然使用Ubuntu。与众不同的是，我在Ubuntu Server的基础上装了XBMC。没有安装KDE、Gnome这类桌面。就单装了xorg和XBMC。XBMC以standalone模式运行。开机就显示XBMC。</p>
+<p>当初刚弄好的XBMC还不能硬解。由于那时候AMD并没有公开硬解驱动，所以必须安装AMD私有驱动。此外还需要额外安装xvba-va-driver和<a href="https://launchpad.net/~wsnipex/+archive/xbmc-xvba" target="_blank">xbmc-xvba</a>，才能开启XBMC的vpdau支持。不过最近听说AMD已经把UVD部分驱动开源了，之后可以直接使用开源驱动实现硬解。众所周知官方私有驱动烂的一坨屎一样，相信在AMD平台搭建NAS的朋友可以解脱了。</p>
+<p>第二代NAS装上了XBMC就摇身一变，就成了HTPC。我还专门买了个MCE遥控和红外接收器。</p>
+<p>为了让NAS可以在外网访问，我把域名托管在DNSPod，写了个DDNS客户端。这个项目叫<a href="https://github.com/ohsc/dnspod-ddns" target="_blank">dnspod-ddns</a>，目前开源在<a href="https://github.com/ohsc/dnspod-ddns" target="_blank">github</a>上面。</p>
+<p>因为长年挂PT，NAS的硬盘很快被撑满了。虽说这个主板有4个SATA口的，不过硬盘已经占用一个SATA口。要想扩盘，就得上raid卡了。但是为万由机箱狭小的空间选配个raid卡实属困难。我干脆把二代整机都转手卖了，准备酝酿我的第三代NAS。</p>
+<p>配置方案如下：</p>
+<ul>
+<li>主板：技嘉B75N(一个SATA3.0、三个SATA2.0、两个USB3.0、两个千兆网卡、两个个HDMI接口、高清硬解)</li>
+<li>CPU：G2030</li>
+<li>风扇：超频三 刀锋S85</li>
+<li>内存：金士顿 4G DDR3 1333</li>
+<li>机箱：联力PC-Q25（6盘位热插拔）</li>
+<li>机箱风扇：安耐美 白蝠12CM静音风扇</li>
+<li>电源：250W DC-ATX电源 北美索泰定制版(四线16awg版本)</li>
+<li>系统盘：威刚ASP900S3-64G</li>
+<li>数据盘：西数3TB红盘</li>
+</ul>
+<p>先得说说这主板。其实我很想直接上到Haswell平台，B85、H87都已经有很好的ITX板子了。不过Haswell平台的低功耗cpu价格太高了，完全无法接受。再加上本身性能提升不大，所以上到Haswell平台性价比不高。土豪朋友们就不必纠结了，直接Haswell吧。技嘉这款板子很良心，做工好的不说，双网卡还支持teaming。</p>
+<p><img src="/uploads/2013/10/07/3nd_diy_nas_ga-b75n.jpg" alt="技嘉B75N主板" title="技嘉B75N主板"></p>
+<p>G2030是G2020的升级版，玩DIY NAS的朋友们一定对G1610、G2020很熟悉，就不多说了。超频三S85风扇的性价比很高，静音效果很好。内存和系统盘还是二代留下来的，没换。</p>
+<p>机箱直接用了联力的PC-Q25。这款机箱很不错，可玩性很大。提供5个热插拔位，两个普通3.5位。7个3.5啊，我可以直接六盘位了。还有，因为选用了DC-ATX电源，所以ATX电源的空间剩下来了。以后有兴致MOD机箱的话，可以再加个硬盘笼进去，上到10盘位也不在话下。另外它可以插一个全长度的独显，当然我应该不会上独显，低功耗才是我追求的。</p>
+<p><img src="/uploads/2013/10/07/3nd_diy_nas_5_hotbay.jpg" alt="联力PC-Q25盘位照" title="联力PC-Q25盘位照"></p>
+<p><img src="/uploads/2013/10/07/3nd_diy_nas_dc-atx.jpg" alt="DC-ATX电源照" title="DC-ATX电源照"></p>
+<p>这里还要额外提一下，PC-Q25有个致命的问题，机箱上面的出风口的风扇噪音很大。这就是我为什么还买了个白蝠风扇。PC-Q25有两个风扇，一个负责进气，一个负责排气。进气的风扇位于前置面板后方，14cm的，很安静。出气的在机箱上方，估计是不能调速的原因，风扇大功率工作导致噪音很大。我搞的百蝠带PWM调速，直接接在主板的sysfan上，让主板来调速，效果很不错。说道这里，可能有朋友会问，为什么不用猫扇？减小风力后对散热有没有影响？不上猫扇，是因为性价比不高。因为我没有ATX电源，所以不必费尽心思去调整风道，自然不需要风扇有很大的风压。至于效果，目前烤机下来，CPU还能维持在40°-45°，平常维持在39°。你说好不好呢？</p>
+<p>第三代NAS依然采用Ubuntu Server。也许会有人问为什么不用DSM、FreeNas等现成的系统呢？主要原因是我喜欢折腾，控制一切。必要时还可以hack软件包。之后还想尝试一下Btrfs。Ubuntu是我最熟悉的Linux发行版。比较惊喜的是开源驱动对Intel平台支持的很好，不需要折腾就已经可以硬解高清了。下面罗列一下我安装的软件包：</p>
+<p>基础服务</p>
+<ul>
+<li>openssh-server：SSH服务</li>
+<li>iotop：监控硬盘IO</li>
+<li>lm-sensors：CPU温度监控</li>
+<li>hddtemp：硬盘温度监控</li>
+<li>exfat-fuse：挂载exfat分区</li>
+<li>trash-cli：替代rm命令，安全第一</li>
+</ul>
+<p>XBMC</p>
+<ul>
+<li>xinit xorg alsa-utils pulseaudio：X Server，未来可以用wayland了</li>
+<li>xbmc xbmc-standalone：XBMC</li>
+<li>upower acpi-support：XBMC的关机支持</li>
+</ul>
+<p>NAS服务</p>
+<ul>
+<li>samba：SMB/CIFS文件共享</li>
+<li>transmission-daemon BT/PT下载</li>
+<li>forked-daapd：iTunes媒体共享</li>
+<li>minidlna：DLNA服务器</li>
+<li>aria2：最好的HTTP下载，参见《<a href="/2012/08/27/mac-linux-multi-connection-download-solution/">Mac/Linux 多线程下载解决方案</a>》</li>
+<li>udisks usbmount：实现自动挂载U盘</li>
+<li>nodejs：用来跑我写的<a href="https://github.com/ohsc/dnspod-ddns" target="_blank">dnspod-ddns</a></li>
+<li>dnsmasq：这个也不多说</li>
+<li>ziproxy：哈哈这个不多说</li>
+</ul>
+<p>目前折腾到此，还有其他可玩了之后再更新。</p>
+<p><img src="/uploads/2013/10/07/3nd_diy_nas_pc-q25b.jpg" alt="第三代NAS" title="联力PC-Q25侧面照"></p>
+<p>以上。</p>
+<p>相关参考：</p>
+<ul>
+<li><a href="/2010/01/27/diy-for-home-nas/">DIY了家用NAS</a></li>
+<li><a href="https://launchpad.net/~wsnipex/+archive/xbmc-xvba" target="_blank">xbmc-xvba</a></li>
+<li><a href="https://github.com/ohsc/dnspod-ddns" target="_blank">dnspod-ddns</a></li>
+<li><a href="/2012/08/27/mac-linux-multi-connection-download-solution/">Mac/Linux 多线程下载解决方案</a></li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/Solution/">Solution</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/nas/">nas</a>, <a href="/tags/Ubuntu/">Ubuntu</a>, <a href="/tags/Aria2/">Aria2</a>, <a href="/tags/迅雷/">迅雷</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,701 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Page 3 | Archives | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper">
+<h2 class="archive-title">Archives</h2>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2009-08-20T16:00:00.000Z">Aug 21 2009</time>
+      
+      
+  
+    <h1 class="title"><a href="/2009/08/21/perfect-ubuntu-on-the-asus-eeepc-1005ha-and-1008ha/">EeePC 1005ha(1008ha)安装Ubuntu的完美方案</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>原文：<a href="http://www.jfwhome.com/2009/08/06/perfect-ubuntu-jaunty-on-the-asus-eeepc-1005ha-and-1008ha/" target="_blank">《Perfect Ubuntu Jaunty on the Asus eeePC 1005HA (and 1008HA)》</a></p>
+<p>本文并没有按照原文100%翻译，吼吼去掉了一些无关紧要的内容，同时还做了一些完善性的修改。</p>
+<h3 id="准备工作">准备工作</h3>
+<p>在这里我们使用的是Ubuntu netbook remix版。这是为上网本设计的，内核也是特殊定制的。即使你不喜欢上网本版的界面，你也可以在装好后，通过设置很容易地恢复到默认的界面。</p>
+<p>下载<a href="http://www.ubuntu.org.cn/getubuntu/download-netbook/" target="_blank">Ubuntu netbook remix</a></p>
+<p>请准备好u盘，然后<a href="https://help.ubuntu.com/community/Installation/FromImgFiles" target="_blank">参照这里</a>制作安装盘。</p>
+<p>在开始前请确定您已经阅读完本文。如果您只有一台电脑，请在开始前把需要下载的驱动文件都下载好。准备就绪后，我们开始安装。</p>
+<p>先关掉Boot Booster，以便我们使用U盘进行引导：</p>
+<p>开机按F2进入BIOS设置。在Boot settings里找到Boot Booster，把他设为disable，按F10保存退出重启。</p>
+<p>当机器开始重启时，按Ese进入启动选择菜单，选择U盘启动。</p>
+<p>进入Ubuntu启动菜单后，直接进入安装。
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2009/08/21/perfect-ubuntu-on-the-asus-eeepc-1005ha-and-1008ha/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2009-08-12T16:00:00.000Z">Aug 13 2009</time>
+      
+      
+  
+    <h1 class="title"><a href="/2009/08/13/1005ha-h-fitted-to-the-three-systems/">给1005ha-h装了三系统</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>贝壳机买回来后，就开始不断的折腾。现在我已经给它装了三个系统了：ubuntu、windows7、moblin</p>
+<p>开机后使用的是ubuntu的grub引导的。有三个系统可选。</p>
+<p><img src="/uploads/2009/08/3817231013_de2534329a_b.jpg" alt="" title="eeepc上的三系统"></p>
+<p>这是漂亮的moblin，我升级了一下，但是源里没有最新的clutter包，所以导致了部分程序不能使用。今天尝试编译了一下clutter，结果提示No glib-gettextize,怎么办那。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2009/08/13/1005ha-h-fitted-to-the-three-systems/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2009-08-10T16:00:00.000Z">Aug 11 2009</time>
+      
+      
+  
+    <h1 class="title"><a href="/2009/08/11/start-a-eeepc1005ha-h/">入手了EeePC1005ha-h</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>那啥，我先承认错误，以及提前承认错误。本人计划毕业后出国留学，目前正在准备GRE考试。所以上网的时间不多了，写blog的时间也不多了，也许会有很长时间不写blog了。但是我还是尽量写一点吧。</p>
+<p>8月初，我入手了1005ha-h，华硕的贝壳机哟，非常漂亮。1005ha-h在所有上网本中有着不俗的性能，和长达10.5小时的超长续航时间。以后吼吼就可以带着上网本出去稍微游荡一会了，上个网，喝点茶什么的。呵呵，在这里我顺便再教唆一下TualatriX，赶快去买上网本吧。</p>
+<p>接下来show一下照片。</p>
+<p><img src="/uploads/2009/08/2009-08-04-14.20.19.jpg" alt="" title="1008ha"></p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2009/08/11/start-a-eeepc1005ha-h/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2009-07-06T16:00:00.000Z">Jul 7 2009</time>
+      
+      
+  
+    <h1 class="title"><a href="/2009/07/07/unicom-3g/">办了联通3G</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>我曾经在<a href="http://www.zjuni.com" target="_blank">浙江联通的3g体验申请站</a>报了了个名，结果第三天被告知申请失败。然后在六月的某个中午，联通心回意转，打电话来让我去办卡。在n天的挣扎后，6月29号上午，我来到中河路的联通集团客户服务部准备办卡。听联通的员工说，申请好的号码需要预存花费，500、1000都有。由于我比较穷，选了个比较寒酸的号码，采用联通最低的186套餐+150MB的流量。办完手续后，客服没有立刻给我入网，好像是在整理什么资料。总之我觉得联通里面一团糟。到了晚上六点终于入网了，据说这个月是用多少算多少。比如我包的186套餐，有60MB的3G流量，平均每天2MB。我在6月19日开通，6月只剩两天，所以这个月的资费是原资费的2/30，包的流量是4MB。这两天我只能忍着，等待七月的210MB流量。</p>
+<p>7月1日一早，我爬起来，赶快开始测试3g。速度快得没得说，在market下了个1MB的软件用了2-3秒。打开网页几乎都是一瞬间的。G1+wcdma真是不错，不过G1的发热也很明显，我没用多久就开始热了，用了一段时间开始发烫，我手心出汗了。用了联通后，除了上网速度飞快以外，我的生活并没有太大改变。</p>
+<p>得益于成熟的wcdma，联通速度让我很满意。但是使用联通3g一周后，我发现联通的一些不足：</p>
+<ol>
+<li>网上营业厅不成熟。联通的10010.com压根没有办理业务的功能，最多也就能看看详单、余额之类的信息。</li>
+<li>没办法查询本月已用的3G流量，这让用户用得很不安心。这点我和联通的客服姐姐沟通过，客服姐姐说只能通过客服人工查询。我郁闷了，我很害羞，不想老是和客服姐姐打电话。这不逼我写个程序，来分析详单，统计流量吗？</li>
+<li>信号不稳定，这大概是联通的老毛病了。G1的信号经常降级，而且降的最多的不是edge，是gprs。我在用移动上网的时候，从来没有出现这样的情况。</li>
+</ol>
+<p>还有一些其他问题，我以后再总结。总之我觉得联通要树立3g的品牌形象，不把自己的配套服务完善好是不行的。价格定再高，服务跟不上，口碑是不会好的。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2009-06-18T16:00:00.000Z">Jun 19 2009</time>
+      
+      
+  
+    <h1 class="title"><a href="/2009/06/19/jsp-servlet-mindmap/">JSP与Servlet基础教程的思维导图</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>吼吼终于考完试了，虽然暑假计划安排的满满的，但是吼吼还不急于执行。首先整理以下这学期的知识吧。</p>
+<p>这学期期末应考，吼吼采用了一种非常大胆的应考方式。在以前吼吼肯定会提前半个月到自修教室蹲点看书，前期边看书，边做读书笔记，后期主要是在强化解题方法和记忆知识体系。这次不同了，吼吼直接窝在寝室，与电脑为伴，利用xmind制作知识点的思维导图。边看书，编制做，看完书后，强化记忆一下思维导图，然后就去考试了。这次复习只用了一周，效果非常好，但是吼吼不推荐这种方法，因为有以下原因：</p>
+<ol>
+<li>吼吼的字非常丑</li>
+<li>吼吼打字速度比写字快很多</li>
+<li>这学期的科目以记忆为主，技巧性不强，不适合需要解题技巧的科目</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2009/06/19/jsp-servlet-mindmap/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2009-05-21T16:00:00.000Z">May 22 2009</time>
+      
+      
+  
+    <h1 class="title"><a href="/2009/05/22/learning-jquery-notes/">jQuery学习笔记1-选择器</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在学习jQuery前务必要有xhtml、css、xml、Javascript的基础，否则很难进行下去。本文参考了《Learning jQuery》和《<a href="http://code.google.com/p/jquery-api-zh-cn/" target="_blank">jQuery 1.3中文参考</a>》。强烈建议去下载这份手册，弄得不错，很方便。最近我就稍微看一下《Learning jQuery》，然后参照着《<a href="http://code.google.com/p/jquery-api-zh-cn/" target="_blank">jQuery 1.3中文参考</a>》做了几个实例，很轻松，jQuery比想象中的简单，用起来很顺手。下面进入正题。</p>
+<p>jQuery中基本的操作就是选择文档中的某一部分，这是通过$()函数完成的。$()是jQuery的工厂函数，又称选择器。$()支持css、xpath的选择符，同时还有自定义选择符。$()函数会消除使用for遍历一组元素的需求，因为放到圆括号中的任何元素都将自动执行循环遍历，然后存在一个jQuery对象中。例如：</p>
+<h2 id="基本">基本</h2>
+<p><code>$(&#39;p&#39;)</code> 会取得文档中的所有段落。</p>
+<p><code>$(&#39;#id&#39;)</code> 会取得文档中对应id的一个元素。</p>
+<p><code>$(&#39;.class&#39;)</code> 会取得文档中带有class类的所有元素。</p>
+<p><code>$(&#39;*&#39;)</code> 取得所有元素</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2009/05/22/learning-jquery-notes/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2009-05-17T16:00:00.000Z">May 18 2009</time>
+      
+      
+  
+    <h1 class="title"><a href="/2009/05/18/android-have-you-google-sky-map/">Android上有Google Sky Map啦</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>该软件利用了这两款手机内部的多项技术，比如GPS、时钟、指南针以及高度计，能告诉你所指的星座是什么名字。不亏是Google自己软件，做得非常人性化，直接摆动手机就可以移动天空，无需手指操作。界面切换流畅而优雅。下面是截图：</p>
+<p><img src="/uploads/2009/05/screenshot1242611740784.png" alt="" title="google sky map"></p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2009/05/18/android-have-you-google-sky-map/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2009-05-14T16:00:00.000Z">May 15 2009</time>
+      
+      
+  
+    <h1 class="title"><a href="/2009/05/15/im-group-ing-declaration/">IM一族ING宣言</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>咳，IM一族要发表宣言咯。我代表IM一族正式宣布IM一族都是ING！</p>
+<p>什么是ING呢，ING是由我们IM一族发明的词汇，我们采用递归命名法，基本意思是ING‘s Not Geek。为什么不是Geek呢？我们是想要强调：ING必须要是懂技术的，每个人都有自己拿手的技术。ING关注互联网，关注新idea，关注新技术。ING有着ing的进取精神，ING不断磨练自己的技术，同时还学习新的技术。</p>
+<p>暂时只想到这些，其他的还得请朋友们来补充。</p>
+<p>最后附上我总结的图。</p>
+<p><img src="/uploads/2009/05/3854604919_61da04848f.jpg" alt="" title="ING定义"></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2009-05-13T16:00:00.000Z">May 14 2009</time>
+      
+      
+  
+    <h1 class="title"><a href="/2009/05/14/ubuntu-install-aptana/">Ubuntu中安装Aptana</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>今天在做XML的实验作业，需要使用javascript，下了Aptana，但是每次启动到最后一步就出错了。去官方查了一下（<a href="http://www.aptana.com/docs/index.php/Installing_Aptana_on_Linux" target="_blank">Installing Aptana Studio on Linux</a>），原来Aptanna需要XULRunner。我的安装步骤：</p>
+<p>1.解压Aptanna</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>unzip Aptana_Studio_Setup_Linux_1.<span class="number">2.6</span>.zip
+</pre></td></tr></table></figure>
+
+<p>2.移动到/usr/local</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>mv aptana /usr/local
+</pre></td></tr></table></figure>
+
+<p>3.安装XULRunner</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get install xulrunner
+</pre></td></tr></table></figure>
+
+<p>4.加入环境路径</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">export</span> MOZILLA_FIVE_HOME=/usr/lib/xulrunner
+</pre></td></tr></table></figure>
+
+<p>5.启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>/usr/local/aptana/AptanaStudio
+</pre></td></tr></table></figure>
+
+<p>为了方便，我们做个启动脚本，内容如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="shebang">#!/bin/sh</span>
+MOZILLA_FIVE_HOME=/usr/lib/xulrunner
+<span class="keyword">if</span> [ <span class="variable">$LD_LIBRARY_PATH</span> ]; <span class="keyword">then</span>
+LD_LIBRARY_PATH=<span class="variable">$MOZILLA_FIVE_HOME</span>:<span class="variable">$LD_LIBRARY_PATH</span>
+<span class="keyword">else</span>
+LD_LIBRARY_PATH=<span class="variable">$MOZILLA_FIVE_HOME</span>
+<span class="keyword">fi</span>
+
+<span class="keyword">export</span> MOZILLA_FIVE_HOME LD_LIBRARY_PATH
+/usr/local/aptana/AptanaStudio <span class="variable">$@</span>
+</pre></td></tr></table></figure>
+
+<p>给这个脚本赋予执行权限，以后启动aptana就方便啦。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2009-05-12T16:00:00.000Z">May 13 2009</time>
+      
+      
+  
+    <h1 class="title"><a href="/2009/05/13/oledb-access-to-excel/">Oledb方式访问Excel</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>前段时间接的信息管理系统的项目，要求能把数据表导出到Excel。导出模块很快就写好了，但是测试时发现，始终无法把数据写入Excel，一直提示“操作必须使用一个可更新的查询”。刚开始以为是没有权限写Excel，后来把系统折腾了一下，结果还是没能解决。最后查了一下资料，发现我的配置参数有问题。</p>
+<p>我原来写的：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>oleconn = <span class="keyword">new</span> OleDbConnection(<span class="string">"Provider=Microsoft.Jet.OLEDB.4.0;Data Source="</span> + textBox1.<span class="keyword">Text</span> + <span class="string">";Extended Properties='Excel 8.0;HDR=yes;IMEX=1'"</span>);
+</pre></td></tr></table></figure>
+
+<p>特别注意：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>Extended <span class="keyword">Properties</span>=<span class="string">'Excel 8.0;HDR=yes;IMEX=1'</span>
+</pre></td></tr></table></figure>
+
+<ol>
+<li><p>HDR ( HeaDer Row )</p>
+<p> 如果是Yes表示Excel中第一行是字段名称，如果是No表示第一行就是数据了。</p>
+</li>
+<li><p>IMEX ( IMport EXport mode )</p>
+<p> IMEX 有三种模式：</p>
+<p> 0 导出模式(只写)</p>
+<p> 1 导入模式(只读)</p>
+<p> 2 连接模式(可读写)</p>
+</li>
+</ol>
+<p>我把IMEX=1改成了IMEX=2，问题就解决了。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+    <a href="/archives/page/2/" class="alignleft prev">Prev</a>
+  
+  
+    <a href="/archives/page/4/" class="alignright next">Next</a>
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

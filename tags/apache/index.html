@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>apache | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper">
+<h2 class="archive-title tag">apache</h2>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2008-05-30T16:00:00.000Z">May 31 2008</time>
+      
+      
+  
+    <h1 class="title"><a href="/2008/05/31/why-fine-wong-forum-in-peak-time-so-the-card/">为什么精弘论坛在高峰时间会如此的卡？</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>精弘论坛是我们学校的官方内网论坛，最近在对论坛服务器调整，发现了不少问题，于是撰写此文，希望有高手能指点。</p>
+<p>先看一下目前论坛的服务器结构：</p>
+<p>硬件</p>
+<ul>
+<li>CPU:Xeon 3.0Ghz*2</li>
+<li>RAM:4G</li>
+<li>DISK:raid</li>
+</ul>
+<p>软件</p>
+<ul>
+<li>系统:windows2003server</li>
+<li>PHP运行环境:IIS6.0(5.0mode)+PHP+Zend</li>
+</ul>
+<p>在看看论坛运行情况</p>
+<ul>
+<li>论坛每日新增贴量:12840</li>
+<li>月份总页面流量:20587375</li>
+<li>高峰时期:IIS占用cpu89%，mysql占用5%，总占用内存1G</li>
+<li>缓存时期:IIS占用cpu50%，mysql占用50%</li>
+</ul>
+<p>可以说是非常传统的结构，这种结构非常适合PHP开发者，然而作为一个高流量的论坛是远远不够的。可能是前代技术没有调整好，把IIS6的程序池屏蔽掉了。IIS6本来就是为了更好地管理资源而增加了程序池管理功能。这块功能被屏蔽掉了等于损失了很多性能。从上面数据可以看出，内存并没有完全被使用，而cpu却一直在高负荷运行。为什么呢？据我分析有两个原因。</p>
+<p>第一个原因是图片。论坛上大大小小的图片非常多，而且图片直接被网页显示。服务器响应一张不带图片的网页所消耗的资源小于一张带图片的资源。参考论坛流量可知，如此大的流量当然会占用很多cpu。</p>
+<p>第二个原因是发帖量过高。每当用户发帖时，服务器会增加进程来获取帖子的数据，进行处理后写入数据库。帖子数一高cpu开销就不小了。</p>
+<p>以上两点都消耗了cpu不少资源，论坛当然会很卡。而且iis6只启用了一个进程，这能算是致命伤了。因为一个进程来处理两种不同的高负荷请求，会使得效率大大地降低。</p>
+<p>那么如何来解决这个问题呢？我查询了不少资料，最终得到一下方案。</p>
+<p>系统:linux 推荐Centos/RHEL</p>
+<p>PHP运行环境:</p>
+<ol>
+<li>Apache+php+zend</li>
+<li>Apache+fastcgi+php</li>
+</ol>
+<p>缓存:lighthttpd、squid</p>
+<p>先说说php运行环境，可能有人会推荐使用lighthttpd+fastcgi+php。但是个人觉得不适合，因为lighthttpd是单线程的，论坛负荷高，lighthttpd一旦崩溃了，整个网站就全瘫痪了。上面有两个方案，因为我并没有实际测试过，所以不知道哪个更好一点。其实一开始我想用Apache+fastcgi+zend+php，可是开源的zend optimizer并不支持fastcgi，如果你有钱的话可以购买zend core，来获得更好的支持。</p>
+<p>在这个方案中，我用lighthttpd+squid来缓存附件。squid是一款非常优秀的缓存服务器，其命中率非常高。我们用它来缓存apache生成的动态。而lighthttpd则用来做附件服务器。lighthttpd对http的响应非常优秀。我们把它放在最前端，专门用来处理静态内容的请求，把动态内容请求通过proxy模块转发给Squid，如果Squid中有该请求的内容且没有过期，则直接返回给Lighttpd。新请求或者过期的页面请求交由Apache中Web程序来处理。经过Lighttpd和Squid的两级过滤，Apache需要处理的请求将大大减少，减少了Web应用程序的压力。同时这样的构架，便于把不同的处理分散到多台计算机上进行，由Lighttpd在前面统一把关。</p>
+<p>我们完全可以把这些架构放在一台服务器上，包括mysql。而且这样的效率会比windows中的架构高很多。如果有两台，可以分一台给mysql。</p>
+<p>综上这种架构优化必须通过linux来完成，目前在windows中还没有找到好的解决方案。</p>
+<p>本人还是比较菜的上文可能存在错误，请高手赐教。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

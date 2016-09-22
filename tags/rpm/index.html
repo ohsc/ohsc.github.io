@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>rpm | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper">
+<h2 class="archive-title tag">rpm</h2>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2009-11-07T16:00:00.000Z">Nov 8 2009</time>
+      
+      
+  
+    <h1 class="title"><a href="/2009/11/08/compiled-in-the-moblin2-1-preview-install-ibus/">在Moblin2.1-preview上编译安装ibus</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>前段时间安装了Moblin2.1-preview版，一直没玩。今天突然有兴致跑进去玩玩。先是改了一下源，升级了一把，大概250MB。然后发现浏览器变成firefox3.5了，支持书签和插件，clutter下的ff就是漂亮，上网一定很爽！可是为什么不给我装好输入法呢？找了半天也没有找到安装的入口，所以我进shell安装了scim。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>yum install scim scim-pinyin scim-bridge scim-bridge-gtk scim-bridge-clutter
+</pre></td></tr></table></figure>
+
+<p>装好后发现很多地方用不了scim。我只好抛弃了scim，转投ibus。</p>
+<p>ibus没有现成的包，必须手动编译。于是我开始手动编译，接下来的过程消耗了我一个晚上，弄得我头昏脑胀，可算是凄惨啊。</p>
+<h2 id="编译ibus">编译ibus</h2>
+<p>参考地址：<a href="http://code.google.com/p/ibus/wiki/Install" target="_blank">http://code.google.com/p/ibus/wiki/Install</a></p>
+<p>先把依赖包装好:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>yum install git gnome-common autoconf automake libtool glib2-devel intltool gtk-doc GConf-dbus-devel make gcc clutter-devel dbus-python-devel iso-codes-devel
+</pre></td></tr></table></figure>
+
+<p>然后把源代码下下来：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>git clone git://github.com/phuang/ibus.git ibus
+<span class="built_in">cd</span> ibus
+</pre></td></tr></table></figure>
+
+<p>开始编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>./autogen.sh --prefix=<span class="string">'/usr'</span> --sysconfdir=<span class="string">'/etc'</span> --libdir=<span class="string">'/usr/lib'</span> --enable-gtk-doc
+make
+<span class="built_in">sudo</span> make install
+</pre></td></tr></table></figure>
+
+<p>我在运行autogen.sh的时候出现了以下错误：</p>
+<p>Makefile.am: required file `./ChangeLog’ not found</p>
+<p>直接输入下面指令后，重新运行autogen.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>touch ChangeLog
+</pre></td></tr></table></figure>
+
+<h2 id="编译ibus-pinyin">编译ibus-pinyin</h2>
+<p>先安装依赖包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>yum install sqlite-devel gcc-c++ libuuid-devel
+</pre></td></tr></table></figure>
+
+<p>下载源代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>git clone git://github.com/phuang/ibus-pinyin.git ibus-pinyin
+<span class="built_in">cd</span> ibus-pinyin
+</pre></td></tr></table></figure>
+
+<p>开始编译：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>./autogen.sh --prefix=/usr
+make
+<span class="built_in">sudo</span> make install
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2009/11/08/compiled-in-the-moblin2-1-preview-install-ibus/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

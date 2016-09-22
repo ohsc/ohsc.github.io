@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>用笨办法实现电驴和迅雷直接的互导 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="之前在用电驴下一部比较老的片子，结果挂到95%最后发现已经没人共享了，这很是让人郁闷。然后我拿迅雷离线下载下同样的文件，结果发现迅雷居然下好了，我估计这文件一直存在迅雷的服务器上。如果这时候我用迅雷下载，当然可以下完，但我又不想让那个95%的电驴白下，怎么办呢？
+曾经我有一个同学号称下载杀手(什么d">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="用笨办法实现电驴和迅雷直接的互导"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2010-03-04T16:00:00.000Z">Mar 5 2010</time>
+      
+      
+  
+    <h1 class="title">用笨办法实现电驴和迅雷直接的互导</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>之前在用电驴下一部比较老的片子，结果挂到95%最后发现已经没人共享了，这很是让人郁闷。然后我拿迅雷离线下载下同样的文件，结果发现迅雷居然下好了，我估计这文件一直存在迅雷的服务器上。如果这时候我用迅雷下载，当然可以下完，但我又不想让那个95%的电驴白下，怎么办呢？</p>
+<p>曾经我有一个同学号称下载杀手(什么download breaker，完全盗版imagine breaker嘛)。flashget、迅雷、bitcomet、emule之类的文件他都可以实现互导，不能直接导的，还可以通过修改文件来导入。不过我没这么厉害，我只会把店里的文件后缀改成迅雷的后缀，然后让迅雷导入。这方法以前可行，可是现在好像不行了，不知道为什么。</p>
+<p>后来我突发奇想。虽然他们两的文件格式一样，可是他们都遵循ed2k协议。于是我想到了通过ed2k互导。我抱着试一试的心态，把电驴和迅雷都连上同一台ed2k服务器，结果迅雷发现了我的电驴，然后以2m/s的速度下好了95%。最后我用迅雷离线下载把文件下好了，稍微等了一会，电驴也下好了。出于对别人分享的尊敬，我继续把电驴开着给他人分享。</p>
+<p>这种方法果然可行，不过有一定成功率。有一次，我的迅雷怎么也连不上自己的电驴。可能是因为下载的人还是比较多的，有干扰。为了解决这个问题，我找到了利器，edonkey server。对，就是在本地搭建私人的电驴服务器，导完后，再关掉。可惜的是edonkey的网站已经关掉了，找不到正宗的官方下载地址。没办法，只能从国内某些下载站下载了。下下来后，发现这个软件很小，而且不需要安装，直接运行即可，非常方便。</p>
+<p>用法也很简单。首先启动ed2k服务器，然后在迅雷和电驴里面加入本地地址，我用的是localhost。然后让迅雷电驴都连上去，接着就开始飞快导入咯。很简单吧？</p>
+<p>附上ed2k服务器软件（共享一个月）：</p>
+<p>Linux版：<a href="https://dl.dropbox.com/u/1284503/ed2k/ed2kserver.gz" target="_blank">https://dl.dropbox.com/u/1284503/ed2k/ed2kserver.gz</a></p>
+<p>Windows版：<a href="https://dl.dropbox.com/u/1284503/ed2k/ed2kserver.zip" target="_blank">https://dl.dropbox.com/u/1284503/ed2k/ed2kserver.zip</a></p>
+<p>最后提醒大家：</p>
+<p>下完后一定要分享！！</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/Other/">Other</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/edonley/">edonley</a>, <a href="/tags/eMule/">eMule</a>, <a href="/tags/下载/">下载</a>, <a href="/tags/迅雷/">迅雷</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

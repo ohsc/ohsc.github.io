@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>EeePC 1005ha(1008ha)安装Ubuntu的完美方案 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="原文：《Perfect Ubuntu Jaunty on the Asus eeePC 1005HA (and 1008HA)》
+本文并没有按照原文100%翻译，吼吼去掉了一些无关紧要的内容，同时还做了一些完善性的修改。
+准备工作
+在这里我们使用的是Ubuntu netbook remix版。这是为上网本设计的，内核也是特殊定制的。即使你不喜欢上网本版的界面，你也可以在装好后，通过设置很容易地恢复到默认的界面。
+下载Ubuntu netbook remix
+请准备好u盘，然后参照这里制作安装盘。
+在开始前请确定您已经阅读完本文。如果您只有一台电脑，请在开始前把需要下载的驱动文件都下载好。准备就绪后，我们开始安装。
+先关掉Boot Booster，以便我们使用U盘进行引导：
+开机按F2进入BIOS设置。在Boot settings里找到Boot Booster，把他设为disable，按F10保存退出重启。
+当机器开始重启时，按Ese进入启动选择菜单，选择U盘启动。
+进入Ubuntu启动菜单后，直接进入安装。">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="EeePC 1005ha(1008ha)安装Ubuntu的完美方案"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2009-08-20T16:00:00.000Z">Aug 21 2009</time>
+      
+      
+  
+    <h1 class="title">EeePC 1005ha(1008ha)安装Ubuntu的完美方案</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>原文：<a href="http://www.jfwhome.com/2009/08/06/perfect-ubuntu-jaunty-on-the-asus-eeepc-1005ha-and-1008ha/" target="_blank">《Perfect Ubuntu Jaunty on the Asus eeePC 1005HA (and 1008HA)》</a></p>
+<p>本文并没有按照原文100%翻译，吼吼去掉了一些无关紧要的内容，同时还做了一些完善性的修改。</p>
+<h3 id="准备工作">准备工作</h3>
+<p>在这里我们使用的是Ubuntu netbook remix版。这是为上网本设计的，内核也是特殊定制的。即使你不喜欢上网本版的界面，你也可以在装好后，通过设置很容易地恢复到默认的界面。</p>
+<p>下载<a href="http://www.ubuntu.org.cn/getubuntu/download-netbook/" target="_blank">Ubuntu netbook remix</a></p>
+<p>请准备好u盘，然后<a href="https://help.ubuntu.com/community/Installation/FromImgFiles" target="_blank">参照这里</a>制作安装盘。</p>
+<p>在开始前请确定您已经阅读完本文。如果您只有一台电脑，请在开始前把需要下载的驱动文件都下载好。准备就绪后，我们开始安装。</p>
+<p>先关掉Boot Booster，以便我们使用U盘进行引导：</p>
+<p>开机按F2进入BIOS设置。在Boot settings里找到Boot Booster，把他设为disable，按F10保存退出重启。</p>
+<p>当机器开始重启时，按Ese进入启动选择菜单，选择U盘启动。</p>
+<p>进入Ubuntu启动菜单后，直接进入安装。<a id="more"></a></p>
+<h3 id="分区">分区</h3>
+<p>请根据自己的需要进行分区。但是有以下几点需要注意：</p>
+<p>1.如果您要使用boot booster功能，请不要破坏EFI分区。</p>
+<p>2.如果您已经破坏了EFI分区，请先分配一个16M的主分区，我们会在最后讲述如何修复EFI。</p>
+<p>3.如果您需要休眠功能，请给swap分区分配2倍于内存大小的空间。</p>
+<p>关于boot booster与EFI：</p>
+<p>华硕所谓的boot booster功能，其实就是使用一个至少8M的EFI分区来缓存BIOS的信息，以节省开机自检的几秒时间。EFI分区一定要是主分区，文件系统类型是EFI。</p>
+<h3 id="有线网卡">有线网卡</h3>
+<p>当系统安装好后，我们进入配置阶段。我们首先安装有线网卡的驱动。</p>
+<p>访问<a href="http://partner.atheros.com/Drivers.aspx" target="_blank">http://partner.atheros.com/Drivers.aspx</a> 下载“AR81Family Linux Driver”</p>
+<p>解压驱动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>tar zxvf AR81Family-linux-v1.<span class="number">0.0</span>.<span class="number">10</span>.tar.gz
+</pre></td></tr></table></figure>
+
+<p>进入源码目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">cd</span> src
+</pre></td></tr></table></figure>
+
+<p>进行编译安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>make
+<span class="built_in">sudo</span> make install
+<span class="built_in">sudo</span> insmod atl1e.ko
+</pre></td></tr></table></figure>
+
+<p>PS:以后更新内核后，请按使用 sudo rmmod atl1e.ko 卸载驱动后，按照上面步骤重新安装。</p>
+<p>现在开始，您的有线网络已经可以用了，请先接入互联网。</p>
+<h3 id="无线网卡">无线网卡</h3>
+<p>进入Administration（系统管理）&gt;Software Sources（软件源&gt;Updates（更新）</p>
+<p>启用Unsupported Updates (jaunty-backports) 中文是不支持的更新(jaunty-backports)</p>
+<p>安装驱动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get install linux-backports-modules-jaunty
+</pre></td></tr></table></figure>
+
+<h3 id="切换界面">切换界面</h3>
+<p>进入Preferences(首选项)&gt;Switch Desktop Mode(切换桌面模式)，选择经典桌面。</p>
+<p>GNOME的面板在屏幕上占用太多空间。您可以设置它们自动隐藏。右键单击面板，并选择属性，点击自动隐藏。</p>
+<h3 id="安装Super_Hybrid_Engine、eeePC托盘工具、快捷键">安装Super Hybrid Engine、eeePC托盘工具、快捷键</h3>
+<p>超级混合引擎（Super Hybrid Engine）是华硕的一项节能技术，可以让使用者依不同需求来选择以高效模式或节能模式运作。</p>
+<p>托盘工具与快捷键都可以让你用很简单的方法来开关系统集成的外设。</p>
+<p>在这里我们推荐“eeepc-tray”这个软件，这个软件集成了Super Hybrid Engine、eeePC托盘工具、快捷键三大功能。</p>
+<p>接下来我们开始安装。</p>
+<p>先下载key文件<a href="http://www.statux.org/ubuntu/key/statux.pub" target="_blank">http://www.statux.org/ubuntu/key/statux.pub</a></p>
+<p>然后参照这里把源设置好<a href="http://www.statux.org/content?page=repo" target="_blank">http://www.statux.org/content?page=repo</a></p>
+<p>然后我安装软件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get install eeepc-tray eeepc-laptop-dkms
+</pre></td></tr></table></figure>
+
+<p>装好后重启。现在除了Fn+Space、Fn+F3、触摸板开关以外，其他的快捷键都可以用了。</p>
+<h3 id="完善快捷键">完善快捷键</h3>
+<p>首先我们要使触摸板能被其他程序访问。</p>
+<p>编辑配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> gedit /etc/hal/fdi/policy/shmconfig.fdi
+</pre></td></tr></table></figure>
+
+<p>把下面内容放粘贴进去：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="tag">&lt;<span class="title">deviceinfo</span> <span class="attribute">version</span>=<span class="value">"0.2"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">device</span>&gt;</span>
+<span class="tag">&lt;<span class="title">match</span> <span class="attribute">key</span>=<span class="value">"info.product"</span> <span class="attribute">string</span>=<span class="value">"SynPS/2 Synaptics TouchPad"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">merge</span> <span class="attribute">key</span>=<span class="value">"input.x11_options.SHMConfig"</span> <span class="attribute">type</span>=<span class="value">"string"</span>&gt;</span>True<span class="tag">&lt;/<span class="title">merge</span>&gt;</span>
+<span class="tag">&lt;<span class="title">merge</span> <span class="attribute">key</span>=<span class="value">"input.x11_driver"</span> <span class="attribute">type</span>=<span class="value">"string"</span>&gt;</span>synaptics<span class="tag">&lt;/<span class="title">merge</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">match</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">device</span>&gt;</span>
+<span class="tag">&lt;<span class="title">device</span>&gt;</span>
+<span class="tag">&lt;<span class="title">match</span> <span class="attribute">key</span>=<span class="value">"info.linux.driver"</span> <span class="attribute">string</span>=<span class="value">"psmouse"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">merge</span> <span class="attribute">key</span>=<span class="value">"input.x11_options.SHMConfig"</span> <span class="attribute">type</span>=<span class="value">"string"</span>&gt;</span>True<span class="tag">&lt;/<span class="title">merge</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">match</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">device</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">deviceinfo</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>保存后重启。</p>
+<p>进入系统后右键eeepc-tray的图标，点击Edit Configuration，然后把下面内容粘贴进去：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">#Touchpad control</span>
+KEY_TOUCHPAD=<span class="string">"00000037"</span>
+<span class="comment"># Fn + space</span>
+KEY_FSB=<span class="string">"00000039"</span>
+</pre></td></tr></table></figure>
+
+<p>现在所有快捷键都可以使用了。</p>
+<h3 id="麦克风">麦克风</h3>
+<p>打开Volume Control，点击Preferences，启用所有Mic和Input Source选项。</p>
+<p>然后把input source设为Int Mic。</p>
+<p>在skype中把声音输入设备设置为HDA Intel (hw:Intel, 0)。声音输出设备设为pulse。</p>
+<h3 id="设定EFI分区，启用boot_booster">设定EFI分区，启用boot booster</h3>
+<p>查看分区列表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> fdisk <span class="operator">-l</span>
+</pre></td></tr></table></figure>
+
+<p>找到你的之前给EFI分好的分区，如/dev/sda1</p>
+<p>设定为EFI分区：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> sfdisk --change-id /dev/sda <span class="number">1</span> ef
+</pre></td></tr></table></figure>
+
+<p><strong>注意，请把这里的1改为你的EFI分区的分区号，比如你的EFI分区是/dev/sda2,那么分区号是2</strong></p>
+<p>最后重启，按F2进入BIOS，重新把boot booster打开。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/Linux/">Linux</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/1005ha-h/">1005ha-h</a>, <a href="/tags/EeePC/">EeePC</a>, <a href="/tags/Ubuntu/">Ubuntu</a>, <a href="/tags/上网本/">上网本</a>, <a href="/tags/华硕/">华硕</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

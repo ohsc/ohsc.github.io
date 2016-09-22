@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ubuntu学习笔记-压缩安装 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="zip压缩文件
+压缩成zip文件
+
+zip file.zip * 压缩当前文件夹的所以文件
+zip file.zip ACS.JPG blue.doc command.txt 将三个文件单独压缩进一个文件
+zip -m file.zip * 压缩，并自动删除原始文件
+zip -r file.zip ">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="ubuntu学习笔记-压缩安装"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2007-08-26T16:00:00.000Z">Aug 27 2007</time>
+      
+      
+  
+    <h1 class="title">ubuntu学习笔记-压缩安装</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="zip压缩文件">zip压缩文件</h2>
+<p>压缩成zip文件</p>
+<ul>
+<li>zip file.zip * 压缩当前文件夹的所以文件</li>
+<li>zip file.zip ACS.JPG blue.doc command.txt 将三个文件单独压缩进一个文件</li>
+<li>zip -m file.zip * 压缩，并自动删除原始文件</li>
+<li>zip -r file.zip * 压缩，包含子目录中的内容</li>
+<li>zip -j file.zip * 压缩，忽略子目录中的内容</li>
+<li>zip -k file.zip * 压缩，文件自动更名成8.3格式</li>
+<li>zip -n .mpg: .JPG: .GIF file.zip * 压缩，但对.mpg/.JPG/.GIF文件不进行压缩而直接保存</li>
+<li>zip -t 102207 file.zip * 压缩07-10-22以后以后建立的文件</li>
+<li>zip file.zip * -x file2 file3 压缩，但不包含file2,file3文件</li>
+<li>zip -y file.zip * 压缩链接</li>
+<li>zip -1 file.zip * 压缩，压缩率为1，压缩率范围是1-9,9最高</li>
+<li><p>zip -@ file.zip 逐一输入文件名，并对其压缩，输入完后按ctrl%2Bd结束 unzip 解压缩zip文件</p>
+</li>
+<li><p>unzip file.zip 解压缩file.zip文件</p>
+</li>
+<li>unzip file.zip -x file3 解压缩file.zip，排除file3文件</li>
+<li>unzip -Z file.zip 查看压缩包的内容</li>
+<li>unzip -l file.zip 查看压缩包的内容</li>
+<li>unzip -v file.zip 查看压缩包的内容</li>
+</ul>
+<h2 id="tar与gzip">tar与gzip</h2>
+<p>说明：tar无法对文件进行压缩，但可以把文件打包。而gzip虽然可以压缩文件，却不能把文件打包。所以我们经常把两个命令结合使用，产生.tar.gz的文件。一般压缩流程是先用tar打包，再用gzip压缩文件。<br>tar 打包/解包文件</p>
+<ul>
+<li>tar cvf test.tar * 把当前目录下的文件打包，若有链接文件，直接将链接写入</li>
+<li>tar zcvf test.tar.gz * 把当前目录下的文件打包并压缩为gz格式</li>
+<li>tar jcvf test.tar.bz2 * 把当前目录下的文件打包并压缩为bz2格式</li>
+<li>tar hcvf test.tar * 把当前目录下的文件打包，若有链接文件，直接将原始文件写入</li>
+<li>tar rvf test.tar file2 把file2文件打包追加在test.tar</li>
+<li>tar xvf test.tar 把test.tar解包</li>
+<li>tar zxvf test.tar.gz 把test.tar.gz解压缩并解包</li>
+<li><p>tar tvf test.tar 查看文件内容 gzip 压缩文件</p>
+</li>
+<li><p>gzip file1 压缩file1，并删除原始文件，这点务必要注意</p>
+</li>
+<li>gzip -1 * 压缩本目录所有文件，压缩率为1-9，9最高，默认6</li>
+<li><p>gzip -d file1.gz 解压file1.gz文件 gunzip 解压文件</p>
+</li>
+<li><p>gunzip file1.gz 解压file1.gz文件</p>
+</li>
+</ul>
+<h2 id="安装程序">安装程序</h2>
+<p>gz压缩包编译安装  编译时缺少h文件的自动处理</p>
+<p>sudo auto-apt run ./configure deb安装包</p>
+<ul>
+<li>dpkg -i debfilename 安装Debian包裹文件</li>
+<li>dpkg -c debfilename 列出包裹包含的内容</li>
+<li>dpkg -I debfilename 从.deb 文件中提取包裹信息</li>
+<li>dpkg -r packagename 卸载一个已安装的包裹（删掉数据和可执行文件）</li>
+<li>dpkg -P packagename 完全清除一个已安装的包裹（删除数据、可执行文件和所有的配制文件）</li>
+<li>dpkg -L packagename 列出包裹安装的所有文件清单</li>
+<li>dpkg -s 显示已安装包裹的信息</li>
+<li>dpkg -S filename 查找文件属于哪个包</li>
+<li>dpkg-reconfigure packagename 重新配制一个已经安装的包裹</li>
+<li>dpkg –get-selections | grep keyname 获取软件包裹状态</li>
+<li>echo “packagename hold” | sudo dpkg –set-selections 设置软件包裹状态，比如 HOLD 某个包裹不允许升级</li>
+<li>echo “packagename install” | sudo dpkg –set-selections 从 HOLD 状态恢复软件包裹标志位 清除所以删除包的残余配置文件<br>dpkg -l |grep ^rc|awk ‘{print $2}’ |tr [“n”] [” “]|sudo xargs dpkg -P - apt安装</li>
+</ul>
+<ul>
+<li>apt-cache search package 搜索包 (apt-cache search httpd)</li>
+<li>apt-cache show package 获取包的相关信息，如说明、大小、版本等</li>
+<li>apt-cache depends package 查询软件依赖哪些包</li>
+<li>apt-cache rdepends package 查询软件被哪些包依赖</li>
+<li>apt-get install package 安装包</li>
+<li>apt-get install package –reinstall 重新安装包</li>
+<li>apt-get -f install 修复安装</li>
+<li>apt-get remove package 删除包</li>
+<li>apt-get remove package –purge 删除包，包括删除配置文件等</li>
+<li>apt-get update 更新源</li>
+<li>apt-get upgrade 更新已安装的包</li>
+<li>apt-get dist-upgrade 升级系统</li>
+<li>apt-get dselect-upgrade 使用 dselect 升级</li>
+<li>apt-get build-dep package 安装相关的编译环境</li>
+<li>apt-get source package 下载该包的源代码</li>
+<li>apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包</li>
+<li>apt-get install apt 满足依赖</li>
+<li>apt-get -f install apt 满足依赖</li>
+<li>apt-cdrom add 增加一个光盘源</li>
+<li>apt-file search filename 查找文件属于哪个包 系统升级<br>sudo apt-get dist-upgrade 查看安装软件时下载包的临时存放目录</li>
+</ul>
+<p>ls /var/cache/apt/archives</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/Linux/">Linux</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Ubuntu/">Ubuntu</a>, <a href="/tags/教程/">教程</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

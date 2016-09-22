@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Yubikey不再记忆密码 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="我的密码管理历史
+相信的大家一定有很多帐号。上网这么多年下来，东注册一个帐号，西注册一个帐号。时间长了，觉得老用一套帐号不安全。于是换了一套又一套，久而久之密码堆积了一堆，连自己也搞不清哪个对应哪个了。
+就在两年前，我找到了keepass这个软件。它很好的帮我把所有密码管理起来，而且还是跨平台的，我只要记住主密码(master key)就可以取得所有帐号密码。不过我经常要在不同的系统、电脑使用同一个密码库，keepass没有我想要的同步功能。
+后来找到了Dropbox这个强大的同步工具，帮keepass弥补了这个缺点。尽管同步问题解决了，可是keepass还是有个致命的弱点—操作效率太低。每登录一个网站，先要找到这个帐号记录，再复制粘贴帐号，然后还要复制粘贴密码。来来回回折腾太麻烦了，如果keepass能和浏览器结合，自动帮我填入帐号密码就好了。就像浏览器在带的密码管理器一样，不过浏览器自带的不安全，也不方便，不能同步，而且重装系统帐号就丢失了。
+后来我发现了Lastpass这个强大的工具，它是浏览器的扩展，支持ie、firefox、chrome，而且跨平台，甚至在iPhone、黑莓、Android上都有客户端。Lastpass是把我的帐号密码存在云端的。每当我在一个网站登录的时候，它会检测这个站点的帐号是否记录过，如果没有，它会提示我记录。当我确定记录帐号后，下次再访问这个站点的时候，lastpass会自动帮我填入帐号密码，我只要按登录即可。">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="Yubikey不再记忆密码"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2010-03-09T16:00:00.000Z">Mar 10 2010</time>
+      
+      
+  
+    <h1 class="title">Yubikey不再记忆密码</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="我的密码管理历史">我的密码管理历史</h2>
+<p>相信的大家一定有很多帐号。上网这么多年下来，东注册一个帐号，西注册一个帐号。时间长了，觉得老用一套帐号不安全。于是换了一套又一套，久而久之密码堆积了一堆，连自己也搞不清哪个对应哪个了。</p>
+<p>就在两年前，我找到了keepass这个软件。它很好的帮我把所有密码管理起来，而且还是跨平台的，我只要记住主密码(master key)就可以取得所有帐号密码。不过我经常要在不同的系统、电脑使用同一个密码库，keepass没有我想要的同步功能。</p>
+<p>后来找到了Dropbox这个强大的同步工具，帮keepass弥补了这个缺点。尽管同步问题解决了，可是keepass还是有个致命的弱点—操作效率太低。每登录一个网站，先要找到这个帐号记录，再复制粘贴帐号，然后还要复制粘贴密码。来来回回折腾太麻烦了，如果keepass能和浏览器结合，自动帮我填入帐号密码就好了。就像浏览器在带的密码管理器一样，不过浏览器自带的不安全，也不方便，不能同步，而且重装系统帐号就丢失了。</p>
+<p>后来我发现了Lastpass这个强大的工具，它是浏览器的扩展，支持ie、firefox、chrome，而且跨平台，甚至在iPhone、黑莓、Android上都有客户端。Lastpass是把我的帐号密码存在云端的。每当我在一个网站登录的时候，它会检测这个站点的帐号是否记录过，如果没有，它会提示我记录。当我确定记录帐号后，下次再访问这个站点的时候，lastpass会自动帮我填入帐号密码，我只要按登录即可。</p>
+<a id="more"></a>
+
+<p>有了lastpass，我再也不需要同步密码库了，这些信息本生就存储在lastpass公司的服务器上。也许有人会担心。密码存在云端安不安全？lastpass是否可信任？lastpass被黑客攻击了怎么办？对于这些质疑，我只能说没有绝对安全的东西，我们只能相信它。即便存在自己的电脑上，也会遭受病毒、黑客的威胁。一个公司的技术实力总比一个人强吧。</p>
+<p>lastpass解决了大部分问题，大大地提高了用户体验。剩下还有一个问题，如何让master key足够的安全呢？</p>
+<h2 id="yubikey，廉价的OTP方案">yubikey，廉价的OTP方案</h2>
+<p>对于这个产品相信大家从没听过。这是一款强大又廉价的产品，要把它所有功能都讲清楚是不容易的。所以我就先简单介绍两个功能，以后再扩展。</p>
+<h3 id="一、OTP(One-Time-Password)">一、OTP(One-Time-Password)</h3>
+<p>yubikey是个可以根据一定算法随机产生密码的输入设备。yubikey产生的OTP密码分为两部分，左边部分是设备识别码，右边部分是随机码。每个设备的识别码是全球唯一的。</p>
+<p>接下来解释一下过程。A网站支持使用yubikey登录，于是我把自己的yubikey和A网站绑定。当访问A网站时，A网站提示输入yubikey密码。我轻触一下yubikey，OTP密码就马上输入好了。这时候A网站会去访问yubikey开发公司的服务器yubico，并提交收到的OTP密码请求认证。yubico得到密码后，把它拆分，根据自己的私有算法进行校验。如果这个密码确实是绑定A网站的密码的那个yubikey设备产生的，yubico就会告诉A网站验证成功。</p>
+<p>每个yubikey都根据自己的识别码，以不同方式产生不同的随机密码。每个时刻产生的密码都不同。所以yubikey之间不可以相互冒充。而这种随机验证方式，对于黑客来说更难破解。</p>
+<h3 id="二、Static_Password静态密码">二、Static Password静态密码</h3>
+<p>这是yubikey的附加功能。可以记忆一个复杂的、较长的、个人难以记忆的密码。比如：</p>
+<p>某B，把sdadasdefkjgbhoijt34tdfKJSW%^$%^&amp;hasdqal942nlsdnfalsz这段作为自己lastpass的master key。某B不需要记忆这么恐怖的密码。某B只要把它设置到yubikey上。轻触一下yubikey，就可以把密码输入。</p>
+<p>很好理解吧，这个功能就是为master key设计的。从此不再需要记忆任何密码。yubikey在密码就在。yubikey丢了，那也就惨了。所以最好在电脑以外的地方备份一下这段密码。</p>
+<h2 id="其他">其他</h2>
+<p>yubikey2.1版本支持OTP和StaticPassword同时存在。可以通过轻触时间的长短来区分。用户可以使用官方的工具的来自己定义yubikey的功能，包括密码长短，复杂程度等等。</p>
+<p>另外于yubikey的开源项目非常多，比如wordpress上的yubikey验证插件，drapal上的验证插件。大家可以找到很多其他相关的项目。在开发方面，公司开放了很多资料：<a href="http://www.yubico.com/developers/intro/" target="_blank">http://www.yubico.com/developers/intro/</a></p>
+<p>最后再提一下，尽管yubikey在诸多OTP方案中，是比较廉价的，25美元一个，不过对于大多数中国草根来说还是挺贵的，而且国内没的卖。幸好yubikey有个竞争对手叫umikey，它们的思路差不多的。umikey在中国有生产，也有卖，100RMB以内，不是很贵。可惜umikey的应用还不是很广泛，我们只能祝福它快速发展。lastpass有个竞争对手叫mashedlife，mashedlife是umikey的最佳搭档。当然据说也可以和yubikey结合（我没试过）。另外听小道消息，unikey正在和lastpass接触。</p>
+<p>听我讲了这么多，还是自己去看看吧，相关网址：</p>
+<ul>
+<li><p><a href="https://lastpass.com/" target="_blank">https://lastpass.com/</a></p>
+</li>
+<li><p><a href="http://www.yubico.com/" target="_blank">http://www.yubico.com/</a></p>
+</li>
+<li><p><a href="http://www.umikey.com/" target="_blank">http://www.umikey.com/</a></p>
+</li>
+<li><p><a href="http://www.umikey.cn/" target="_blank">http://www.umikey.cn/</a></p>
+</li>
+<li><p><a href="https://mashedlife.com/" target="_blank">https://mashedlife.com/</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/Solution/">Solution</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/lastpass/">lastpass</a>, <a href="/tags/mashedlife/">mashedlife</a>, <a href="/tags/umikey/">umikey</a>, <a href="/tags/yubikey/">yubikey</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

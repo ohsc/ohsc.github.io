@@ -1,0 +1,567 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2008 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper">
+<h2 class="archive-title">2008</h2>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2008-12-23T16:00:00.000Z">Dec 24 2008</time>
+      
+      
+  
+    <h1 class="title"><a href="/2008/12/24/chinese-compiler-sparkweb/">汉化编译Sparkweb</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>sparkweb是一款非常不错的web im，基于xmpp协议用flex开发的。我们校内的jicq也开始使用sparkweb，但是唯一遗憾的是sparkweb是英文的。网上找了很久，都没有找到汉化版的，于是我萌生了汉化sparkweb的想法。我参照         Ignite Realtime官方找到的文章《<a href="http://www.igniterealtime.org/community/docs/DOC-1510" target="_blank">Getting and Building SparkWeb</a>》，成功编译了sparkweb。接下来我就说一下如何编译，要注意的是sparkweb必须在mac或linux平台下编译。</p>
+<p>需要的软件</p>
+<ol>
+<li>flex builder</li>
+<li>flash player debug 版</li>
+<li>svn</li>
+</ol>
+<p>开始获取编译</p>
+<ol>
+<li>控制台执行下列指令，以获取sparkweb源代码</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>svn co http://svn.igniterealtime.org/svn/repos/sparkweb/trunk SparkWeb
+</pre></td></tr></table></figure>
+
+<ol>
+<li><p>打开flex builder，把workspace位置设为你的sparkweb源代码的目录</p>
+</li>
+<li><p>在flex navigator里面右击，点import，选择Existing Projects into Workspace，然后在root directory里选择SparkWeb源代码目录里的SparkWeb,点击finish</p>
+</li>
+<li><p>重复3，把SparkWebCommonComponents、SparkWebCore都导入</p>
+</li>
+<li><p>把SparkWeb源代码目录里的xiff目录名改为大写的XIFF，否则flexbuilder会提示“unable to open ‘/XIFF/bin/XIFF.swc’ ”的错误的，然后按照3的方法导入。</p>
+</li>
+<li><p>run就可以编译了。</p>
+</li>
+</ol>
+<p>关于汉化</p>
+<p>语言文件在SparkWebCore里的locale，默认提供了en.properties文件，我们可以按照里面的说明建立一个中文语言文件，并把相关字段汉化成中文。</p>
+<p>但是这样编译后还是英文的。我们打开<code>SparkWebCore/com/jivesoftware/spark/managers</code>的<code>Localizator.as</code>，把<code>&quot;en&quot;</code>改为我们自己语言包的名称。</p>
+<p>接着我们在flex navigator右击SparkWebCore，点properties，选flex lirary build path，点击select all，然后ok，最后编译，就是你汉化的那个版本啦。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2008-12-11T16:00:00.000Z">Dec 12 2008</time>
+      
+      
+  
+    <h1 class="title"><a href="/2008/12/12/at-ubuntu810-install-flex-builder/">在Ubuntu8.10中安装flex builder</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>首先声明其实我完全不懂flex，只不过一直很想翻译SparkWeb，所以必须安装flex builder。</p>
+<p>那么我们装备一下吧：</p>
+<ol>
+<li>flex builder</li>
+<li>eclipse3.3一定要3.3x哦，不然会很麻烦。</li>
+<li>jre</li>
+</ol>
+<p>然后开始安装</p>
+<p>1.安装jre</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get install sun-java6-jre
+</pre></td></tr></table></figure>
+
+<p>2.解压缩eclipse</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>tar -zxvf [eclipse.tar.gz]
+</pre></td></tr></table></figure>
+
+<p>3.安装flex builder</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>sh flexbuilder_linux_install_a4_081408.bin
+</pre></td></tr></table></figure>
+
+<p>最后就可以进入flex builder的安装目录启动程序了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>sh Adobe_Flex_builder.sh
+</pre></td></tr></table></figure>
+
+<p>启动后改一下Perspective，选flex development就可以了</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2008-11-06T16:00:00.000Z">Nov 7 2008</time>
+      
+      
+  
+    <h1 class="title"><a href="/2008/11/07/ubuntu-in-the-under-sopcast-watch-tv-online/">在Ubuntu下看在线电视－sopcast</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>今天在ubuntu下通过GMlive＋sopcast实现了在线看电视。</p>
+<p>GMLive并不直接提供P2P直播服务。 它尝试成为一款通用型的流媒体播放外壳。 它以全能的Mplayer播放器为引擎。目标是支持Linuxx下多种类型的P2P广播视频流，提供一种方便快捷的观看网络视频的方案。</p>
+<p>sopcast是一个基于P2P的流媒体系统，在这里网友可以欣赏来自世界各地的,内容丰富的电视节目。</p>
+<p>GMLive官方地址<a href="http://code.google.com/p/gmlive/" target="_blank">http://code.google.com/p/gmlive/</a><br>sopcast官方地址<a href="http://www.sopcast.cn/其实是http://www.sopcast.org/，可是我进不去。" target="_blank">http://www.sopcast.cn/其实是http://www.sopcast.org/，可是我进不去。</a></p>
+<p>下载下列文件<br><a href="http://gmlive.googlecode.com/files/gmlive-0.21.2.tar.bz2" target="_blank">gmlive-0.21.2.tar.bz2</a><br><a href="http://download.sopcast.cn/download/sp-auth.tgz" target="_blank">sp-auth.tgz</a><br>sopcast依赖 stdc++5，请准备好。</p>
+<p>解压上面两个文件，把sp-auth的sp-sc-auth复制到/usr/local/bin</p>
+<p>然后进入gmlive的目录,安装gmlive</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>./configure
+make
+<span class="built_in">sudo</span> make install
+</pre></td></tr></table></figure>
+
+<p>接下来就可以看电视了。</p>
+<p>网上还有很多优化的电视列表（不一定是gmlive的）：</p>
+<p><a href="http://forum.ubuntu.com.cn/viewtopic.php?f=74&amp;t=164337&amp;sid=49887bfa1cc8d95e2d88f6a6105872ab" target="_blank">http://forum.ubuntu.com.cn/viewtopic.php?f=74&amp;t=164337&amp;sid=49887bfa1cc8d95e2d88f6a6105872ab</a></p>
+<p><a href="http://forum.ubuntu.com.cn/viewtopic.php?f=74&amp;t=109855&amp;sid=49887bfa1cc8d95e2d88f6a6105872ab" target="_blank">http://forum.ubuntu.com.cn/viewtopic.php?f=74&amp;t=109855&amp;sid=49887bfa1cc8d95e2d88f6a6105872ab</a></p>
+<p>最后说明一下<br><a href="http://code.google.com/p/gsopcast/" target="_blank">gsopcast</a>是sopcast的前端，和gmlive差不多，但也有差异大家可以尝试一下</p>
+<p><a href="http://www.sopcast.com/download/libstdcpp5.tgz" target="_blank"> </a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2008-05-30T16:00:00.000Z">May 31 2008</time>
+      
+      
+  
+    <h1 class="title"><a href="/2008/05/31/why-fine-wong-forum-in-peak-time-so-the-card/">为什么精弘论坛在高峰时间会如此的卡？</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>精弘论坛是我们学校的官方内网论坛，最近在对论坛服务器调整，发现了不少问题，于是撰写此文，希望有高手能指点。</p>
+<p>先看一下目前论坛的服务器结构：</p>
+<p>硬件</p>
+<ul>
+<li>CPU:Xeon 3.0Ghz*2</li>
+<li>RAM:4G</li>
+<li>DISK:raid</li>
+</ul>
+<p>软件</p>
+<ul>
+<li>系统:windows2003server</li>
+<li>PHP运行环境:IIS6.0(5.0mode)+PHP+Zend</li>
+</ul>
+<p>在看看论坛运行情况</p>
+<ul>
+<li>论坛每日新增贴量:12840</li>
+<li>月份总页面流量:20587375</li>
+<li>高峰时期:IIS占用cpu89%，mysql占用5%，总占用内存1G</li>
+<li>缓存时期:IIS占用cpu50%，mysql占用50%</li>
+</ul>
+<p>可以说是非常传统的结构，这种结构非常适合PHP开发者，然而作为一个高流量的论坛是远远不够的。可能是前代技术没有调整好，把IIS6的程序池屏蔽掉了。IIS6本来就是为了更好地管理资源而增加了程序池管理功能。这块功能被屏蔽掉了等于损失了很多性能。从上面数据可以看出，内存并没有完全被使用，而cpu却一直在高负荷运行。为什么呢？据我分析有两个原因。</p>
+<p>第一个原因是图片。论坛上大大小小的图片非常多，而且图片直接被网页显示。服务器响应一张不带图片的网页所消耗的资源小于一张带图片的资源。参考论坛流量可知，如此大的流量当然会占用很多cpu。</p>
+<p>第二个原因是发帖量过高。每当用户发帖时，服务器会增加进程来获取帖子的数据，进行处理后写入数据库。帖子数一高cpu开销就不小了。</p>
+<p>以上两点都消耗了cpu不少资源，论坛当然会很卡。而且iis6只启用了一个进程，这能算是致命伤了。因为一个进程来处理两种不同的高负荷请求，会使得效率大大地降低。</p>
+<p>那么如何来解决这个问题呢？我查询了不少资料，最终得到一下方案。</p>
+<p>系统:linux 推荐Centos/RHEL</p>
+<p>PHP运行环境:</p>
+<ol>
+<li>Apache+php+zend</li>
+<li>Apache+fastcgi+php</li>
+</ol>
+<p>缓存:lighthttpd、squid</p>
+<p>先说说php运行环境，可能有人会推荐使用lighthttpd+fastcgi+php。但是个人觉得不适合，因为lighthttpd是单线程的，论坛负荷高，lighthttpd一旦崩溃了，整个网站就全瘫痪了。上面有两个方案，因为我并没有实际测试过，所以不知道哪个更好一点。其实一开始我想用Apache+fastcgi+zend+php，可是开源的zend optimizer并不支持fastcgi，如果你有钱的话可以购买zend core，来获得更好的支持。</p>
+<p>在这个方案中，我用lighthttpd+squid来缓存附件。squid是一款非常优秀的缓存服务器，其命中率非常高。我们用它来缓存apache生成的动态。而lighthttpd则用来做附件服务器。lighthttpd对http的响应非常优秀。我们把它放在最前端，专门用来处理静态内容的请求，把动态内容请求通过proxy模块转发给Squid，如果Squid中有该请求的内容且没有过期，则直接返回给Lighttpd。新请求或者过期的页面请求交由Apache中Web程序来处理。经过Lighttpd和Squid的两级过滤，Apache需要处理的请求将大大减少，减少了Web应用程序的压力。同时这样的构架，便于把不同的处理分散到多台计算机上进行，由Lighttpd在前面统一把关。</p>
+<p>我们完全可以把这些架构放在一台服务器上，包括mysql。而且这样的效率会比windows中的架构高很多。如果有两台，可以分一台给mysql。</p>
+<p>综上这种架构优化必须通过linux来完成，目前在windows中还没有找到好的解决方案。</p>
+<p>本人还是比较菜的上文可能存在错误，请高手赐教。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2008-05-26T16:00:00.000Z">May 27 2008</time>
+      
+      
+  
+    <h1 class="title"><a href="/2008/05/27/the-second-session-of-the-general-assembly-to-network-engineers-xiake/">第二届网络工程师侠客行大会</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>这算是我第一次参加全国性的技术性会议吧。之前在学校Linux群里看到网侠大会的通知，我赶快去申请了一张票，没想到还真弄到了。</p>
+<p><img src="/uploads/2008/05/medium.jpg" alt="" title="网侠大会"></p>
+<p>这次会议还是不错的，至少我很满意。看到了不少牛人。上午林斌的演讲蛮不错的，不过他为什么弄不清ie和firefox呢。马云的演讲很精彩，虽然充满了攻击性，不过还挺有趣了，不知道在坐的老外听了有什么想法。</p>
+<p>下午我在第四会场，主题是web开源技术。其实我主要是去听openid技术的。</p>
+<p>这次会后，我最深的体会是，API是web3.0的关键词。</p>
+<p>回来后发现CPH上几位杭州的朋友都去了，呵呵，原来都是同路人那。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2008/05/27/the-second-session-of-the-general-assembly-to-network-engineers-xiake/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2008-02-16T16:00:00.000Z">Feb 17 2008</time>
+      
+      
+  
+    <h1 class="title"><a href="/2008/02/17/wordpress-support-for-nokia-mobile-phones-lifeblog-life-writing-e/">让WordPress支持Nokia手机的lifeblog(写e生活)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>转自Hamo’s World </p>
+<p>在Nokia手机上内置了博客的写作软件——LifeBlog（中文版叫做“写e生活”），可以把收到的短信、彩信、邮件以及照片等发布到博客。</p>
+<p>这一功能非常方便快捷，像sina博客等都提供了发布接口。但是lifeblog不支持XMLRPC协议，所以对于WordPress无能为力。今天从WordPress的新闻里看到这个“<a href="http://www.phoneboy.com/node/1169" target="_blank">Post to WordPress Blogs from Nokia Lifeblog</a>”，顿觉激动。</p>
+<p>通过在博客服务器上传一个lifeblog.php，就可以支持Nokia的lifeblog协议，而且该程序支持最新的WordPress2.3。作者是在N95上测试的，俺用N73+WordPress2.3也同样成功。</p>
+<p>更为感叹的是作者的程序调试手段，由于其blog是由某服务商提供，所以很难跟踪，所以他竟然是通过在刷新无线路由的firmware，然后通过在路由器上sniffer来调式，不可思议。</p>
+<p>题外话：在支持wifi的N95上肯定很爽，如果使用GRPS，文章过长可能会提交超时，导致发布失败。</p>
+<h3 id="安装步骤：">安装步骤：</h3>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2008/02/17/wordpress-support-for-nokia-mobile-phones-lifeblog-life-writing-e/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2008-02-04T16:00:00.000Z">Feb 5 2008</time>
+      
+      
+  
+    <h1 class="title"><a href="/2008/02/05/has-been-hijacked/">又被劫持</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>这年头实在没想法，江苏电信劫持事件接二连三。</p>
+<p><img src="/uploads/2008/02/medium.jpg" alt="" title="电信劫持"></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

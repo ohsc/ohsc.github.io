@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>说说Python包管理 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="虽然我的Python学习才起步，不过有时候也需要装一些额外的软件包。一般Python教程上都推荐使用easy_install。这个工具很酷，有了它，我不需要去找软件包。我可以直接easy_install 包名，它会帮我去pypi查找下载最新的软件包，然后自动安装。这个和Linux上的apt、yum之类的包管理器很类似。但是问题来，作为Linux用户，我不希望我在系统上有两套包管理器。有一天我在安装Mako(一个很快的模板引擎)，我就在想我是使用apt来安装呢，还是使用easy_install来安装。于是我用apt-cache showpkg python-mako检查一下，apt源中的mako是2.4版本的。然后我又用easy_install检查了一下，是2.5版本的。当然，听说easy_install所使用的pypi库的包往往都是最新的。像我这样的更新狂肯定想装2.5版本的，那我应该使用easy_install安装吗？
+经我研究发现，easy_install有以下问题：
+
+卸载能力低下，easy_install -m 包名，可以卸载软件包，但是卸载后还要手动删除遗留文件。
+
+可能会和apt冲突。比如某天我用easy_install安装了软件包A，后来我在用apt安装软件包B的时候依赖软件包A，而apt并不知道A的存在。">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="说说Python包管理"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2010-02-04T16:00:00.000Z">Feb 5 2010</time>
+      
+      
+  
+    <h1 class="title">说说Python包管理</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>虽然我的Python学习才起步，不过有时候也需要装一些额外的软件包。一般Python教程上都推荐使用easy_install。这个工具很酷，有了它，我不需要去找软件包。我可以直接easy_install 包名，它会帮我去pypi查找下载最新的软件包，然后自动安装。这个和Linux上的apt、yum之类的包管理器很类似。但是问题来，作为Linux用户，我不希望我在系统上有两套包管理器。有一天我在安装Mako(一个很快的模板引擎)，我就在想我是使用apt来安装呢，还是使用easy_install来安装。于是我用<code>apt-cache showpkg python-mako</code>检查一下，apt源中的mako是2.4版本的。然后我又用easy_install检查了一下，是2.5版本的。当然，听说easy_install所使用的pypi库的包往往都是最新的。像我这样的更新狂肯定想装2.5版本的，那我应该使用easy_install安装吗？</p>
+<p>经我研究发现，easy_install有以下问题：</p>
+<ol>
+<li><p>卸载能力低下，<code>easy_install -m 包名</code>，可以卸载软件包，但是卸载后还要手动删除遗留文件。</p>
+</li>
+<li><p>可能会和apt冲突。比如某天我用easy_install安装了软件包A，后来我在用apt安装软件包B的时候依赖软件包A，而apt并不知道A的存在。</p>
+</li>
+</ol>
+<a id="more"></a>
+
+<p>这样的工具我还敢用吗？所以我在想有没有什么东西，可以用pypi下载最新的软件包，然后自动打成deb包，再使用dpkg来安装，纳入apt的管理。在寻觅中我找到了<a href="http://pypi.python.org/pypi/stdeb/0.5.1" target="_blank">stdeb</a>这个工具很强大，提供pypi_install的指令，我只需要执行<code>pypi_install Mako</code>，它就会去pypi找最新的mako，然后打成deb包，再安装。很强大吧？让我们看看它还有哪些功能。</p>
+<h2 id="stdeb">stdeb</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>pypi-install mypackage
+</pre></td></tr></table></figure>
+
+<p>从pypi下载最新软件包，构建deb包，再安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>py2dsc mypackage-<span class="number">0.1</span>.tar.gz
+</pre></td></tr></table></figure>
+
+<p>使用源码包构建deb src包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>python setup.py --command-packages=stdeb.command sdist_dsc
+</pre></td></tr></table></figure>
+
+<p>在使用setuptools的python源码包中，构建deb src包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>python setup.py --command-packages=stdeb.command bdist_deb
+</pre></td></tr></table></figure>
+
+<p>在使用setuptools的python源码包中，构建deb包</p>
+<p>stdeb很强大，不过也有一些问题，比如有时候生成的deb包名与apt源中的不一样。比如我安装web.py的时候，生成的deb包是python-web-py，而apt源中的是python-webpy。这方面stdeb还有待改进那。</p>
+<h2 id="获得stdeb">获得stdeb</h2>
+<p>如何获得stdeb呢，似乎ubuntu9.10的源中并没有stdeb。不过你可以在这里找到它<a href="http://packages.ubuntu.com/zh-cn/lucid/python-stdeb" target="_blank">http://packages.ubuntu.com/zh-cn/lucid/python-stdeb</a>。</p>
+<p>这个版本是给10.04使用的，不过9.10也能用，先用着吧。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/Python/">Python</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/apt/">apt</a>, <a href="/tags/easy_install/">easy_install</a>, <a href="/tags/pypi_install/">pypi_install</a>, <a href="/tags/Python/">Python</a>, <a href="/tags/setuptools/">setuptools</a>, <a href="/tags/stdeb/">stdeb</a>, <a href="/tags/Ubuntu/">Ubuntu</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Stash来啦！我开发的第一个Chrome扩展 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="很久很久很久很久没写博客啦，难得写一次博客，居然是来发布产品的。言归正传，我和一个朋友(强生)打磨的Chrome扩展——Stash来啦！绝对是你需要的工具，请耐心看完下面的内容。
+什么是Stash？Stash是一个以全新的方式储存和管理标签页的chrome扩展程序。这个小东西由强生和我合力完成。从构思到开发我们花了不到一个月的时间，而且都是在业余时间进行的。我们希望以这个项目作为起点和尝试，能做出更多有意思的产品。
+那么究竟Stash有什么用呢？我们来看一下当初我们构思的故事吧。">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="Stash来啦！我开发的第一个Chrome扩展"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2011-06-02T16:00:00.000Z">Jun 3 2011</time>
+      
+      
+  
+    <h1 class="title">Stash来啦！我开发的第一个Chrome扩展</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><a href="/uploads/2011/06/Coming.jpg"><img src="/uploads/2011/06/Coming-300x204.jpg" alt="stash availble"></a></p>
+<p><a href="/uploads/2011/06/Coming-1.jpg"><img src="/uploads/2011/06/Coming-1-212x300.jpg" alt="stash preview"></a></p>
+<p>很久很久很久很久没写博客啦，难得写一次博客，居然是来发布产品的。言归正传，我和一个朋友(<a href="http://johnsonliu.me/" title="强生生的博客" target="_blank">强生</a>)打磨的Chrome扩展——Stash来啦！绝对是你需要的工具，请耐心看完下面的内容。</p>
+<p>什么是Stash？Stash是一个以全新的方式储存和管理标签页的chrome扩展程序。这个小东西由强生和我合力完成。从构思到开发我们花了不到一个月的时间，而且都是在业余时间进行的。我们希望以这个项目作为起点和尝试，能做出更多有意思的产品。</p>
+<p>那么究竟Stash有什么用呢？我们来看一下当初我们构思的故事吧。<br><a id="more"></a><br>在某个下午，Dick在一台普通的台式机前忙碌。他正在进行BOSS交给他的A任务。他在网上找了很多资料，这时候他的浏览器状态是这样的。</p>
+<p><a href="/uploads/2011/06/tab%E7%9A%84%E6%82%B2%E5%89%A7.png"><img src="/uploads/2011/06/tab%E7%9A%84%E6%82%B2%E5%89%A7-300x34.png" alt="tab的悲剧"></a></p>
+<p>怎么样，标签多得可怕？更可怕的是，这时候BOSS突然要他优先完成B任务。Dick开始清理桌面，准备进行新的工作。那么这些已经找到的资料怎么办呢？</p>
+<p>别管他新开个窗口？一个一个保存到收藏夹？可以批量保存到收藏夹？</p>
+<p>NO！NO！NO！Dick打开了Stash，点击“暂存”。这时候所有的标签页都不见了！不过Dick很淡定，因为他知道，只要点击Stash列表中的项目，就可以奇迹般的恢复原来的标签页！</p>
+<p>故事还没结束。</p>
+<p>这时候BOSS突然安排他去见一位客户，他将在路上花费2小时。Dick觉得路上不能浪费时间。他掏出笔记本，打开浏览器，点击Stash列表中的项目。奇迹发生了，明明在台式机上保存的标签页，居然在笔记本上原封不动的恢复了！</p>
+<p>这就是Stash！</p>
+<blockquote>
+<p>Stash下载地址：<a href="https://chrome.google.com/webstore/detail/bnhjedgfogckebfhnlicnkbdjlmpibck" title="Stash下载地址" target="_blank">Chrome web store</a> （可能需要用具有中国特色的手段才能访问）</p>
+</blockquote>
+<p>Stash的产品模型来自我的迫切的需求。当初构思这个产品就是想单纯的满足我自己的需求。我当然最了解自己的需求，所以在发布后，Stash完全按照我预想的方向发展，没有偏离轨道。</p>
+<p>快速开发，多次迭代是Stash项目顺利进行的关键。Stash经常被修改，现在已经到0.2.2版了。记得当初开发出0.1版本的时候非常不稳定。我通过多次迭代使得它进化到0.2版。目前Stash已趋于稳定，之后我们还会继续迭代。</p>
+<p>要把简单留给用户。Stash的诞生的使命就是解决问题。我们不想把麻烦带给用户。所以我们把stash做的足够的简约，以至于它只有三个行动点。但实际上stash有很多功能。它可以同步存储的书签。当初我们还想搞个云同步。可是搞云同步还需要让用户注册一个额外的账号，这样太麻烦了。不如直接利用Chrome原生的书签同步功能。我们把tab存储为书签，这样Chrome就会自动同步。这就好像是个Gift，当用户使用了Chrome的同步后，突然发现Stash居然也是同步的。我们觉得这样做不但可以简化流程，还可以给用户带来惊喜。</p>
+<p>What’s next? 支持快捷键？支持自定义？支持<em>*</em>？别担心，我们会继续围绕着stash的功能进行讨论，目的是找到Stash的核心价值，让Stash更好用。</p>
+<p>Furthermore，你的声音是对我们最大的支持，请把你的想法告诉我们，谢谢！</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/Product/">Product</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Chrome/">Chrome</a>, <a href="/tags/Cloud/">Cloud</a>, <a href="/tags/Stash/">Stash</a>, <a href="/tags/Tab/">Tab</a>, <a href="/tags/同步/">同步</a>, <a href="/tags/扩展/">扩展</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2008/12 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper">
+<h2 class="archive-title">2008/12</h2>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2008-12-23T16:00:00.000Z">Dec 24 2008</time>
+      
+      
+  
+    <h1 class="title"><a href="/2008/12/24/chinese-compiler-sparkweb/">汉化编译Sparkweb</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>sparkweb是一款非常不错的web im，基于xmpp协议用flex开发的。我们校内的jicq也开始使用sparkweb，但是唯一遗憾的是sparkweb是英文的。网上找了很久，都没有找到汉化版的，于是我萌生了汉化sparkweb的想法。我参照         Ignite Realtime官方找到的文章《<a href="http://www.igniterealtime.org/community/docs/DOC-1510" target="_blank">Getting and Building SparkWeb</a>》，成功编译了sparkweb。接下来我就说一下如何编译，要注意的是sparkweb必须在mac或linux平台下编译。</p>
+<p>需要的软件</p>
+<ol>
+<li>flex builder</li>
+<li>flash player debug 版</li>
+<li>svn</li>
+</ol>
+<p>开始获取编译</p>
+<ol>
+<li>控制台执行下列指令，以获取sparkweb源代码</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>svn co http://svn.igniterealtime.org/svn/repos/sparkweb/trunk SparkWeb
+</pre></td></tr></table></figure>
+
+<ol>
+<li><p>打开flex builder，把workspace位置设为你的sparkweb源代码的目录</p>
+</li>
+<li><p>在flex navigator里面右击，点import，选择Existing Projects into Workspace，然后在root directory里选择SparkWeb源代码目录里的SparkWeb,点击finish</p>
+</li>
+<li><p>重复3，把SparkWebCommonComponents、SparkWebCore都导入</p>
+</li>
+<li><p>把SparkWeb源代码目录里的xiff目录名改为大写的XIFF，否则flexbuilder会提示“unable to open ‘/XIFF/bin/XIFF.swc’ ”的错误的，然后按照3的方法导入。</p>
+</li>
+<li><p>run就可以编译了。</p>
+</li>
+</ol>
+<p>关于汉化</p>
+<p>语言文件在SparkWebCore里的locale，默认提供了en.properties文件，我们可以按照里面的说明建立一个中文语言文件，并把相关字段汉化成中文。</p>
+<p>但是这样编译后还是英文的。我们打开<code>SparkWebCore/com/jivesoftware/spark/managers</code>的<code>Localizator.as</code>，把<code>&quot;en&quot;</code>改为我们自己语言包的名称。</p>
+<p>接着我们在flex navigator右击SparkWebCore，点properties，选flex lirary build path，点击select all，然后ok，最后编译，就是你汉化的那个版本啦。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2008-12-11T16:00:00.000Z">Dec 12 2008</time>
+      
+      
+  
+    <h1 class="title"><a href="/2008/12/12/at-ubuntu810-install-flex-builder/">在Ubuntu8.10中安装flex builder</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>首先声明其实我完全不懂flex，只不过一直很想翻译SparkWeb，所以必须安装flex builder。</p>
+<p>那么我们装备一下吧：</p>
+<ol>
+<li>flex builder</li>
+<li>eclipse3.3一定要3.3x哦，不然会很麻烦。</li>
+<li>jre</li>
+</ol>
+<p>然后开始安装</p>
+<p>1.安装jre</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> apt-get install sun-java6-jre
+</pre></td></tr></table></figure>
+
+<p>2.解压缩eclipse</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>tar -zxvf [eclipse.tar.gz]
+</pre></td></tr></table></figure>
+
+<p>3.安装flex builder</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>sh flexbuilder_linux_install_a4_081408.bin
+</pre></td></tr></table></figure>
+
+<p>最后就可以进入flex builder的安装目录启动程序了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>sh Adobe_Flex_builder.sh
+</pre></td></tr></table></figure>
+
+<p>启动后改一下Perspective，选flex development就可以了</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

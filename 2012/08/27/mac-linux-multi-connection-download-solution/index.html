@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mac/Linux 多线程下载解决方案 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="还记得我两年前写的《DIY了家用NAS》吗？现在又带来新的升级啦。当初的NAS最多能使用Transmission来进行BT下载，那时就在想，如果能下载普通的http资源就好了。再进一步，有什么方案可以通吃所有下载方式呢？记得那个时候，我在NAS上装了个虚拟机跑XP，然后用迅雷下载各种资源。这种方式虽然可行，不过太不环保了。而且下载完成后，还要想办法把文件转到宿主硬盘上。小文件还好，大文件就彻底悲剧了。
+现在好了，有了套完美的解决方案：迅雷离线助手+YAAW For Chrome+Aria2">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="Mac/Linux 多线程下载解决方案"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2012-08-27T13:23:00.000Z">Aug 27 2012</time>
+      
+      
+  
+    <h1 class="title">Mac/Linux 多线程下载解决方案</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>还记得我两年前写的《<a href="/2010/01/27/diy-for-home-nas/">DIY了家用NAS</a>》吗？现在又带来新的升级啦。当初的NAS最多能使用Transmission来进行BT下载，那时就在想，如果能下载普通的http资源就好了。再进一步，有什么方案可以通吃所有下载方式呢？<br>记得那个时候，我在NAS上装了个虚拟机跑XP，然后用迅雷下载各种资源。这种方式虽然可行，不过太不环保了。而且下载完成后，还要想办法把文件转到宿主硬盘上。小文件还好，大文件就彻底悲剧了。</p>
+<p>现在好了，有了套完美的解决方案：迅雷离线助手+YAAW For Chrome+Aria2</p>
+<p><img src="/uploads/2012/08/28/thunder-lixian-assistant-and-yaaw.jpg" alt="迅雷离线助手+YAAW" title="迅雷离线助手和YAAW"><br><a id="more"></a></p>
+<h2 id="Aria2">Aria2</h2>
+<p>先来了解一下Aria2。<br>Aria2 是 Mac/Linux 下一个不错的高速下载工具。由于它具有分段下载引擎，所以支持从多个地址或者从一个地址的多个连接来下载同一个文件。这样自然就大大加快了文件的下载速度。aria2 也具有断点续传功能，这使你随时能够恢复已经中断的文件下载。除了支持一般的 http(s) 和 ftp 协议外，aria2 还支持 BitTorrent 协议。这意味着，你也可以使用 aria2 来下载 torrent 文件。<a href="http://linuxtoy.org/archives/aria2.html" target="_blank">[引用]</a></p>
+<h3 id="Mac下安装">Mac下安装</h3>
+<p>使用<a href="http://mxcl.github.com/homebrew" target="_blank">brew</a>安装：</p>
+<p><code>brew install aria2</code></p>
+<h3 id="Ubuntu_下安装">Ubuntu 下安装</h3>
+<p>使用apt-get安装：</p>
+<p><code>sudo apt-get install aria2</code></p>
+<h3 id="使用">使用</h3>
+<p>Aria2支持daemon模式。有了这个模式我们可以把它放到NAS、dd-wrt、openwrt、下载机，让它常驻在内存，作为一个系统的服务长期处理下载请求。各家设备厂商可以行动起来咯。</p>
+<p>Aria2有很多参数，大家可以根据自己的需要进行调整。具体看<a href="http://aria2.sourceforge.net/manual/en/html/aria2c.html#options" target="_blank">Aria2文档</a>。</p>
+<h2 id="迅雷离线助手">迅雷离线助手</h2>
+<p>迅雷离线助手是我最近发布的一个chrome插件，可以直接在迅雷离线页面把下载地址导出到aria2/aria2-rpc/wget/IDM/Orbit。这个插件的功能直接嵌在迅雷离线页面上，使你有个统一的体验。</p>
+<p><img src="/uploads/2012/08/28/thunder-lixian-assistant-01.png" alt="迅雷离线助手截图01" title="迅雷离线助手截图"></p>
+<p><img src="/uploads/2012/08/28/thunder-lixian-assistant-02.png" alt="迅雷离线助手截图02" title="迅雷离线助手截图"></p>
+<p>这是迅雷离线助手下载地址：</p>
+<p><a href="https://chrome.google.com/webstore/detail/eehlmkfpnagoieibahhcghphdbjcdmen" target="_blank">https://chrome.google.com/webstore/detail/eehlmkfpnagoieibahhcghphdbjcdmen</a></p>
+<p><strong>使用前记得修改Aria2 JSON-RPC Path</strong></p>
+<h2 id="YAAW_For_Chrome">YAAW For Chrome</h2>
+<p>YAAW For Chrome是一个Aria2的Web管理工具。有了它你可以直观的监控管理aria2的下载任务。</p>
+<p><img src="/uploads/2012/08/28/yaaw.png" alt="YAAW截图" title="YAAW截图"></p>
+<p>这是YAAW For Chrome下载地址：</p>
+<p><a href="https://chrome.google.com/webstore/detail/hbjpfaalboebibgfmedmjijhbjapcnki" target="_blank">https://chrome.google.com/webstore/detail/hbjpfaalboebibgfmedmjijhbjapcnki</a></p>
+<p><strong>同样使用前记得修改Aria2 JSON-RPC Path</strong></p>
+<h2 id="解决方案">解决方案</h2>
+<p>相信看到以上的介绍后，大家应该已经知道该如何配合使用了。这里再赘述一下：</p>
+<p><img src="/uploads/2012/08/28/thunder-lixian-aria2.jpg" alt="解决方案" title="迅雷离线Aria2方案"></p>
+<p>当你需要下载一个资源的时候，可以直接进入迅雷离线进行下载，BT/HTTP/FTP通吃。基本上迅雷离线都是瞬间完成的，接来使用下面指令启动Aria2，并开启rpc支持：</p>
+<figure class="highlight bash"><figcaption><span>Launch Aria2 </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>aria2c --enable-rpc --rpc-listen-all --rpc-allow-origin-all  --file-allocation=none --max-connection-per-server=<span class="number">3</span> --max-concurrent-downloads=<span class="number">3</span> --continue
+</pre></td></tr></table></figure>
+
+
+<p>启动Aria2后，直接在迅雷离线的『取回本地』的下拉菜单中找到『YAAW』，点击后，Aria2就开始下载资源了。</p>
+<p>之后你就可以使用YAAW For Chrome监控下载进度咯。</p>
+<p>记住，迅雷离线助手和YAAW For Chrome都是通JSON-RPC和Aria2通信的。</p>
+<h2 id="关于开源">关于开源</h2>
+<p>迅雷离线助手和YAAW For Chrome这两个项目其实均源自<a href="http://binux.me" target="_blank">binux</a>的开源项目。感谢<a href="http://binux.me" target="_blank">binux</a>的无私奉献，下面是这几个项目的Github地址：</p>
+<ul>
+<li>迅雷离线助手: <a href="https://github.com/ohsc/ThunderLixianAssistant" target="_blank">https://github.com/ohsc/ThunderLixianAssistant</a></li>
+<li>ThunderLixianExporter: <a href="https://github.com/binux/ThunderLixianExporter" target="_blank">https://github.com/binux/ThunderLixianExporter</a></li>
+<li>YAAW: <a href="https://github.com/binux/yaaw" target="_blank">https://github.com/binux/yaaw</a></li>
+</ul>
+<p>以上列出的项目均以LGPL方式开源。</p>
+<h2 id="关于设计">关于设计</h2>
+<p>最后要说这两个App以及两张配图，都是由我们<a href="https://7peers.com" target="_blank">7Peers</a>成员<a href="http://fangke.im" target="_blank">方可</a>设计的。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/Solution/">Solution</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/nas/">nas</a>, <a href="/tags/Ubuntu/">Ubuntu</a>, <a href="/tags/Mac/">Mac</a>, <a href="/tags/Aria2/">Aria2</a>, <a href="/tags/迅雷/">迅雷</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

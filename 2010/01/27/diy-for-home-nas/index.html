@@ -1,0 +1,224 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DIY了家用NAS | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="随着我收藏的电影、动画不断增多，小小的移动硬盘已经不能满足我对容量的需求。而且家里有两台笔记本、一台上网本、一台高清播放机，等我毕业后，还要从学校搬回一台台式机，就算买了移动硬盘，也不能解决所有设备的存储问题。假期，表弟表妹们经常会来我家玩，看看电影是必然的，这也就面临着数据共享的问题。于是我打算搞一台nas。目前市面上有一些现成的家用nas，比如qnap、buffalo。虽然他们都是基于Linux的，可以自己定制，但是价格比较昂贵，而且性能一般。最终我还是决定自己组一台低功耗计算机当nas使用。
+配置如下：
+主板：Intel D945GCLF(板载N230、显卡、两个sata接口)
+内存：金士顿 1G DDR2
+机箱：技展 高清3号机箱（两个3.5寸的仓位）
+电源：航嘉冷静王标准版电源 最大300W
+（本来想搞DC-ATX这类五风扇电源的，又静音又省电，但是好像都只有一个sata电源接口）
+硬盘：西数 WD10EARS 1TB 64M缓存
+总价：1500
+所有配件都在淘宝上搞定，1天后全部到货。">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="DIY了家用NAS"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2010-01-26T16:00:00.000Z">Jan 27 2010</time>
+      
+      
+  
+    <h1 class="title">DIY了家用NAS</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>随着我收藏的电影、动画不断增多，小小的移动硬盘已经不能满足我对容量的需求。而且家里有两台笔记本、一台上网本、一台高清播放机，等我毕业后，还要从学校搬回一台台式机，就算买了移动硬盘，也不能解决所有设备的存储问题。假期，表弟表妹们经常会来我家玩，看看电影是必然的，这也就面临着数据共享的问题。于是我打算搞一台nas。目前市面上有一些现成的家用nas，比如qnap、buffalo。虽然他们都是基于Linux的，可以自己定制，但是价格比较昂贵，而且性能一般。最终我还是决定自己组一台低功耗计算机当nas使用。</p>
+<p>配置如下：</p>
+<p>主板：Intel D945GCLF(板载N230、显卡、两个sata接口)</p>
+<p>内存：金士顿 1G DDR2</p>
+<p>机箱：技展 高清3号机箱（两个3.5寸的仓位）</p>
+<p>电源：航嘉冷静王标准版电源 最大300W</p>
+<p>（本来想搞DC-ATX这类五风扇电源的，又静音又省电，但是好像都只有一个sata电源接口）</p>
+<p>硬盘：西数 WD10EARS 1TB 64M缓存</p>
+<p>总价：1500</p>
+<p>所有配件都在淘宝上搞定，1天后全部到货。</p>
+<a id="more"></a>
+
+<p>这是Atom主板：</p>
+<p><a href="/uploads/2010/01/4307943125_5b1483d2e5_b.jpg" title="装好后的nas主板"><img src="/uploads/2010/01/4307943125_5b1483d2e5_b-300x225.jpg" alt="装好后的nas主板"></a></p>
+<p>装好后的裸机：</p>
+<p><a href="/uploads/2010/01/4307943127_8cdd05f895_b.jpg" title="nas的组件全部拼接好了"><img src="/uploads/2010/01/4307943127_8cdd05f895_b-300x225.jpg" alt="nas的组件全部拼接好了"></a></p>
+<p>装好后的样子：</p>
+<p><a href="/uploads/2010/01/4307943137_65bff76b1c_z.jpg" title="装好后的样子"><img src="/uploads/2010/01/4307943137_65bff76b1c_z-300x225.jpg" alt="装好后的样子"></a></p>
+<p>机箱大小与上网本对比：</p>
+<p><a href="/uploads/2010/01/4307943139_c023400cf6_z.jpg" title="nas机箱与上网本对比"><img src="/uploads/2010/01/4307943139_c023400cf6_z-300x225.jpg" alt="nas机箱与上网本对比"></a></p>
+<p>花了一下午算是装好了，系统本来是想选用freenas、openfiler，不过我还想有更多的定制性，于是装了ubuntu server，没有装xserver，不需要图形界面。</p>
+<p><a href="/uploads/2010/01/4307943143_5cf4aeabf2_z.jpg" title="nas安装ubuntu server"><img src="/uploads/2010/01/4307943143_5cf4aeabf2_z-300x225.jpg" alt="nas安装ubuntu server"></a></p>
+<p>然后装了以下服务：</p>
+<p>Samba：Windows 文件共享</p>
+<p>Apache：http服务器</p>
+<p>Mysql：数据库服务器</p>
+<p>SSH：远程管理</p>
+<p>uShare：多媒体upnp服务器、DLNA</p>
+<p>transmission：bt下载</p>
+<p>webmin：web端管理</p>
+<p>acpid：有了这个直接按电源钮就能关机了。</p>
+<p>目前nas正式投入使用了，可以拖动多台电脑同时看电影，当然，1080p的还不行，毕竟家里没有千兆网卡和千兆路由。半夜还能bt下载。</p>
+<p>最后给transmission web端来了张照片，很mac啊。</p>
+<p><a href="/uploads/2010/01/4307968795_ae339894f3.jpg" title="nas上的transmission web"><img src="/uploads/2010/01/4307968795_ae339894f3.jpg" alt="nas上的transmission web"></a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/Solution/">Solution</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/nas/">nas</a>, <a href="/tags/Ubuntu/">Ubuntu</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

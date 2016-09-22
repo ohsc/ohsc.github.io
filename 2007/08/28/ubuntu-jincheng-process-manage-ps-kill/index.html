@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ubuntu学习笔记-进程管理 | i&#39;m Chao</title>
+  <meta name="author" content="Chao Shen">
+  
+  <meta name="description" content="ps 显示当前进程
+
+ps -l 显示详细信息
+ps -u 以用户的格式显示 相关字段说明
+
+F 进程状态标志
+
+S 进程状态代码
+UID 进程执行者ID
+PPID 父进程标识(parent process ID)
+PRI 进程执行的优先级(priority)
+NI 进程执行优先级的nice值,负值">
+  
+  
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+
+  <meta property="og:title" content="ubuntu学习笔记-进程管理"/>
+  <meta property="og:site_name" content="i&#39;m Chao"/>
+
+  <link rel="alternate" href="/atom.xml" title="i&#39;m Chao" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-329619-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar"><div class="inner">
+<header class="widget header">
+  <img class="face" src="/css/images/face.jpg"/>
+  <h1><a href="/">Chao Shen</a></h1>
+  <h2><a href="/">iOS Dev / Node.js Dev</a></h2>
+  <div class="social">
+    <a class="weibo" href="http://weibo.com/imchao" title="Weibo" target="_blank">Weibo</a>
+    <a class="twitter" href="http://twitter.com/ohsc" title="Twitter" target="_blank">Twitter</a>
+    <a class="github" href="https://github.com/ohsc" title="GitHub" target="_blank">GitHub</a>
+    <a class="rss" href="/atom.xml" title="RSS" target="_blank">RSS</a>
+  </div>
+</header>
+
+<div class="widget search">
+  <form action="http://google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:shenchao.im">
+  </form>
+</div>
+
+
+<div class="widget tag">
+  <h3 class="title"><a href="/archives">Archives</a></h3>
+  <ul class="entry">
+  
+    <li><a href="/category/Linux/">Linux</a><small>16</small></li>
+  
+    <li><a href="/category/Other/">Other</a><small>21</small></li>
+  
+    <li><a href="/category/Solution/">Solution</a><small>9</small></li>
+  
+    <li><a href="/category/Other/Other/">Other</a><small>2</small></li>
+  
+    <li><a href="/category/Other/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/category/OtherDev/">OtherDev</a><small>1</small></li>
+  
+    <li><a href="/category/FrontEnd/">FrontEnd</a><small>3</small></li>
+  
+    <li><a href="/category/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/category/Product/">Product</a><small>2</small></li>
+  
+    <li><a href="/category/Cocoa/">Cocoa</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</div></aside>
+    <div id="main-col" class="alignright"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2007-08-27T16:00:00.000Z">Aug 28 2007</time>
+      
+      
+  
+    <h1 class="title">ubuntu学习笔记-进程管理</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="ps_显示当前进程">ps 显示当前进程</h2>
+<ul>
+<li>ps -l 显示详细信息</li>
+<li><p>ps -u 以用户的格式显示 相关字段说明</p>
+</li>
+<li><p>F 进程状态标志</p>
+</li>
+<li>S 进程状态代码</li>
+<li>UID 进程执行者ID</li>
+<li>PPID 父进程标识(parent process ID)</li>
+<li>PRI 进程执行的优先级(priority)</li>
+<li>NI 进程执行优先级的nice值,负值表示其优先级较高</li>
+<li>SZ 进程占用的内存大小</li>
+<li>WCHAN 进程或系统调用等待时的地址</li>
+<li>%CPU cpu使用百分比</li>
+<li>%MEM 内存使用百分比</li>
+<li>VSZ 占用虚拟内存大小</li>
+<li>RSS 占用物理内存大小</li>
+<li>START 进程开始时间</li>
+</ul>
+<h2 id="kill_删除进程">kill 删除进程</h2>
+<ul>
+<li>kill pid 删除指定pid的进程</li>
+<li>kill -l 查看所有可供传送的信号</li>
+<li>kill -9 pid 强制删除进程,传送的是SIGKILL信号</li>
+<li>kill -15 pid 强制删除进程,传送的是SIGTERM信号</li>
+<li>kill -HUP pid 重启Deamon进程</li>
+</ul>
+<h2 id="free_查看内存使用状态">free 查看内存使用状态</h2>
+<ul>
+<li>free -s 10 每10秒检查内存使用情况</li>
+</ul>
+<h2 id="nice_设置执行优先级,-20~19,19最低">nice 设置执行优先级,-20~19,19最低</h2>
+<ul>
+<li>sudo nice –2 vi 将vi的优先级调为-2</li>
+</ul>
+<h2 id="renice_修改执行优先级,-20~19,19最低<strong>_</strong>top_动态显示进程">renice 修改执行优先级,-20~19,19最低<strong> </strong>top 动态显示进程</h2>
+<ul>
+<li>按”P”键 按CPU使用时间排序</li>
+<li>按”M”键 按内存使用多少排序</li>
+<li>按”T”键 按执行时间多少排序</li>
+<li>按”u”键 监视特定用户</li>
+<li>按”K”键 删除进程</li>
+<li>top -d 10 指定更新时间</li>
+</ul>
+<h2 id="lsof_-p_查看进程打开的文件<strong>_</strong>jobs_命令查看后台作业">lsof -p 查看进程打开的文件<strong> </strong>jobs 命令查看后台作业</h2>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/category/Linux/">Linux</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Ubuntu/">Ubuntu</a>, <a href="/tags/教程/">教程</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 Chao Shen
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'imchao';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
